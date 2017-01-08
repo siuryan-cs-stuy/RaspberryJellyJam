@@ -10,6 +10,9 @@ public class CSVArray{
     public CSV(String filename){
     }
 
+    public String toString(){
+    }
+
     public static Object typePicker(String thing){
     }
 }
