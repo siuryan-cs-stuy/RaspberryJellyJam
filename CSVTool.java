@@ -15,13 +15,13 @@ public class CSVTool{
     /*=======================================================
      Set Methods
       =====================================================*/
-    public CSVArray setCell(int x, int y){
+    public CSVArray setCell(int x, int y, Object value){
     }
 
-    public CSVArray setRow(int row){
+    public CSVArray setRow(int rowPos, ArrayList rowVal){
     }
 
-    public CSVArray setCol(int col){
+    public CSVArray setCol(int colPos, ArrayList colVal){
     }
 
     /*=======================================================
