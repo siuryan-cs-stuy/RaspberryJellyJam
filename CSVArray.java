@@ -5,7 +5,7 @@ The class CSV reads in a csv file, converting it into a 2d ArrayList of Objects 
 import java.util.ArrayList;
     
 public class CSVArray{
-    private Arraylist data;
+    private ArrayList data;
     
     public CSV(String filename){
     }
@@ -13,6 +13,18 @@ public class CSVArray{
     public String toString(){
     }
 
-    public static Object typePicker(String thing){
+    public static Object typePicker(String foo){
+	Object conv;
+	try {
+	    conv = Integer.parseInt(foo);
+	} catch (NumberFormatException e1) {
+	    try {
+		conv = Double.parseDouble(foo);
+	    } catch (NumberFormatException e2) {
+		conv = foo;
+	    }
+	}
+	return conv;
     }
+    
 }

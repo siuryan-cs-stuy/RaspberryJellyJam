@@ -111,7 +111,7 @@ public class CSVTool{
     public static double max(int col){
     }
 
-    public static void stat5NumSummary(int col){
+    public static void statSummary(int col){
     }
 
     public static String boxAndWhisker(int col){
