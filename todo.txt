@@ -1,0 +1,24 @@
+Team RaspberryJellyJam - Ryan Siu, James Smith, Joelle Lum
+APCS1 pd5
+HW57 -- ...and Keeping it Pointed Up
+2017-01-10
+
+TODO LIST
+
+MVP (to be done by Jan. 16)
+- Functional CSVArray class
+- argument parsing and handling the arguments in CSVTool
+- CSVGeneral class with get, set, add column/row, delete, prettyPrint
+- HELP
+- TEST CASES
+
+OTHER (to be done by Jan. 22)
+- CSVGeneral class with the other methods
+- CSVMath class with all the methods
+- CSVStat class with everything except box-and-whisker, correlation
+- Add algorithm for choosing best sort method
+- Handle special cases for CSV formatting
+- Split search into linear and binary (to allow user to choose)
+- Box-and-whisker graph, correlation in CSVStat
+
+TESTING (on Jan. 22)
