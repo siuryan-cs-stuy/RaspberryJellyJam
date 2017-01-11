@@ -1,0 +1,111 @@
+Raspberry Jelly Jam
+James Smith
+Ryan Siu
+Joelle Lum
+pd 5
+---------------------
+Terminal CSV Tool
+
+
+Suggested usage: 
+* Replace all fields, angle brackets included, with specified info.
+  eg, pd <pd#> --> pd 3
+* Delete these instructions once all teammates understand usage.
+
+devlog--
+Use keyboard shortcut to jump to end,
+ replicate entry template,
+ modify appropriately.
+
+zone of reflection--
+Flesh out each category whenever necessary, appropriate.
+ Need not be fully filled in until end of project,
+ but best done as you go along.
+
+
+/////////// Zone of Reflection \\\\\\\\\\\
+------------------------------------------
+OBSTACLES OVERCOME
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+wow we so BOSS bc...
+
+UNRESOLVED ISSUES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+blah blah pesky bug...
+maybe some of these will move into the Obs.Ovrcm section...
+
+COOL STUFF LEARNED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+wow! oo!...
+
+MID-DEVELOPMENT DESIGN CHANGES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+we changed ___ to ___ bc...
+
+LESSONS LEARNED
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+tales of wisdom gained...
+||||||||||||||||||||||||||||||||||||||||||
+
+
+
+ ______   ______   __   __   __       ______   _______     
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+==============================================================
+
+
+2017-01-02
+--------------------------------------------------------------
+James Smith :: Brainstormed ideas/designed proposal
+Ryan Siu :: Brainstormed ideas/designed proposal
+Joelle Lum :: Brainstormed ideas/designed proposal
+==============================================================
+
+2017-01-05
+--------------------------------------------------------------
+James Smith :: Brainstormed ideas/designed proposal
+Ryan Siu :: Brainstormed ideas/designed proposal
+Joelle Lum :: Brainstormed ideas/designed proposal
+==============================================================
+
+2017-01-07
+--------------------------------------------------------------
+James Smith :: Brainstormed ideas/designed proposal
+Ryan Siu :: Brainstormed ideas/designed proposal
+Joelle Lum :: Brainstormed ideas/designed proposal
+==============================================================
+
+2017-01-08
+--------------------------------------------------------------
+James Smith :: Wrote out possible signatures for methods that we would need and read about Scanner.java
+Ryan Siu :: Researched how to go about making a typing algorithm
+Joelle Lum :: Figured out a nice way of writing test cases for the methods. Essentially a long checklist method that would use a pre-existing csv and would manually manipulate the csv to what the method should do and compare that to the output of the method.
+==============================================================
+
+2017-01-09
+--------------------------------------------------------------
+James Smith :: Revised Proposal
+Ryan Siu :: Revised Proposal
+Joelle Lum :: Revised Proposal, wrote out UML diagram
+==============================================================
+
+2017-01-10
+--------------------------------------------------------------
+James Smith :: Worked on plan of action and flowchart
+Ryan Siu :: Worked on plan of action and created google calendar
+Joelle Lum :: Made flowchart
+==============================================================
+
+2017-01-11
+--------------------------------------------------------------
+James Smith :: Created dev log and wrote in entries for the previous days of the project
+Ryan Siu :: Wrote comments in CSVArray.java
+Joelle Lum :: Divided method signatures into their proper class; CSVGeneral, CSVMath, or CSVStat
+==============================================================
+
+
