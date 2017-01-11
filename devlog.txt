@@ -104,8 +104,8 @@ Joelle Lum :: Made flowchart
 2017-01-11
 --------------------------------------------------------------
 James Smith :: Created dev log and wrote in entries for the previous days of the project
-Ryan Siu :: Wrote comments in CSVArray.java
-Joelle Lum :: Divided method signatures into their proper class; CSVGeneral, CSVMath, or CSVStat
+Ryan Siu :: Wrote detailed, API-formatted comments in CSVArray.java
+Joelle Lum :: Divided method signatures into their proper class: CSVGeneral, CSVMath, and CSVStat
 ==============================================================
 
 
