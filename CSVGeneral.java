@@ -1,7 +1,14 @@
+/**
+ * The class CSVGeneral contains all the methods for general CSV file editing.
+ */
+
+
 public class CSVGeneral{
+    
     /*=======================================================
      Accessor Methods
       =====================================================*/
+    
     public static Object getCell(int x, int y){
     }
 
@@ -14,58 +21,58 @@ public class CSVGeneral{
     /*=======================================================
      Set Methods
       =====================================================*/
-    public CSVArray setCell(int x, int y, Object value){
+    public static CSVArray setCell(int x, int y, Object value){
     }
 
-    public CSVArray setRow(int rowPos, ArrayList rowVal){
+    public static CSVArray setRow(int rowPos, ArrayList rowVal){
     }
 
-    public CSVArray setCol(int colPos, ArrayList colVal){
+    public static CSVArray setCol(int colPos, ArrayList colVal){
     }
 
     /*=======================================================
       Add Methods
       =====================================================*/
-    public CSVArray addCol(CSVArray col){
+    public static CSVArray addCol(CSVArray col){
     }
 
-    public CSVArray addCol(CSVArray col, int pos){
+    public static CSVArray addCol(CSVArray col, int pos){
     }
 
-    public CSVArray addRow(CSVArray row){
+    public static CSVArray addRow(CSVArray row){
     }
 
-    public CSVArray addRow(CSVArray row, int pos){
+    public static CSVArray addRow(CSVArray row, int pos){
     }
     
     /*=======================================================
      Delete Methods
       =====================================================*/
-    public CSVArray deleteCell(int x, int y){
+    public static CSVArray deleteCell(int x, int y){
     }
 
-    public CSVArray deleteRow(int row){
+    public static CSVArray deleteRow(int row){
     }
 
-    public CSVArray deleteCol(int col){
+    public static CSVArray deleteCol(int col){
     }
 
     /*=======================================================
       Sort Methods
       =====================================================*/
-    public CSVArray sortRows(int col){
+    public static CSVArray sortRows(int col){
     }
 
-    public CSVArray sortCols(int row){
+    public static CSVArray sortCols(int row){
     }
 
     /*=======================================================
       Join Methods
       =====================================================*/
-    public CSVArray innerJoin(int col1, int col2){
+    public static CSVArray innerJoin(int col1, int col2){
     }
 
-    public CSVArray outerJoin(int col1, int col2){
+    public static CSVArray outerJoin(int col1, int col2){
     }
 
     public static ArrayList search(Object target){
