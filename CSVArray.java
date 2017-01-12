@@ -4,11 +4,13 @@
  */
 
 import java.util.ArrayList;
+import java.util.Scanner;
     
 public class CSVArray{
 
     // ******* INSTANCE VARS *******
-    private ArrayList data;
+    private ArrayList _data;
+    private String _filename;
     
     // *****************************
 
@@ -21,7 +23,64 @@ public class CSVArray{
      * @param  filename  a relative file path pointing to a .csv file
      */
     public CSVArray(String filename){
-	
+
+	_filename = filename;
+
+	// creating new File instance to reference file
+	File csv = new File(_filename);
+
+	// creating new Scanner instance to read file
+	Scanner s = new Scanner(csv);
+
+	// reading data from file
+	int lineNum = 1;
+	while (s.hasNextLine()) {
+
+	    // parsing and adding data
+	    ArrayList row = new ArrayList();
+	    String line = s.nextLine();
+	    
+	    while (line.length() > 0) {
+		
+		int i = 0;
+		if (line.substring(i,i+1).equals(",")) {
+		    String cell = line.substring(0,i);
+		    row.add( typePicker(cell) );
+		    line = line.substring(i+1);
+		    i = 0;
+		} else {
+		    i++;
+		}
+		
+	    }
+
+	    // add row to _data
+	    _data.add(row);
+	    
+	}
+    }
+
+
+    /**
+     * Returns the ArrayList containing the CSV data.
+     *
+     * @return  ArrayList containing data
+     */
+    public ArrayList get(){
+	return _data;
+    }
+
+
+    /**
+     * Sets the CSV data to the input arr.
+     *
+     * @param  arr  an ArrayList containing CSV data
+     * @return  the old CSV data
+     */
+    public ArrayList set(ArrayList arr){
+	ArrayList oldArr = _data;
+	_data = arr;
+	return oldArr;
     }
 
     
@@ -34,6 +93,14 @@ public class CSVArray{
 	
     }
 
+    /**
+     * Writes data contained in CSVArray to the file specified by the user.
+     * Assumes that the constructor has already been called.
+     */
+    public void write(){
+	
+    }
+
 
     /**
      * Returns an Object representation of data from its String representation. 
@@ -43,8 +110,12 @@ public class CSVArray{
      * @param  foo  any generic String
      * @return      Object representation of foo
      */
-    public static Object typePicker(String foo){
+    public Object typePicker(String foo){
+
+	// creating object to hold foo
 	Object conv;
+
+	// sorts foo
 	try {
 	    conv = Integer.parseInt(foo);
 	} catch (NumberFormatException e1) {
@@ -54,6 +125,7 @@ public class CSVArray{
 		conv = foo;
 	    }
 	}
+	
 	return conv;
     }
     
