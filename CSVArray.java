@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class CSVArray{
 
     // ******* INSTANCE VARS *******
-    private ArrayList _data;
+    public ArrayList _data;
     private String _filename;
     
     // *****************************
