@@ -29,6 +29,7 @@ we changed ___ to ___ bc...
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
+Joelle: learned that there is a File class that comes with the Java package
 ||||||||||||||||||||||||||||||||||||||||||
 
 
