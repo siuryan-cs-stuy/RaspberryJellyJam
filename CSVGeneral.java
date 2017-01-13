@@ -10,17 +10,17 @@ public class CSVGeneral{
       =====================================================*/
     
     public Object getCell(int x, int y){
-	return _data[x][y];
+        _data.get(x).get(y);
     }
 
     public ArrayList getRow(int row){
-	return _data[x];
+	return _data.get(row);
     }
 
     public ArrayList getCol(int col){
-	ArrayList column = new ArrayList();
+        ArrayList column = new ArrayList();
 	for (ArrayList<Object> row : _data){
-	    column.add(row[col]);
+	    column.add(row.get(col));
 	}
     }
 
@@ -28,17 +28,17 @@ public class CSVGeneral{
      Set Methods
       =====================================================*/
     public CSVArray setCell(int x, int y, Object value){
-	_data[x][y] = value;
+	_data.get(x).set(y,value);
     }
 
     public CSVArray setRow(int rowPos, ArrayList rowVal){
-	_data[rowPos] = rowVal;
+	_data.set(rowPos, rowVal);
     }
 
     public CSVArray setCol(int colPos, ArrayList colVal){
-	int index = 0;
+        int index = 0;
 	for (ArrayList<Object> row : _data){
-	    row[colPos] = colVal[index];
+	    row.set(colPos,colVal.get(index);
 	    index++
 		}
     }
