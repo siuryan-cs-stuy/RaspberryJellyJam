@@ -88,7 +88,7 @@ Joelle Lum :: Divided method signatures into their proper class: CSVGeneral, CSV
 --------------------------------------------------------------
 James Smith, Ryan Siu, Joelle Lum :: Edited UML and flowchart
 James Smith :: Wrote CSVArray constructor, toString method, and write() method
-Ryan Siu :: Worked on CSVArray methods
+Ryan Siu :: Worked on CSVArray methods, worked on CSVTool
 Joelle Lum :: Add test cases, wrote MVP CSVGeneral methods
 ==============================================================
 
