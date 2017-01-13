@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
     
 public class CSVArray{
 
@@ -92,7 +95,7 @@ public class CSVArray{
 	for(ArrayList list: _data){
 	    String row = "";
 	    int lastElem = list.size()-1;
-	    for(int i = 0; i < lastElem-1; i++){
+	    for(int i = 0; i < lastElem; i++){
 	       row += list.get(i) + ",";
 	    }
 	    row += list.get(lastElem)+"\n";
@@ -105,8 +108,14 @@ public class CSVArray{
      * Writes data contained in CSVArray to the file specified by the user.
      * Assumes that the constructor has already been called.
      */
-    public void write(){
-	
+    public void write() throws IOException{
+	try {
+	    BufferedWriter bw = new BufferedWriter(new FileWriter(_filename));
+	    bw.write(this.toString());
+	    bw.close();
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
     }
 
 
@@ -136,10 +145,4 @@ public class CSVArray{
 	
 	return conv;
     }
-
-    public static void main(String[] args)throws FileNotFoundException{
-	CSVArray test = new CSVArray("KStats.csv");
-	System.out.println(test);
-    }
-    
 }
