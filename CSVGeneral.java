@@ -10,24 +10,37 @@ public class CSVGeneral{
       =====================================================*/
     
     public Object getCell(int x, int y){
+	return _data[x][y];
     }
 
     public ArrayList getRow(int row){
+	return _data[x];
     }
 
     public ArrayList getCol(int col){
+	ArrayList column = new ArrayList();
+	for (ArrayList<Object> row : _data){
+	    column.add(row[col]);
+	}
     }
 
     /*=======================================================
      Set Methods
       =====================================================*/
     public CSVArray setCell(int x, int y, Object value){
+	_data[x][y] = value;
     }
 
     public CSVArray setRow(int rowPos, ArrayList rowVal){
+	_data[rowPos] = rowVal;
     }
 
     public CSVArray setCol(int colPos, ArrayList colVal){
+	int index = 0;
+	for (ArrayList<Object> row : _data){
+	    row[colPos] = colVal[index];
+	    index++
+		}
     }
 
     /*=======================================================
