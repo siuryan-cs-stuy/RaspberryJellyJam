@@ -53,7 +53,7 @@ public class CSVArray{
 	    line.close();
 	}
 	s.close();
-	}catch(FileNotFoundException e){
+	} catch(FileNotFoundException e){
 	    e.printStackTrace();
 	}  
     }
@@ -87,7 +87,19 @@ public class CSVArray{
      *
      * @return  string containing data represented in CSV format
      */
-    //    public String toString(){   }
+    public String toString(){
+	String retStr = "";
+	for(ArrayList list: _data){
+	    String row = "";
+	    int lastElem = list.size()-1;
+	    for(int i = 0; i < lastElem-1; i++){
+	       row += list.get(i) + ",";
+	    }
+	    row += list.get(lastElem)+"\n";
+	    retStr += row;
+	}
+	return retStr;
+    }
 
     /**
      * Writes data contained in CSVArray to the file specified by the user.
@@ -127,7 +139,7 @@ public class CSVArray{
 
     public static void main(String[] args)throws FileNotFoundException{
 	CSVArray test = new CSVArray("KStats.csv");
-	System.out.println(test._data);
+	System.out.println(test);
     }
     
 }
