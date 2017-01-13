@@ -92,4 +92,11 @@ Ryan Siu :: Worked on CSVArray methods, worked on CSVTool
 Joelle Lum :: Add test cases, wrote MVP CSVGeneral methods, help()
 ==============================================================
 
+2017-01-13
+--------------------------------------------------------------
+James Smith :: 
+Ryan Siu :: Created prettyPrint() method, various bug fixes
+Joelle Lum :: 
+==============================================================
+
 
