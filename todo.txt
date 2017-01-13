@@ -6,8 +6,7 @@ HW57 -- ...and Keeping it Pointed Up
 TODO LIST
 
 NEXT (to be done by Jan. 16)
-- prettyPrint
-- HELP method
+- Touch up HELP method
 - EXCEPTION HANDLING (out of bounds)
 
 OTHER (to be done by Jan. 22)

@@ -61,29 +61,6 @@ public class CSVArray{
 	}  
     }
 
-
-    /**
-     * Returns the ArrayList containing the CSV data.
-     *
-     * @return  ArrayList containing data
-     */
-    public ArrayList get(){
-	return _data;
-    }
-
-
-    /**
-     * Sets the CSV data to the input arr.
-     *
-     * @param  arr  an ArrayList containing CSV data
-     * @return  the old CSV data
-     */
-    public ArrayList set(ArrayList arr){
-	ArrayList oldArr = _data;
-	_data = arr;
-	return oldArr;
-    }
-
     
     /**
      * Overridden toString() method. Converts data to CSV format.
@@ -110,7 +87,7 @@ public class CSVArray{
      */
     public void write() throws IOException{
 	try {
-	    BufferedWriter bw = new BufferedWriter(new FileWriter(_filename));
+	    BufferedWriter bw = new BufferedWriter(new FileWriter(this._filename));
 	    bw.write(this.toString());
 	    bw.close();
 	} catch (IOException e) {

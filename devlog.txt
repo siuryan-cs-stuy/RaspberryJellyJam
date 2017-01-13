@@ -95,7 +95,7 @@ Joelle Lum :: Add test cases, wrote MVP CSVGeneral methods, help()
 2017-01-13
 --------------------------------------------------------------
 James Smith :: 
-Ryan Siu :: Created prettyPrint() method, various bug fixes
+Ryan Siu :: Created prettyPrint() method, various bug fixes, implemented -w flag for writing to file
 Joelle Lum :: 
 ==============================================================
 

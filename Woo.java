@@ -6,6 +6,7 @@
 
 import java.util.ArrayList;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Woo{
     
@@ -58,32 +59,29 @@ public class Woo{
 	    // if a command is present
 	    CSVArray csv = new CSVArray(args[0]); //create CSVArray with filename
 	    if (args.length != 1) {
+		
 		String command = args[1];
+		Object result = null;
 	    
 		if (command.equals("--getCell")){
-		    System.out.println(CSVGeneral.getCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]), csv));
-		    return;
+		    result = CSVGeneral.getCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]), csv);
 		}
 
 		if (command.equals("--getRow")){
-		    System.out.println(CSVGeneral.getRow(Integer.parseInt(args[2]), csv));
-		    return;
+		    result = CSVGeneral.getRow(Integer.parseInt(args[2]), csv);
 		}
 
 		if (command.equals("--getCol")){
-		    System.out.println(CSVGeneral.getCol(Integer.parseInt(args[2]), csv));
-		    return;
+		    result = CSVGeneral.getCol(Integer.parseInt(args[2]), csv);
 		}
 
 		if (command.equals("--setCell")){
-		    System.out.println(CSVGeneral.setCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]), CSVArray.typePicker(args[4]), csv));
-		    return;
+		    result = CSVGeneral.setCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]), CSVArray.typePicker(args[4]), csv);
 		}
 
 		if (command.equals("--setRow")){
 		    CSVArray second = new CSVArray(args[3]);
-		    System.out.println(CSVGeneral.setRow(Integer.parseInt(args[2]), second._data.get(0), csv));
-		    return;
+		    result = CSVGeneral.setRow(Integer.parseInt(args[2]), second._data.get(0), csv);
 		}
 	
 		if (command.equals("--setCol")){
@@ -91,48 +89,53 @@ public class Woo{
 		    ArrayList col = new ArrayList();
 		    for (ArrayList i: second._data){
 			col.add(i.get(0));
-		    }	
-		    System.out.println(CSVGeneral.setCol(Integer.parseInt(args[2]), col, csv));
-		    return;
+		    }
+		    result = CSVGeneral.setCol(Integer.parseInt(args[2]), col, csv);
 		}
 
 		if (command.equals("--addCol")){
 		    if (args.length == 5){
-			System.out.println(CSVGeneral.addCol(new CSVArray(args[2]), Integer.parseInt(args[4]), csv));
+		        result = CSVGeneral.addCol(new CSVArray(args[2]), Integer.parseInt(args[4]), csv);
 		    }
 		    else{
-			System.out.println(CSVGeneral.addCol(new CSVArray(args[2]), csv));
+			result = CSVGeneral.addCol(new CSVArray(args[2]), csv);
 		    }
-		    return;
 		}
 	
 		if (command.equals("--addRow")){
 		    if (args.length == 5){
-			System.out.println(CSVGeneral.addCol(new CSVArray(args[2]), Integer.parseInt(args[4]), csv));
+		        result = CSVGeneral.addCol(new CSVArray(args[2]), Integer.parseInt(args[4]), csv);
 		    }
 		    else{
-			System.out.println(CSVGeneral.addCol(new CSVArray(args[2]), csv));
+			result = CSVGeneral.addCol(new CSVArray(args[2]), csv);
 		    }
-		    return;
 		}
 
 		if (command.equals("--delCell")){
-		    System.out.println(CSVGeneral.deleteCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]), csv));
-		    return;
+		    result = CSVGeneral.deleteCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]), csv);
 		}
 
 		if (command.equals("--delRow")){
-		    System.out.println(CSVGeneral.deleteRow(Integer.parseInt(args[2]), csv));
-		    return;
+		    result = CSVGeneral.deleteRow(Integer.parseInt(args[2]), csv);
 		}
 
 		if (command.equals("--delCol")){
-		    System.out.println(CSVGeneral.deleteCol(Integer.parseInt(args[2]), csv));
-		    return;
+		    result = CSVGeneral.deleteCol(Integer.parseInt(args[2]), csv);
 		}
 
 		if (command.equals("--prettyPrint")){
-		    System.out.println(CSVGeneral.prettyPrint(csv));
+		    result = CSVGeneral.prettyPrint(csv);
+		}
+
+		if (result != null) {
+		    if (result instanceof CSVArray && writeToFile) {
+			try {
+			    csv.write();
+			} catch (IOException e) {
+			    System.out.println("Write error");
+			}
+		    }
+		    System.out.println(result);
 		    return;
 		}
 	
