@@ -4,6 +4,8 @@
  * that results from the method is printed to the console.
  */
 
+import java.io.FileNotFoundException;
+
 public class CSVTool{
     
 
@@ -12,41 +14,43 @@ public class CSVTool{
      *
      * @return  string containing help data
      */
-    public String help() {
-
+    public static String help() {
+	return "help";
     }
 
-
+ 
     /*
      * Calls a method depending on the command.
      */
-    private CSVArray callMethod(String command) {
-	switch (command) {
-	case "getCell": 
-	}
-    }
+    //   private CSVArray callMethod(String command) {
+    //	switch (command) {
+    //	case "getCell": 
+    //	}
+    //}
     
 	
     /**
      * Runs the Terminal CSV Editor. Uses args to take in arguments from the
      * terminal.
      */
-    public static void main(String[] args){
+    public static void main(String[] args)throws FileNotFoundException{
 
 	// if there are arguments
 	if (args.length != 0) {
 
+	    if (args[0].equals("--help")){
+		System.out.println(help());
+		return;
+	    }
 	    // if there is a flag present
-	    if (args[1].startsWith("--")) {
-
-		// gets the filename
-		String filename = args[0];
-
-		// gets the command part of the flag
-		String command = args[1].substring(2);
-
-		CSVArray arr = new CSVArray(filename);
-	        
+	    CSVArray csv = new CSVArray(args[0]);
+	    String command = args[1];
+	    
+	    if (command.startsWith("--")) {
+		
+		if (command.equals("--getCell")){
+		    System.out.println(CSVGeneral.getCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]), csv));
+		}
 		
 	    } else {
 		System.out.println("Invalid argument(s). Please use the --help flag for a list of commands.");
