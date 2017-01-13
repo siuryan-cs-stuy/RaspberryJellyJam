@@ -127,7 +127,7 @@ public class CSVArray{
      * @param  foo  any generic String
      * @return      Object representation of foo
      */
-    public Object typePicker(String foo){
+    public static Object typePicker(String foo){
 
 	// creating object to hold foo
 	Object conv;
