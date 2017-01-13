@@ -18,21 +18,22 @@ public class Woo{
      */
     public static String help() {
 	String helpStr = "";
+	helpStr += "Syntax: java Woo <filename> <command> <args...>\n";
 	helpStr += "command : arguments\n";
 	helpStr += "--help : none\n";
-	helpStr += "--getCell : x , y\n";
-	helpStr += "--getRow : row #\n";
-	helpStr += "--getCol : column #\n";
-	helpStr += "--setCell : x , y , value\n";
-	helpStr += "--setRow : row # , filename\n";
-	helpStr += "--setCol : column position , filename\n";
+	helpStr += "--getCell : x y\n";
+	helpStr += "--getRow : row#\n";
+	helpStr += "--getCol : column#\n";
+	helpStr += "--setCell : x y value\n";
+	helpStr += "--setRow : row# filename\n";
+	helpStr += "--setCol : column position filename\n";
 	helpStr += "--addRow : filename\n";
-	helpStr += "--addRow : filename ,  position\n";
+	helpStr += "--addRow : filename position\n";
 	helpStr += "--addCol : filename\n";
-	helpStr += "--addCol : filename , position\n";
-	helpStr += "--delCell : x , y ";
-	helpStr += "--delRow :  row #\n";
-	helpStr += "--delCol :  column #\n";
+	helpStr += "--addCol : filename position\n";
+	helpStr += "--delCell : x y ";
+	helpStr += "--delRow :  row#\n";
+	helpStr += "--delCol :  column#\n";
 	helpStr += "--prettyPrint : none";
 	return helpStr;
     }
