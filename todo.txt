@@ -5,11 +5,8 @@ HW57 -- ...and Keeping it Pointed Up
 
 TODO LIST
 
-MVP (to be done by Jan. 16)
-- Functional CSVArray class
-- TEST CASES
-- CSVGeneral class with get, set, add column/row, delete, prettyPrint
-- argument parsing and handling the arguments in CSVTool
+NEXT (to be done by Jan. 16)
+- prettyPrint
 - HELP method
 
 OTHER (to be done by Jan. 22)
