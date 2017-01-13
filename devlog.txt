@@ -88,7 +88,7 @@ Joelle Lum :: Divided method signatures into their proper class: CSVGeneral, CSV
 2017-01-12
 --------------------------------------------------------------
 James Smith, Ryan Siu, Joelle Lum :: Edited UML and flowchart
-James Smith :: 
+James Smith :: Wrote CSVArray constructor and toString method
 Ryan Siu :: Worked on CSVArray methods
 Joelle Lum :: Add test cases
 ==============================================================
