@@ -47,15 +47,28 @@ public class CSVGeneral{
       Add Methods
       =====================================================*/
     public CSVArray addCol(CSVArray col){
+	int index = 0;
+	for (ArrayList<Object> row : _data){
+	    row.add(col._data.get(index));}
+	return this;
     }
 
     public CSVArray addCol(CSVArray col, int pos){
+	int index = 0;
+	for (ArrayList<Object> row : _data){
+	    row.add(pos,_data.get(index));
+	}
+	return this;
     }
 
     public CSVArray addRow(CSVArray row){
+	_data.add(row);
+	return this;
     }
 
     public CSVArray addRow(CSVArray row, int pos){
+	_data.add(pos,row);
+	return this;
     }
     
     /*=======================================================
@@ -65,9 +78,15 @@ public class CSVGeneral{
     }
 
     public CSVArray deleteRow(int row){
+	_data.remove(row);
+	return this;
     }
 
     public CSVArray deleteCol(int col){
+	for (ArrayList<Object> row : _data){
+	    row.remove(col);
+	}
+	return this;
     }
     
 }
