@@ -5,11 +5,13 @@
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
     
 public class CSVArray{
 
     // ******* INSTANCE VARS *******
-    public ArrayList _data;
+    public ArrayList<ArrayList> _data;
     private String _filename;
     
     // *****************************
@@ -22,42 +24,38 @@ public class CSVArray{
      *
      * @param  filename  a relative file path pointing to a .csv file
      */
-    public CSVArray(String filename){
-
+    public CSVArray(String filename) throws FileNotFoundException{
+	_data = new ArrayList();
 	_filename = filename;
 
 	// creating new File instance to reference file
-	File csv = new File(_filename);
+	try{
+	    File csv = new File(_filename);          
 
 	// creating new Scanner instance to read file
 	Scanner s = new Scanner(csv);
 
 	// reading data from file
-	int lineNum = 1;
 	while (s.hasNextLine()) {
+	    Scanner line = new Scanner(s.nextLine()); //create scanner to go through each row
 
-	    // parsing and adding data
+	    //Set delimiter to , to divide csv elements
+	    line.useDelimiter(",");
+
 	    ArrayList row = new ArrayList();
-	    String line = s.nextLine();
-	    
-	    while (line.length() > 0) {
-		
-		int i = 0;
-		if (line.substring(i,i+1).equals(",")) {
-		    String cell = line.substring(0,i);
-		    row.add( typePicker(cell) );
-		    line = line.substring(i+1);
-		    i = 0;
-		} else {
-		    i++;
-		}
-		
+	    while(line.hasNext()){
+		row.add(typePicker(line.next()));
 	    }
-
+	    
 	    // add row to _data
 	    _data.add(row);
 	    
+	    line.close();
 	}
+	s.close();
+	}catch(FileNotFoundException e){
+	    e.printStackTrace();
+	}  
     }
 
 
@@ -89,9 +87,7 @@ public class CSVArray{
      *
      * @return  string containing data represented in CSV format
      */
-    public String toString(){
-	
-    }
+    //    public String toString(){   }
 
     /**
      * Writes data contained in CSVArray to the file specified by the user.
@@ -127,6 +123,11 @@ public class CSVArray{
 	}
 	
 	return conv;
+    }
+
+    public static void main(String[] args)throws FileNotFoundException{
+	CSVArray test = new CSVArray("KStats.csv");
+	System.out.println(test._data);
     }
     
 }
