@@ -69,35 +69,5 @@ public class CSVGeneral{
 
     public CSVArray deleteCol(int col){
     }
-
-    /*=======================================================
-      Sort Methods
-      =====================================================*/
-    public CSVArray sortRows(int col){
-    }
-
-    public CSVArray sortCols(int row){
-    }
-
-    /*=======================================================
-      Join Methods
-      =====================================================*/
-    public CSVArray innerJoin(int col1, int col2){
-    }
-
-    public CSVArray outerJoin(int col1, int col2){
-    }
-
-    public ArrayList search(Object target){
-    }
-
-    public ArrayList searchCell(Object target){
-    }
-
-     /*=======================================================
-      Pretty Printing
-      =====================================================*/
-    public static String prettyPrint(){
-    }
-
+    
 }
