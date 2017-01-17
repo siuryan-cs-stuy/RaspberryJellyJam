@@ -35,27 +35,27 @@ public class CSVArray{
 	try{
 	    File csv = new File(_filename);          
 
-	// creating new Scanner instance to read file
-	Scanner s = new Scanner(csv);
+	    // creating new Scanner instance to read file
+	    Scanner s = new Scanner(csv);
 
-	// reading data from file
-	while (s.hasNextLine()) {
-	    Scanner line = new Scanner(s.nextLine()); //create scanner to go through each row
+	    // reading data from file
+	    while (s.hasNextLine()) {
+		Scanner line = new Scanner(s.nextLine()); //create scanner to go through each row
 
-	    //Set delimiter to , to divide csv elements
-	    line.useDelimiter(",");
+		//Set delimiter to , to divide csv elements
+		line.useDelimiter(",");
 
-	    ArrayList row = new ArrayList();
-	    while(line.hasNext()){
-		row.add(typePicker(line.next()));
+		ArrayList row = new ArrayList();
+		while(line.hasNext()){
+		    row.add(typePicker(line.next()));
+		}
+	    
+		// add row to _data
+		_data.add(row);
+	    
+		line.close();
 	    }
-	    
-	    // add row to _data
-	    _data.add(row);
-	    
-	    line.close();
-	}
-	s.close();
+	    s.close();
 	} catch(FileNotFoundException e){
 	    e.printStackTrace();
 	}  
@@ -73,7 +73,7 @@ public class CSVArray{
 	    String row = "";
 	    int lastElem = list.size()-1;
 	    for(int i = 0; i < lastElem; i++){
-	       row += list.get(i) + ",";
+		row += list.get(i) + ",";
 	    }
 	    row += list.get(lastElem)+"\n";
 	    retStr += row;
@@ -123,68 +123,55 @@ public class CSVArray{
 	return conv;
     }
 
+    /*=======================================================
+      Accessor Methods
+      =====================================================*/
     
+    public static Object getCell(int x, int y){
+        return _data.get(y-1).get(x-1);
+    }
+
+    public static ArrayList<Object> getRow(int row){
+	return _data.get(row-1);
+    }
+
+    public static ArrayList<Object> getCol(int col){
+        ArrayList<Object> column = new ArrayList<Object>();
+	for (ArrayList<Object> row : _data){
+	    column.add(row.get(col-1));
+	}
+	return column;
+    }
+
+    /*=======================================================
+      Set Methods
+      =====================================================*/
+    public static CSVArray setCell(int x, int y, Object value){
+	_data.get(y-1).set(x-1,value);
+	return this;
+    }
+
+    public static CSVArray setRow(int rowPos, ArrayList rowVal){
+	_data.set(rowPos, rowVal);
+	return this;
+    }
+
+    public static CSVArray setCol(int colPos, ArrayList colVal){
+        int index = 0;
+	for (ArrayList<Object> row : _data){
+	    row.set(colPos,colVal.get(index));
+	    index++;
+	}
+	return this;
+    }
+
     /*=======================================================
       Add Methods
       =====================================================*/
-    public static CSVArray addCol(CSVArray col, CSVArray csv){
+    public static CSVArray addCol(CSVArray col){
 	int index = 0;
-	for (ArrayList<Object> row : csv._data){
+	for (ArrayList<Object> row : _data){
 	    row.add(col._data.get(0).get(index));
 	    index++;}
-	return csv;
+	return this;
     }
-
-    public static CSVArray addCol(CSVArray col, int pos, CSVArray csv){
-	int index = 0;
-	for (ArrayList<Object> row : csv._data){
-	    row.add(pos-1,col._data.get(0).get(index));
-	    index++;
-	}
-	return csv;
-    }
-
-    public static CSVArray addRow(CSVArray row, CSVArray csv){
-	int index = 0;
-	ArrayList<Object> temp = new ArrayList();
-	for (Object o : row._data.get(0)){
-	    temp.add(row._data.get(0).get(index));
-	    index++;
-	}
-	csv._data.add(temp);
-	return csv;
-    }
-
-    public static CSVArray addRow(CSVArray row, int pos, CSVArray csv){
-	int index = 0;
-	ArrayList<Object> temp = new ArrayList();
-	for (Object o : row._data.get(0)){
-	    temp.add(row._data.get(0).get(index));
-	    index++;
-	}
-	csv._data.add(pos-1,temp);
-	return csv;
-    }
-    
-    /*=======================================================
-      Delete Methods
-      =====================================================*/
-    public static CSVArray deleteCell(int x, int y, CSVArray csv){
-	ArrayList temp = csv._data.get(y-1);
-	temp.set(x-1, null);
-	csv._data.set(y-1, temp);
-	return csv;
-    }
-
-    public static CSVArray deleteRow(int row, CSVArray csv){
-	csv._data.remove(row-1);
-	return csv;
-    }
-
-    public static CSVArray deleteCol(int col, CSVArray csv){
-	for (ArrayList<Object> row : csv._data){
-	    row.remove(col-1);
-	}
-	return csv;
-    }
-}

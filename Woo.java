@@ -65,24 +65,24 @@ public class Woo{
 		Object result = null;
 	    
 		if (command.equals("--getCell")){
-		    result = CSVGeneral.getCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]), csv);
+		    result = csv.getCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]));
 		}
 
 		if (command.equals("--getRow")){
-		    result = CSVGeneral.getRow(Integer.parseInt(args[2]), csv);
+		    result = csv.getRow(Integer.parseInt(args[2]));
 		}
 
 		if (command.equals("--getCol")){
-		    result = CSVGeneral.getCol(Integer.parseInt(args[2]), csv);
+		    result = csv.getCol(Integer.parseInt(args[2]));
 		}
 
 		if (command.equals("--setCell")){
-		    result = CSVGeneral.setCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]), CSVArray.typePicker(args[4]), csv);
+		    result = csv.setCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]), CSVArray.typePicker(args[4]));
 		}
 
 		if (command.equals("--setRow")){
 		    CSVArray second = new CSVArray(args[3]);
-		    result = CSVGeneral.setRow(Integer.parseInt(args[2]), second._data.get(0), csv);
+		    result = csv.setRow(Integer.parseInt(args[2]), second._data.get(0));
 		}
 	
 		if (command.equals("--setCol")){
@@ -91,37 +91,37 @@ public class Woo{
 		    for (ArrayList i: second._data){
 			col.add(i.get(0));
 		    }
-		    result = CSVGeneral.setCol(Integer.parseInt(args[2]), col, csv);
+		    result = csv.setCol(Integer.parseInt(args[2]), col);
 		}
 
 		if (command.equals("--addCol")){
 		    if (args.length == 5){
-		        result = CSVArray.addCol(new CSVArray(args[2]), Integer.parseInt(args[3]), csv);
+		        result = csv.addCol(new CSVArray(args[2]), Integer.parseInt(args[3]));
 		    }
 		    else{
-			result = CSVArray.addCol(new CSVArray(args[2]), csv);
+			result = csv.addCol(new CSVArray(args[2]));
 		    }
 		}
 	
 		if (command.equals("--addRow")){
 		    if (args.length == 5){
-		        result = CSVArray.addRow(new CSVArray(args[2]), Integer.parseInt(args[3]), csv);
+		        result = csv.addRow(new CSVArray(args[2]), Integer.parseInt(args[3]));
 		    }
 		    else{
-			result = CSVArray.addRow(new CSVArray(args[2]), csv);
+			result = csv.addRow(new CSVArray(args[2]));
 		    }
 		}
 
 		if (command.equals("--deleteCell")){
-		    result = CSVArray.deleteCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]), csv);
+		    result = csv.deleteCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]));
 		}
 
 		if (command.equals("--deleteRow")){
-		    result = CSVArray.deleteRow(Integer.parseInt(args[2]), csv);
+		    result = csv.deleteRow(Integer.parseInt(args[2]));
 		}
 
 		if (command.equals("--deleteCol")){
-		    result = CSVArray.deleteCol(Integer.parseInt(args[2]), csv);
+		    result = csv.deleteCol(Integer.parseInt(args[2]));
 		}
 
 		if (command.equals("--prettyPrint")){
