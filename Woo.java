@@ -21,17 +21,17 @@ public class Woo{
 	helpStr += "Syntax: java Woo <filename> <command> <args...>\n";
 	helpStr += "command : arguments\n";
 	helpStr += "--help : none\n";
-	helpStr += "--getCell : x y\n";
+	helpStr += "--getCell : row# column#\n";
 	helpStr += "--getRow : row#\n";
 	helpStr += "--getCol : column#\n";
-	helpStr += "--setCell : x y value\n";
+	helpStr += "--setCell : row# column# value\n";
 	helpStr += "--setRow : row# filename\n";
 	helpStr += "--setCol : column position filename\n";
 	helpStr += "--addRow : filename\n";
 	helpStr += "--addRow : filename position\n";
 	helpStr += "--addCol : filename\n";
 	helpStr += "--addCol : filename position\n";
-	helpStr += "--delCell : x y ";
+	helpStr += "--delCell : row# column# \n";
 	helpStr += "--delRow :  row#\n";
 	helpStr += "--delCol :  column#\n";
 	helpStr += "--prettyPrint : none";
@@ -96,32 +96,32 @@ public class Woo{
 
 		if (command.equals("--addCol")){
 		    if (args.length == 5){
-		        result = CSVGeneral.addCol(new CSVArray(args[2]), Integer.parseInt(args[4]), csv);
+		        result = CSVArray.addCol(new CSVArray(args[2]), Integer.parseInt(args[3]), csv);
 		    }
 		    else{
-			result = CSVGeneral.addCol(new CSVArray(args[2]), csv);
+			result = CSVArray.addCol(new CSVArray(args[2]), csv);
 		    }
 		}
 	
 		if (command.equals("--addRow")){
 		    if (args.length == 5){
-		        result = CSVGeneral.addCol(new CSVArray(args[2]), Integer.parseInt(args[4]), csv);
+		        result = CSVArray.addRow(new CSVArray(args[2]), Integer.parseInt(args[3]), csv);
 		    }
 		    else{
-			result = CSVGeneral.addCol(new CSVArray(args[2]), csv);
+			result = CSVArray.addRow(new CSVArray(args[2]), csv);
 		    }
 		}
 
-		if (command.equals("--delCell")){
-		    result = CSVGeneral.deleteCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]), csv);
+		if (command.equals("--deleteCell")){
+		    result = CSVArray.deleteCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]), csv);
 		}
 
-		if (command.equals("--delRow")){
-		    result = CSVGeneral.deleteRow(Integer.parseInt(args[2]), csv);
+		if (command.equals("--deleteRow")){
+		    result = CSVArray.deleteRow(Integer.parseInt(args[2]), csv);
 		}
 
-		if (command.equals("--delCol")){
-		    result = CSVGeneral.deleteCol(Integer.parseInt(args[2]), csv);
+		if (command.equals("--deleteCol")){
+		    result = CSVArray.deleteCol(Integer.parseInt(args[2]), csv);
 		}
 
 		if (command.equals("--prettyPrint")){

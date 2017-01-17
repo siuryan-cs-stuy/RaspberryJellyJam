@@ -48,55 +48,6 @@ public class CSVGeneral{
 	return csv;
     }
 
-    /*=======================================================
-      Add Methods
-      =====================================================*/
-    public static CSVArray addCol(CSVArray col, CSVArray csv){
-	int index = 0;
-	for (ArrayList<Object> row : csv._data){
-	    row.add(col._data.get(index));}
-	return csv;
-    }
-
-    public static CSVArray addCol(CSVArray col, int pos, CSVArray csv){
-	int index = 0;
-	for (ArrayList<Object> row : csv._data){
-	    row.add(pos,csv._data.get(index));
-	}
-	return csv;
-    }
-
-    public static CSVArray addRow(CSVArray row, CSVArray csv){
-	csv._data.add(row._data);
-	return csv;
-    }
-
-    public static CSVArray addRow(CSVArray row, int pos, CSVArray csv){
-	csv._data.add(pos,row._data);
-	return csv;
-    }
-    
-    /*=======================================================
-      Delete Methods
-      =====================================================*/
-    public static CSVArray deleteCell(int x, int y, CSVArray csv){
-	ArrayList temp = csv._data.get(y-1);
-	temp.set(x-1, null);
-	csv._data.set(y-1, temp);
-	return csv;
-    }
-
-    public static CSVArray deleteRow(int row, CSVArray csv){
-	csv._data.remove(row-1);
-	return csv;
-    }
-
-    public static CSVArray deleteCol(int col, CSVArray csv){
-	for (ArrayList<Object> row : csv._data){
-	    row.remove(col-1);
-	}
-	return csv;
-    }
 
     /*=======================================================
       Pretty print
