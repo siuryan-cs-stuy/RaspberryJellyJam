@@ -24,11 +24,12 @@ James: Learned the Scanner, Buffered Writer, and File Writer classes in order to
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-we changed ___ to ___ bc...
+we separated the csv methods into CSVMath, CSVGeneral, CSVStat because it would be clearer to understand
+we moved the add and delete methods into CSVArray because it seemed more logical for CSVArray to know the methods that alter its _data
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Joelle: learned that there is a File class that comes with the Java package
+
 ||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -99,4 +100,10 @@ Ryan Siu :: Created prettyPrint() method, various bug fixes, implemented -w flag
 Joelle Lum :: 
 ==============================================================
 
+2017-01-16
+--------------------------------------------------------------
+James Smith :: 
+Ryan Siu :: 
+Joelle Lum :: Moved add and delete methods to CSVArray, fixed add and delete methods, modified Woo to adjust to changes, food.csv for testing
+==============================================================
 
