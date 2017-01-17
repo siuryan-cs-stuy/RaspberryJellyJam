@@ -11,9 +11,9 @@ Instructions:
 
 1. clone repo
 
-2. javac Woo.java
+2. `javac Woo.java`
 
-3. java Woo to avail yourself of possible commands
+3. `java Woo` to avail yourself of possible commands
 
-4. java Woo fileName.csv --command argument0 argument1 arg...
+4. `java Woo fileName.csv --<command> <args...>`
 
