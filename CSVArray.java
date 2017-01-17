@@ -127,7 +127,7 @@ public class CSVArray{
       Accessor Methods
       =====================================================*/
     
-    public static Object getCell(int x, int y){
+    public Object getCell(int x, int y){
         return _data.get(y-1).get(x-1);
     }
 
@@ -146,7 +146,7 @@ public class CSVArray{
     /*=======================================================
       Set Methods
       =====================================================*/
-    public static CSVArray setCell(int x, int y, Object value){
+    public CSVArray setCell(int x, int y, Object value){
 	_data.get(y-1).set(x-1,value);
 	return this;
     }
@@ -156,7 +156,7 @@ public class CSVArray{
 	return this;
     }
 
-    public static CSVArray setCol(int colPos, ArrayList colVal){
+    public CSVArray setCol(int colPos, ArrayList colVal){
         int index = 0;
 	for (ArrayList<Object> row : _data){
 	    row.set(colPos,colVal.get(index));
@@ -168,7 +168,7 @@ public class CSVArray{
     /*=======================================================
       Add Methods
       =====================================================*/
-    public static CSVArray addCol(CSVArray col){
+    public CSVArray addCol(CSVArray col){
 	int index = 0;
 	for (ArrayList<Object> row : _data){
 	    row.add(col._data.get(0).get(index));
