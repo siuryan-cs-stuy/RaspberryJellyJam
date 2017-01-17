@@ -15,5 +15,5 @@ Instructions:
 
 3. `java Woo` to avail yourself of possible commands
 
-4. `java Woo fileName.csv --<command> <args...>`
+4. `java Woo <fileName.csv> --<command> <args...>`
 
