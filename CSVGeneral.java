@@ -5,49 +5,6 @@
 import java.util.ArrayList;
 
 public class CSVGeneral{
-    
-    /*=======================================================
-      Accessor Methods
-      =====================================================*/
-    
-    public static Object getCell(int x, int y, CSVArray csv){
-        return csv._data.get(y-1).get(x-1);
-    }
-
-    public static ArrayList<Object> getRow(int row, CSVArray csv){
-	return csv._data.get(row-1);
-    }
-
-    public static ArrayList<Object> getCol(int col, CSVArray csv){
-        ArrayList<Object> column = new ArrayList<Object>();
-	for (ArrayList<Object> row : csv._data){
-	    column.add(row.get(col-1));
-	}
-	return column;
-    }
-
-    /*=======================================================
-      Set Methods
-      =====================================================*/
-    public static CSVArray setCell(int x, int y, Object value, CSVArray csv){
-	csv._data.get(y-1).set(x-1,value);
-	return csv;
-    }
-
-    public static CSVArray setRow(int rowPos, ArrayList rowVal, CSVArray csv){
-	csv._data.set(rowPos, rowVal);
-	return csv;
-    }
-
-    public static CSVArray setCol(int colPos, ArrayList colVal, CSVArray csv){
-        int index = 0;
-	for (ArrayList<Object> row : csv._data){
-	    row.set(colPos,colVal.get(index));
-	    index++;
-	}
-	return csv;
-    }
-
 
     /*=======================================================
       Pretty print
@@ -58,10 +15,16 @@ public class CSVGeneral{
 	int[] maxSizes = new int[csv._data.get(0).size()];
 	Integer numRows = ((Integer) csv._data.size()).toString().length();
 
+	// Fills maxSizes with the length of the largest items in each row
 	for (int i = 0; i < maxSizes.length; i++) {
 	    maxSizes[i] = maxSize( getCol(i+1,csv) );
 	}
-	
+
+	// Adds table top
+        String bar = tableBarrier( maxSizes, numRows );
+	retStr += bar;
+
+	// Adds data
         for (ArrayList<Object> row : csv._data) {
 	    retStr += formatCell(rowNum,numRows);
 	    for (int i = 0; i < row.size(); i++) {
@@ -70,6 +33,10 @@ public class CSVGeneral{
 	    retStr += "\n";
 	    rowNum++;
 	}
+
+	// Adds table bottom
+	retStr += bar;	
+
 	return retStr;
     }
 
@@ -82,6 +49,7 @@ public class CSVGeneral{
 	return retStr;
     }
 
+    // For columns
     private static int maxSize(ArrayList col) {
 	int size = 0;
 	for (int i = 0; i < col.size(); i++) {
@@ -92,4 +60,29 @@ public class CSVGeneral{
 	}
 	return size;
     }
+
+    // For rows
+    private static int maxSize(int[] maxSizes, Integer numRows) {
+	int size = 0;
+	int cols = 0;
+	for (int i : maxSizes) {
+	    size += i;
+	    cols++;
+	}
+	return size + cols + numRows + 1;
+    }
+
+    private static String tableBarrier(int[] maxSizes, Integer numRows) {
+	for (int i = 0; i < maxSize( maxSizes, numRows ); i++) {
+	    retStr += "-";
+	}
+	return retStr + "\n";
+    }
+
+    private static String colLabel(int[] maxSizes, Integer numRows) {
+	int pos = 3;
+	String retStr = "";
+	for () {
+
+	}
 }
