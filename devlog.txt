@@ -21,6 +21,7 @@ maybe some of these will move into the Obs.Ovrcm section...
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 James: Learned the Scanner, Buffered Writer, and File Writer classes in order to read and write csv files.
+Joelle: Learned basic Markdown tools
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
