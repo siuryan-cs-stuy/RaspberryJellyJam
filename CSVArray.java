@@ -131,11 +131,11 @@ public class CSVArray{
         return _data.get(y-1).get(x-1);
     }
 
-    public static ArrayList<Object> getRow(int row){
+    public ArrayList<Object> getRow(int row){
 	return _data.get(row-1);
     }
 
-    public static ArrayList<Object> getCol(int col){
+    public ArrayList<Object> getCol(int col){
         ArrayList<Object> column = new ArrayList<Object>();
 	for (ArrayList<Object> row : _data){
 	    column.add(row.get(col-1));
@@ -151,7 +151,7 @@ public class CSVArray{
 	return this;
     }
 
-    public static CSVArray setRow(int rowPos, ArrayList rowVal){
+    public CSVArray setRow(int rowPos, ArrayList rowVal){
 	_data.set(rowPos, rowVal);
 	return this;
     }
@@ -175,3 +175,57 @@ public class CSVArray{
 	    index++;}
 	return this;
     }
+
+    public CSVArray addCol(CSVArray col, int pos){
+ 	int index = 0;
+ 	for (ArrayList<Object> row : _data){
+ 	    row.add(pos-1,col._data.get(0).get(index));
+ 	    index++;
+ 	}
+ 	return this;
+    }
+
+    public CSVArray addRow(CSVArray row){
+ 	int index = 0;
+ 	ArrayList<Object> temp = new ArrayList();
+ 	for (Object o : row._data.get(0)){
+ 	    temp.add(row._data.get(0).get(index));
+ 	    index++;
+	}
+	_data.add(temp);
+ 	return this;
+    }
+
+    public CSVArray addRow(CSVArray row, int pos){
+ 	int index = 0;
+ 	ArrayList<Object> temp = new ArrayList();
+ 	for (Object o : row._data.get(0)){
+ 	    temp.add(row._data.get(0).get(index));
+ 	    index++;
+ 	}
+ 	_data.add(pos-1,temp);
+ 	return this;
+    }
+
+  /*=======================================================
+      Delete Methods
+      =====================================================*/
+    public CSVArray deleteCell(int x, int y){
+ 	ArrayList temp = _data.get(y-1);
+ 	temp.set(x-1, null);
+ 	_data.set(y-1, temp);
+ 	return this;
+    }
+
+    public CSVArray deleteRow(int row){
+ 	_data.remove(row-1);
+ 	return this;
+    }
+
+    public CSVArray deleteCol(int col){
+ 	for (ArrayList<Object> row : _data){
+ 	    row.remove(col-1);
+	}
+	return this;
+    }
+}
