@@ -15,6 +15,7 @@ OTHER (to be done by Jan. 22)
 - CSVStat class with everything except box-and-whisker, correlation
 - Add algorithm for choosing best sort method
 - Handle special cases for CSV formatting
+- Handle column headers/labels
 - Split search into linear and binary (to allow user to choose)
 - Box-and-whisker graph, correlation in CSVStat
 
