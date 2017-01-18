@@ -16,20 +16,27 @@ public class CSVStat{
 	return min;
     }
 
-    public static double firstQ(int col, CSVArray csv){
+    public static Comparable firstQ(int col, CSVArray csv){
 	return 0;
     }
 
-    public static double median(int col, CSVArray csv){
+    public static Comparable median(int col, CSVArray csv){
+	return 0;
+    }
+    
+    public static Comparable thirdQ(int col, CSVArray csv){
 	return 0;
     }
 
-    public static double thirdQ(int col, CSVArray csv){
-	return 0;
-    }
-
-    public static double max(int col, CSVArray csv){
-	return 0;
+    public static Comparable max(int col, CSVArray csv){
+        ArrayList<Object> arr = csv.getCol(col);
+	Comparable max = (Comparable) arr.get(0);
+	for (int i = 1; i < arr.size(); i++) {
+	    if (((Comparable)arr.get(i)).compareTo( max ) > 0) {
+		max = (Comparable) arr.get(i);
+	    }
+	}
+	return max;
     }
 
     public static void statSummary(int col, CSVArray csv){
@@ -39,7 +46,7 @@ public class CSVStat{
 	return "";
     }
 
-    public static double average(int col, CSVArray csv){
+    public static Comparable average(int col, CSVArray csv){
 	return 0;
     }
 

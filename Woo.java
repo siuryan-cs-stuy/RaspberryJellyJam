@@ -19,22 +19,24 @@ public class Woo{
     public static String help() {
 	String helpStr = "";
 	helpStr += "Syntax: java Woo <filename> <command> <args...>\n";
-	helpStr += "command : arguments\n";
-	helpStr += "--help : none\n";
-	helpStr += "--getCell : row# column#\n";
-	helpStr += "--getRow : row#\n";
-	helpStr += "--getCol : column#\n";
-	helpStr += "--setCell : row# column# value\n";
-	helpStr += "--setRow : row# filename\n";
-	helpStr += "--setCol : column position filename\n";
-	helpStr += "--addRow : filename\n";
-	helpStr += "--addRow : filename position\n";
-	helpStr += "--addCol : filename\n";
-	helpStr += "--addCol : filename position\n";
-	helpStr += "--delCell : row# column# \n";
-	helpStr += "--delRow :  row#\n";
-	helpStr += "--delCol :  column#\n";
-	helpStr += "--prettyPrint : none";
+	helpStr += "Possible <command> <args...>\n";
+	helpStr += "--help\n";
+	helpStr += "--getCell <row#> <column#>\n";
+	helpStr += "--getRow <row#>\n";
+	helpStr += "--getCol <column#>\n";
+	helpStr += "--setCell <row#> <column#> <value>\n";
+	helpStr += "--setRow <row#> <filename>\n";
+	helpStr += "--setCol <column#> <position> <filename>\n";
+	helpStr += "--addRow <filename>\n";
+	helpStr += "--addRow <filename> <position>\n";
+	helpStr += "--addCol <filename>\n";
+	helpStr += "--addCol <filename> <position>\n";
+	helpStr += "--delCell <row#> <column#>\n";
+	helpStr += "--delRow <row#>\n";
+	helpStr += "--delCol <column#>\n";
+	helpStr += "--min <column#>\n";
+	helpStr += "--max <column#>\n";
+	helpStr += "--prettyPrint";
 	return helpStr;
     }
 
@@ -130,6 +132,10 @@ public class Woo{
 
 		if (command.equals("--min")){
 		    result = CSVStat.min(Integer.parseInt(args[2]),csv);
+		}
+
+		if (command.equals("--max")){
+		    result = CSVStat.max(Integer.parseInt(args[2]),csv);
 		}
 
 		if (result != null) {
