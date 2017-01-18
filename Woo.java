@@ -128,6 +128,10 @@ public class Woo{
 		    result = CSVGeneral.prettyPrint(csv);
 		}
 
+		if (command.equals("--min")){
+		    result = CSVStat.min(Integer.parseInt(args[2]),csv);
+		}
+
 		if (result != null) {
 		    if (result instanceof CSVArray && writeToFile) {
 			try {
