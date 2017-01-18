@@ -17,9 +17,12 @@ public class CSVGeneral{
 
 	// Fills maxSizes with the length of the largest items in each row
 	for (int i = 0; i < maxSizes.length; i++) {
-	    maxSizes[i] = maxSize( getCol(i+1,csv) );
+	    maxSizes[i] = maxSize( csv.getCol(i+1) );
 	}
 
+	// Adds column number labels
+	retStr += colLabel( maxSizes, numRows );
+	
 	// Adds table top
         String bar = tableBarrier( maxSizes, numRows );
 	retStr += bar;
@@ -73,16 +76,22 @@ public class CSVGeneral{
     }
 
     private static String tableBarrier(int[] maxSizes, Integer numRows) {
+	String retStr = "";
 	for (int i = 0; i < maxSize( maxSizes, numRows ); i++) {
-	    retStr += "-";
+	    retStr += "=";
 	}
 	return retStr + "\n";
     }
 
     private static String colLabel(int[] maxSizes, Integer numRows) {
-	int pos = 3;
 	String retStr = "";
-	for () {
-
+	for (int i = 0; i < numRows; i++) {
+	    retStr += " ";
 	}
+	retStr += "|";
+	for (int i = 0; i < maxSizes.length; i++) {
+	    retStr += formatCell(i+1, maxSizes[i]);
+	}
+	return retStr + "\n";
+    }
 }
