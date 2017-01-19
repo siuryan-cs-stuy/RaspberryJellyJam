@@ -5,10 +5,6 @@ HW57 -- ...and Keeping it Pointed Up
 
 TODO LIST
 
-NEXT (to be done by Jan. 16)
-- Touch up HELP method
-- EXCEPTION HANDLING (out of bounds)
-
 OTHER (to be done by Jan. 22)
 - CSVGeneral class with the other methods
 - CSVMath class with all the methods
@@ -18,5 +14,7 @@ OTHER (to be done by Jan. 22)
 - Handle column headers/labels
 - Split search into linear and binary (to allow user to choose)
 - Box-and-whisker graph, correlation in CSVStat
+- EXCEPTION HANDLING (out of bounds)
+- Specific help for flags
 
 FINAL TESTING (on Jan. 22)
