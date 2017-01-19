@@ -22,6 +22,7 @@ COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 James: Learned the Scanner, Buffered Writer, and File Writer classes in order to read and write csv files.
 Joelle: Learned basic Markdown tools
+Ryan: How to write API comments
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -112,5 +113,5 @@ Joelle Lum :: Moved add and delete methods to CSVArray, fixed add and delete met
 --------------------------------------------------------------
 James Smith :: 
 Ryan Siu :: Edited prettyPrint() for better UX, wrote min() and max()
-Joelle Lum :: 
+Joelle Lum :: Worked on CSVMath
 ==============================================================
