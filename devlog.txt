@@ -108,3 +108,9 @@ Ryan Siu ::
 Joelle Lum :: Moved add and delete methods to CSVArray, fixed add and delete methods, modified Woo to adjust to changes, food.csv for testing
 ==============================================================
 
+2017-01-18
+--------------------------------------------------------------
+James Smith :: 
+Ryan Siu :: Edited prettyPrint() for better UX, wrote min() and max()
+Joelle Lum :: 
+==============================================================
