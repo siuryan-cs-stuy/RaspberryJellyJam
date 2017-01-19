@@ -138,6 +138,26 @@ public class Woo{
 		    result = CSVStat.max(Integer.parseInt(args[2]),csv);
 		}
 
+		if (command.equals("--sum")){
+			result = CSVMath.sum(Integer.parseInt(args[2]),csv);
+		}
+
+		if (command.equals("--add")){
+		    result = CSVMath.add(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
+		}
+
+		if (command.equals("--subtract")){
+		    result = CSVMath.subtract(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
+		}
+
+		if (command.equals("--multiply")){
+		    result = CSVMath.multiply(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
+		}
+
+		if (command.equals("--divide")){
+		    result = CSVMath.divide(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
+		}
+		
 		if (result != null) {
 		    if (result instanceof CSVArray && writeToFile) {
 			try {
