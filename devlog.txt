@@ -104,7 +104,7 @@ Joelle Lum ::
 
 2017-01-16
 --------------------------------------------------------------
-James Smith :: 
+James Smith :: Moved CSV General methods to CSVArray. Fixed methods/woo.java to work with new structure change
 Ryan Siu :: 
 Joelle Lum :: Moved add and delete methods to CSVArray, fixed add and delete methods, modified Woo to adjust to changes, food.csv for testing
 ==============================================================
@@ -118,7 +118,7 @@ Joelle Lum :: Worked on CSVMath
 
 2017-01-19
 --------------------------------------------------------------
-James Smith :: 
+James Smith :: Wrote argument exception handling in the woo class and debugged accessor method.
 Ryan Siu :: 
 Joelle Lum :: Finished method bodies of CSVMath and added API comments for methods in CSVMath and CSVArray
 ==============================================================
