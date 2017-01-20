@@ -16,16 +16,14 @@ public class CSVMath{
      * @return  Comparable representing sum of column's data
      */
     public static double sum(int col, CSVArray csv){
-        Double s = 0.;
-	Integer x = 0;
+        double s = 0.;
 	for (ArrayList<Object> row : csv._data){
 	    if (row.get(col-1) instanceof Integer){
-		x = (Integer) row.get(col-1);
-		s += x.doubleValue();}
+		s += (int) row.get(col-1);}
 	    else if (row.get(col-1) instanceof Double){
-		s += (Double) row.get(col-1);}
+		s += (double) row.get(col-1);}
 	}
-	return (double)s;
+	return s;
     }
 
     /**
@@ -53,10 +51,10 @@ public class CSVMath{
 		s += (int) row.get(col2-1);
 	    }
 	    if (row.get(col1-1) instanceof Double){
-		s += (Double) row.get(col1-1);
+		s += (double) row.get(col1-1);
 	    }
 	    if (row.get(col2-1) instanceof Double){
-		s += (Double) row.get(col2-1);
+		s += (double) row.get(col2-1);
 	    }
 	    temp.add(s);
 	}
@@ -89,13 +87,13 @@ public class CSVMath{
 		s = (int) row.get(col1-1);
 	    }
 	    if (row.get(col1-1) instanceof Double){
-		s = (Double) row.get(col1-1);
+		s = (double) row.get(col1-1);
 	    }
 	    if (row.get(col2-1) instanceof Integer){
 		s -= (int) row.get(col2-1);
 	    }
 	    if (row.get(col2-1) instanceof Double){
-		s -= (Double) row.get(col2-1);
+		s -= (double) row.get(col2-1);
 	    }
 	    temp.add(s);
 	}
