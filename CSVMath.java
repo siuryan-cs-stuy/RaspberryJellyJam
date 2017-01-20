@@ -4,7 +4,18 @@ public class CSVMath{
     /*=======================================================
       Mathematical Operations
       =====================================================*/
-    public static Comparable sum(int col, CSVArray csv){
+
+    /**
+     * Returns a Double that is equal to the sum of a column's data. 
+     * If the data is a Integer, typecast it into a Integer. 
+     * Then get its value as a double.
+     * If an Object is a Double, typecast it into a Double.
+     * Add the data to the sum.
+     * @param   col  integer within column range
+     * @param   csv  CSVArray
+     * @return  Comparable representing sum of column's data
+     */
+    public static Double sum(int col, CSVArray csv){
         Double s = 0.;
 	Integer x = 0;
 	for (ArrayList<Object> row : csv._data){
@@ -14,9 +25,26 @@ public class CSVMath{
 	    else if (row.get(col-1) instanceof Double){
 		s += (Double) row.get(col-1);}
 	}
-	return (Comparable)s;
+	return s;
     }
-	
+
+    /**
+     * Returns an ArrayList of Doubles that contains the sum of two 
+     * columns' data, added across rows. 
+     * If an Object is a Integer, typecast it into a Integer. 
+     * Then get its value as a double.
+     * If an Object is a Double, typecast it into a Double. 
+     * Add the first column's data to the row's sum.
+     * Run through whether the second column's data is an Integer or
+     * Double and typecast accordingly.
+     * Add the second column's data to the sum.
+     * Add the sum into the ArrayList of sums.
+     * Repeat previous steps for each row.
+     * @param   col  integer within column range
+     * @param   col  integer within column range
+     * @param   csv  CSVArray
+     * @return  ArrayList containing Doubles that represent each row's sum
+     */
     public static ArrayList add(int col1, int col2, CSVArray csv){
 	ArrayList<Double> temp = new ArrayList();
 	Double s = 0.;
@@ -42,7 +70,24 @@ public class CSVMath{
 	}
 	return temp;
     }
-	
+
+    /**
+     * Returns an ArrayList of Doubles that contains the differences of two 
+     * columns' data, subtracted across rows. 
+     * If the first column's data is an Integer, typecast it into an Integer.
+     * Then get its value as a double.
+     * If the first column's data is a Double, typecast it into a Double.
+     * Set the first column's data as a variable.
+     * Run through whether the second column's data is an Integer or a Double,
+     * and typecast accordingly.
+     * Subtract the second column's data from the first column's data.
+     * Add that difference to the ArrayList of differences.
+     * Repeat previous steps for each row.
+     * @param   col  integer within column range
+     * @param   col  integer within column range
+     * @param   csv  CSVArray
+     * @return  ArrayList containing Doubles that represent each row's difference
+     */
     public static ArrayList subtract(int col1, int col2, CSVArray csv){
         ArrayList<Double> temp = new ArrayList();
 	Double s = 0.;
@@ -69,6 +114,23 @@ public class CSVMath{
 	return temp;
     }
 
+    /**
+     * Returns an ArrayList of Doubles that contains the products of two 
+     * columns' data, multiplied across rows. 
+     * If the first column's data is an Integer, typecast it into an Integer.
+     * Then get its value as a double.
+     * If the first column's data is a Double, typecast it into a Double.
+     * Set the first column's data as a variable.
+     * Run through whether the second column's data is an Integer or a Double,
+     * and typecast accordingly.
+     * Multiply the second column's data with the first column's data.
+     * Add that product to the ArrayList of products.
+     * Repeat previous steps for each row.
+     * @param   col  integer within column range
+     * @param   col  integer within column range
+     * @param   csv  CSVArray
+     * @return  ArrayList containing Doubles that represent each row's product
+     */
     public static ArrayList multiply(int col1, int col2, CSVArray csv){
 	ArrayList<Double> temp = new ArrayList();
 	Double s = 0.;
@@ -95,6 +157,23 @@ public class CSVMath{
 	return temp;
     }
 
+    /**
+     * Returns an ArrayList of Doubles that contains the quotients of two 
+     * columns' data, divided across rows. 
+     * If the first column's data is an Integer, typecast it into an Integer.
+     * Then get its value as a double.
+     * If the first column's data is a Double, typecast it into a Double.
+     * Set the first column's data as a variable.
+     * Run through whether the second column's data is an Integer or a Double,
+     * and typecast accordingly.
+     * Divide the second column's data with the first column's data.
+     * Add that quotient to the ArrayList of quotients.
+     * Repeat previous steps for each row.
+     * @param   col  integer within column range
+     * @param   col  integer within column range
+     * @param   csv  CSVArray
+     * @return  ArrayList containing Doubles that represent each row's quotient
+     */
     public static ArrayList divide(int col1, int col2, CSVArray csv){
 	ArrayList<Double> temp = new ArrayList();
 	Double s = 0.;

@@ -115,3 +115,10 @@ James Smith ::
 Ryan Siu :: Edited prettyPrint() for better UX, wrote min() and max()
 Joelle Lum :: Worked on CSVMath
 ==============================================================
+
+2017-01-19
+--------------------------------------------------------------
+James Smith :: 
+Ryan Siu :: 
+Joelle Lum :: Finished method bodies of CSVMath and added API comments for each of its methods
+==============================================================
