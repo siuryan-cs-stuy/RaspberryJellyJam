@@ -7,7 +7,6 @@ TODO LIST
 
 OTHER (to be done by Jan. 22)
 - CSVGeneral class with the other methods
-- CSVMath class with all the methods
 - CSVStat class with everything except box-and-whisker, correlation
 - Add algorithm for choosing best sort method
 - Handle special cases for CSV formatting
