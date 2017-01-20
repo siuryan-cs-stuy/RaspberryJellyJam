@@ -133,7 +133,7 @@ public class CSVArray{
      * @return      Object representation of data
      */
     public Object getCell(int x, int y){
-        return _data.get(x-1).get(y-1);
+        return _data.get(y-1).get(x-1);
     }
 
      /**
