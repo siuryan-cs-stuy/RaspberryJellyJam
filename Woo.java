@@ -37,6 +37,8 @@ public class Woo{
 	helpStr += "--delCol <column#>\n";
 	helpStr += "--min <column#>\n";
 	helpStr += "--max <column#>\n";
+	helpStr += "--standardDev <column#>\n";
+	helpStr += "--average <column#>\n";
 	helpStr += "--prettyPrint";
 	return helpStr;
     }
@@ -65,26 +67,25 @@ public class Woo{
 		return;
 	    }
 
+	    CSVArray csv;
+	    
 	    //Ensures that the file argument is valid
 	    if (invalidFile(args[0])){
 		System.out.println("Invalid file type.\n Consult --help for argument structure.");
 		return;
-	    }
-
-	    /*
-	    if (args.length < 2 || args.length < 3 && writeToFile){
-		System.out.println("Arguments not supplied.\n Consult --help for argument Structure.");
-		return;
-	    }
-	    */
-
-	    //create CSVArray with filename
-	    CSVArray csv = new CSVArray(args[0]);
-
-	    if (args.length < 2 || args.length < 3 && writeToFile){
+	    } else if (args.length == 1) {
+		csv = new CSVArray(args[0]);
 		System.out.println(CSVGeneral.prettyPrint(csv));
 		return;
 	    }
+
+	    if (args.length < 2 || args.length < 3 && writeToFile){
+		System.out.println("Arguments not supplied.\n Consult --help for argument Structure.");
+		return;
+	    } 
+
+	    //create CSVArray with filename
+	    csv = new CSVArray(args[0]);
 
 	    String command = args[1];
 	    Object result = null;
@@ -163,6 +164,10 @@ public class Woo{
 
 	    if (command.equals("--average")){
 		result = CSVStat.average(Integer.parseInt(args[2]),csv);
+	    }
+
+	    if (command.equals("--standardDev")){
+		result = CSVStat.standardDev(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--sum")){

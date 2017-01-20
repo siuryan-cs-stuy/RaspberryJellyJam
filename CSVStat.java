@@ -51,11 +51,23 @@ public class CSVStat{
 	return sum / csv.getCol(col).size();
     }
 
+    
     public static double standardDev(int col, CSVArray csv){
-	return 0;
+	double average = average(col,csv);
+	double variance = 0;
+	ArrayList<Object> colValues = csv.getCol(col);
+	for (int i = 0; i < colValues.size(); i++) {
+	    if (colValues.get(i) instanceof Integer) {
+		variance += Math.pow(((int)colValues.get(i) - average), 2);
+	    } else {
+		variance += Math.pow(((double)colValues.get(i) - average), 2);
+	    }
+	}
+	variance /= colValues.size();
+	return Math.sqrt(variance);
     }
 
-    public static double correlation(Object function, CSVArray csv){
+    public static double correlation(int col1, int col2, CSVArray csv){
 	return 0;
     }
 }
