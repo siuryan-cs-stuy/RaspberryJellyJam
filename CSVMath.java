@@ -15,7 +15,7 @@ public class CSVMath{
      * @param   csv  CSVArray
      * @return  Comparable representing sum of column's data
      */
-    public static Double sum(int col, CSVArray csv){
+    public static double sum(int col, CSVArray csv){
         Double s = 0.;
 	Integer x = 0;
 	for (ArrayList<Object> row : csv._data){
@@ -25,7 +25,7 @@ public class CSVMath{
 	    else if (row.get(col-1) instanceof Double){
 		s += (Double) row.get(col-1);}
 	}
-	return s;
+	return (double)s;
     }
 
     /**

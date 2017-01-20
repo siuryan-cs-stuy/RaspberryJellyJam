@@ -65,19 +65,26 @@ public class Woo{
 		return;
 	    }
 
-	    if (args.length < 2 || args.length < 3 && writeToFile){
-		System.out.println("Arguments not supplied.\n Consult --help for argument Structure.");
-		return;
-	    }
-	    
 	    //Ensures that the file argument is valid
 	    if (invalidFile(args[0])){
 		System.out.println("Invalid file type.\n Consult --help for argument structure.");
 		return;
 	    }
 
+	    /*
+	    if (args.length < 2 || args.length < 3 && writeToFile){
+		System.out.println("Arguments not supplied.\n Consult --help for argument Structure.");
+		return;
+	    }
+	    */
+
 	    //create CSVArray with filename
 	    CSVArray csv = new CSVArray(args[0]);
+
+	    if (args.length < 2 || args.length < 3 && writeToFile){
+		System.out.println(CSVGeneral.prettyPrint(csv));
+		return;
+	    }
 
 	    String command = args[1];
 	    Object result = null;
@@ -152,6 +159,10 @@ public class Woo{
 
 	    if (command.equals("--max")){
 		result = CSVStat.max(Integer.parseInt(args[2]),csv);
+	    }
+
+	    if (command.equals("--average")){
+		result = CSVStat.average(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--sum")){

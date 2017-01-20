@@ -119,6 +119,6 @@ Joelle Lum :: Worked on CSVMath
 2017-01-19
 --------------------------------------------------------------
 James Smith :: Wrote argument exception handling in the woo class and debugged accessor method.
-Ryan Siu :: 
+Ryan Siu :: Worked on average()
 Joelle Lum :: Finished method bodies of CSVMath and added API comments for methods in CSVMath and CSVArray
 ==============================================================

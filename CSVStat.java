@@ -46,8 +46,9 @@ public class CSVStat{
 	return "";
     }
 
-    public static Comparable average(int col, CSVArray csv){
-	return 0;
+    public static double average(int col, CSVArray csv){
+	double sum = CSVMath.sum(col,csv);
+	return sum / csv.getCol(col).size();
     }
 
     public static double standardDev(int col, CSVArray csv){
