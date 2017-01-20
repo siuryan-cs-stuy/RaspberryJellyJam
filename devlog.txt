@@ -120,5 +120,5 @@ Joelle Lum :: Worked on CSVMath
 --------------------------------------------------------------
 James Smith :: 
 Ryan Siu :: 
-Joelle Lum :: Finished method bodies of CSVMath and added API comments for each of its methods
+Joelle Lum :: Finished method bodies of CSVMath and added API comments for methods in CSVMath and CSVArray
 ==============================================================

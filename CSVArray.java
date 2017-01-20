@@ -126,15 +126,30 @@ public class CSVArray{
     /*=======================================================
       Accessor Methods
       =====================================================*/
-    
+    /**
+     * Returns the data of a specified coordinate.
+     * @param  int  within range of rows
+     * @param  int  within range of columns
+     * @return      Object representation of data
+     */
     public Object getCell(int x, int y){
-        return _data.get(y-1).get(x-1);
+        return _data.get(x-1).get(y-1);
     }
 
+     /**
+     * Returns a csv's row represented by an ArrayList of Objects
+     * @param  int within range of rows
+     * @return      row represented by ArrayList of Objects
+     */
     public ArrayList<Object> getRow(int row){
 	return _data.get(row-1);
     }
 
+     /**
+     * Returns a csv's column represented by an ArrayList of Objects
+     * @param  int within range of columns
+     * @return      column represented by ArrayList of Objects
+     */
     public ArrayList<Object> getCol(int col){
         ArrayList<Object> column = new ArrayList<Object>();
 	for (ArrayList<Object> row : _data){
@@ -146,16 +161,34 @@ public class CSVArray{
     /*=======================================================
       Set Methods
       =====================================================*/
+     /**
+     * Sets a specified cell to a given value
+     * @param  int  within range of rows
+     * @param  int  within range of columns
+     * @param  Object  any Object
+     * @return      String representation of CSVArray
+     */
     public CSVArray setCell(int x, int y, Object value){
 	_data.get(y-1).set(x-1,value);
 	return this;
     }
-
+     /**
+     * Sets a specified row to a given ArrayList
+     * @param  int  within range of rows
+     * @param  ArrayList  containing Objects
+     * @return      String representation of CSVArray
+     */
     public CSVArray setRow(int rowPos, ArrayList rowVal){
 	_data.set(rowPos, rowVal);
 	return this;
     }
 
+    /**
+     * Sets a specified column to a given ArrayList
+     * @param  int  within range of columns
+     * @param  ArrayList  containing Objects
+     * @return      String representation of CSVArray
+     */
     public CSVArray setCol(int colPos, ArrayList colVal){
         int index = 0;
 	for (ArrayList<Object> row : _data){
@@ -168,6 +201,12 @@ public class CSVArray{
     /*=======================================================
       Add Methods
       =====================================================*/
+     /**
+     * Appends the data of a CSVArray, given that it only
+     * has one row, to this CSVArray as a column
+     * @param  CSVArray  with only one row
+     * @return      String representation of CSVArray
+     */
     public CSVArray addCol(CSVArray col){
 	int index = 0;
 	for (ArrayList<Object> row : _data){
@@ -176,6 +215,14 @@ public class CSVArray{
 	return this;
     }
 
+    /**
+     * Adds the data of a CSVArray, given that it only
+     * has one row, to a specified position of this CSVArray
+     * as a column
+     * @param  CSVArray  with only one row
+     * @param  int  within range of columns
+     * @return      String representation of CSVArray
+     */
     public CSVArray addCol(CSVArray col, int pos){
  	int index = 0;
  	for (ArrayList<Object> row : _data){
@@ -185,6 +232,12 @@ public class CSVArray{
  	return this;
     }
 
+    /**
+     * Appends the data of a CSVArray, given that it only
+     * has one row, to this CSVArray as a row
+     * @param  CSVArray  with only one row
+     * @return      String representation of CSVArray
+     */
     public CSVArray addRow(CSVArray row){
  	int index = 0;
  	ArrayList<Object> temp = new ArrayList();
@@ -196,6 +249,14 @@ public class CSVArray{
  	return this;
     }
 
+    /**
+     * Adds the data of a CSVArray, given that it only
+     * has one row, to a specified position of this CSVArray
+     * as a row
+     * @param  CSVArray  with only one row
+     * @param  int  within range of rows
+     * @return      String representation of CSVArray
+     */
     public CSVArray addRow(CSVArray row, int pos){
  	int index = 0;
  	ArrayList<Object> temp = new ArrayList();
@@ -210,6 +271,12 @@ public class CSVArray{
   /*=======================================================
       Delete Methods
       =====================================================*/
+    /**
+     * Sets the value of a specified cell to null
+     * @param  int  within range of rows
+     * @param  int  within range of columns
+     * @return      String representation of CSVArray
+     */
     public CSVArray deleteCell(int x, int y){
  	ArrayList temp = _data.get(y-1);
  	temp.set(x-1, null);
@@ -217,11 +284,21 @@ public class CSVArray{
  	return this;
     }
 
+    /**
+     * Removes a specified row and shifts following rows up
+     * @param  int  within range of rows
+     * @return      String representation of CSVArray
+     */
     public CSVArray deleteRow(int row){
  	_data.remove(row-1);
  	return this;
     }
 
+    /**
+     * Removes a specified column and shifts following columns left
+     * @param  int  within range of columns
+     * @return      String representation of CSVArray
+     */
     public CSVArray deleteCol(int col){
  	for (ArrayList<Object> row : _data){
  	    row.remove(col-1);
