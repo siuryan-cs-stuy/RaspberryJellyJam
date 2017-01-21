@@ -47,7 +47,23 @@ public class Woo{
 	File f = new File(fileName);
 	//If the file doesn't exist or it is a directory or the filename isn't long enough to be a csv file or it is not a csv file
 	return !(f.exists() && !f.isDirectory() && (fileName.length() > 4) &&  fileName.substring(fileName.length()-4).equals(".csv"));
-    }	
+    }
+
+    public static String rowString(ArrayList arr){
+	String retStr = "";
+	for (Object elem: arr){
+	    retStr += elem + ",";
+	}
+	return retStr.substring(0, retStr.length()-1);
+    }
+
+    public static String colString(ArrayList arr){
+	String retStr = "";
+	for(Object elem: arr){
+	    retStr += elem + "\n";
+	}
+	return retStr;
+    }
 	
     /**
      * Runs the Terminal CSV Editor. Uses args to take in arguments from the
@@ -95,11 +111,11 @@ public class Woo{
 	    }
 
 	    if (command.equals("--getRow")){
-		result = csv.getRow(Integer.parseInt(args[2]));
+		result = rowString(csv.getRow(Integer.parseInt(args[2])));
 	    }
 
 	    if (command.equals("--getCol")){
-		result = csv.getCol(Integer.parseInt(args[2]));
+		result = colString(csv.getCol(Integer.parseInt(args[2])));
 	    }
 
 	    if (command.equals("--setCell")){

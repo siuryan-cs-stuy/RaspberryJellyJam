@@ -199,6 +199,30 @@ public class CSVArray{
     }
 
     /*=======================================================
+      Length Methods
+      =====================================================*/
+    /**
+     *@return Number of rows in the CSV
+     */
+    public int numRows(){
+	return _data.size();
+    }
+
+    /**
+     *@return Number of columns in the csv
+     */
+    public int numCols(){
+	int maxCols = 0;
+	for (int i = 0; i < _data.size();i++){
+	    if (getRow(i).size() > maxCols){
+		maxCols = getRow(i).size();
+	    }
+	}
+	return maxCols;
+    }
+    
+
+    /*=======================================================
       Add Methods
       =====================================================*/
      /**
@@ -305,4 +329,9 @@ public class CSVArray{
 	}
 	return this;
     }
+
+    /*=======================================================
+      Join Methods
+      =====================================================*/
+    
 }
