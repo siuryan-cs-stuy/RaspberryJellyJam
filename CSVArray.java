@@ -40,20 +40,15 @@ public class CSVArray{
 
 	    // reading data from file
 	    while (s.hasNextLine()) {
-		Scanner line = new Scanner(s.nextLine()); //create scanner to go through each row
-
-		//Set delimiter to , to divide csv elements
-		line.useDelimiter(",");
-
+		String line = s.nextLine();//get string representation of line
+		String[] rowElems = line.split(",", -1);//split the string to get parts between commas even if it is emtpy space
 		ArrayList row = new ArrayList();
-		while(line.hasNext()){
-		    row.add(typePicker(line.next()));
+		for(int i = 0; i < rowElems.length;i++){
+		    row.add(typePicker(rowElems[i]));//access each element of rowElems, run it through typePicker and add it to the row
 		}
 	    
 		// add row to _data
 		_data.add(row);
-	    
-		line.close();
 	    }
 	    s.close();
 	} catch(FileNotFoundException e){
@@ -123,6 +118,53 @@ public class CSVArray{
 	return conv;
     }
 
+
+    /*=======================================================
+      Size Increase Methods
+      =====================================================*/
+    /**
+     *Adds a given amount of empty columns to the _data
+     *@param int number of empty columns wanted
+     */
+    public void increaseCols(int moreCols){
+	for (int i=0; i < moreCols; i++){
+	    for (ArrayList row: _data){
+		row.add("");
+	    }
+	}
+    }
+
+    /**
+     *Adds a given amount of empty rows to _data
+     *@param int number of empty rows wanted
+     */
+    public void increaseRows(int moreRows){
+	ArrayList row = new ArrayList(numCols());
+	    for (int i = 0; i < numCols(); i++){
+		row.add("");
+	    }
+	for (int i = 0; i< moreRows; i++){
+	    _data.add(row);
+	}
+    }
+    
+    /*=======================================================
+      Length Methods
+      =====================================================*/
+    /**
+     *@return Number of rows in the CSV
+     */
+    public int numRows(){
+	return _data.size();
+    }
+
+    /**
+     *@return Number of columns in the csv
+     */
+    public int numCols(){
+	return _data.get(0).size();
+    }
+    
     /*=======================================================
       Accessor Methods
       =====================================================*/
@@ -141,7 +183,7 @@ public class CSVArray{
      * @param  int within range of rows
      * @return      row represented by ArrayList of Objects
      */
-    public ArrayList<Object> getRow(int row){
+    public ArrayList getRow(int row){
 	return _data.get(row-1);
     }
 
@@ -150,7 +192,7 @@ public class CSVArray{
      * @param  int within range of columns
      * @return      column represented by ArrayList of Objects
      */
-    public ArrayList<Object> getCol(int col){
+    public ArrayList getCol(int col){
         ArrayList<Object> column = new ArrayList<Object>();
 	for (ArrayList<Object> row : _data){
 	    column.add(row.get(col-1));
@@ -196,29 +238,6 @@ public class CSVArray{
 	    index++;
 	}
 	return this;
-    }
-
-    /*=======================================================
-      Length Methods
-      =====================================================*/
-    /**
-     *@return Number of rows in the CSV
-     */
-    public int numRows(){
-	return _data.size();
-    }
-
-    /**
-     *@return Number of columns in the csv
-     */
-    public int numCols(){
-	int maxCols = 0;
-	for (int i = 0; i < _data.size();i++){
-	    if (getRow(i).size() > maxCols){
-		maxCols = getRow(i).size();
-	    }
-	}
-	return maxCols;
     }
     
 
@@ -331,7 +350,105 @@ public class CSVArray{
     }
 
     /*=======================================================
+      Sort Methods
+      =====================================================*/
+    public ArrayList bubbleSort(ArrayList<Comparable> data ){
+	for( int passCtr = 1; passCtr < data.size(); passCtr++ ){
+            for( int i = 0; i < data.size()-1; i++ ) {
+                if ( data.get(i).compareTo(data.get(i+1) ) > 0 ) 
+                    data.set( i, data.set(i+1,data.get(i)) );   
+            }
+        }
+	return data;
+    }
+
+    /**
+     *Sorts a given column of integers
+     *@param int position of column to be sorted
+     *@return CSVArray representation of sorted column
+     */
+    public ArrayList sort(int col){
+	return bubbleSort(getCol(col));
+    }
+
+    /*=======================================================
       Join Methods
       =====================================================*/
+    /**
+     *Finds the intersection of 2 columns
+     *@param int Position of first column
+     *@param int Position of second Column
+     *@return CSVArray Representation of the intersection of 2 columns' contents
+     */
+    //  public CSVArray innerJoin(int col1, int col2){
+    //
+    // }
+
+    /**
+     *Finds the union of 2 columns
+     *@param int Position of first column
+     *@param int Position of second Column
+     *@return CSVArray Representation of the union 2 columns' contents
+     */
+    // public CSVArray outerJoin(int col1, int col2){
+    //
+    // }
     
+    /*=======================================================
+      Search Method
+      =====================================================*/
+
+     /**
+     *Searches for a given String and returns the cell coordinates of which the first instance is found
+     *@param String search phrase
+     *@return CSVArray representation of coordinates
+     *@return CSVArray message if phrase is not found
+     */
+    public ArrayList searchCell(String target){
+	Object targetTrue = typePicker(target);
+	ArrayList coordinates = new ArrayList(2);
+	for (int row = 1; row < numRows()+1; row++){
+	    for(int col = 1; col < numCols()+1; col++){
+		if(getCell(col, row).equals(targetTrue)){
+		    coordinates.add(col);
+		    coordinates.add(row);
+		    return coordinates;
+		}
+	    }
+	}
+	coordinates.add("Phrase not found");
+	return coordinates;
+    }
+    
+    /**
+     *Searches for a given String and returns the row of which the first instance is found
+     *@param String search phrase
+     *@return CSVArray representation of row
+     *@return String message if phrase is not found
+     */
+    public ArrayList searchRow(String target){
+        ArrayList coords = searchCell(target);
+	if (coords.get(0).equals("Phrase not found")){
+	    return coords;
+	}
+	else{
+	    return getRow((int)coords.get(1));
+	}
+    }
+
+    /**
+     *Searches for a given String and returns the column of which the first instance is found
+     *@param String search phrase
+     *@return CSVArray representation of column
+     *@return String message if phrase is not found
+     */
+    public ArrayList searchCol(String target){
+        ArrayList coords = searchCell(target);
+	if (coords.get(0).equals("Phrase not found")){
+	    return coords;
+	}
+	else{
+	    return getCol((int)coords.get(0));
+	}
+    }
 }

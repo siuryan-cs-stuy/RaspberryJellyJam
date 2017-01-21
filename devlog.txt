@@ -125,7 +125,7 @@ Joelle Lum :: Finished method bodies of CSVMath and added API comments for metho
 
 2017-01-20
 --------------------------------------------------------------
-James Smith :: 
+James Smith :: Rewrote csv parsing to work with csvs without values at every spot (2,,4), wrote methods specifically for the data structure, wrote sort and search methods
 Ryan Siu :: Worked on standardDev()
 Joelle Lum :: 
 ==============================================================

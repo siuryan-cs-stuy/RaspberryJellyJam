@@ -35,6 +35,10 @@ public class Woo{
 	helpStr += "--delCell <row#> <column#>\n";
 	helpStr += "--delRow <row#>\n";
 	helpStr += "--delCol <column#>\n";
+	helpStr += "--sort <col#>\n";
+	helpStr += "--searchCell <target phrase>\n";
+	helpStr += "--searchRow <target phrase>\n";
+	helpStr += "--searchCol <target phrase>\n";
 	helpStr += "--min <column#>\n";
 	helpStr += "--max <column#>\n";
 	helpStr += "--standardDev <column#>\n";
@@ -164,6 +168,22 @@ public class Woo{
 
 	    if (command.equals("--deleteCol")){
 		result = csv.deleteCol(Integer.parseInt(args[2]));
+	    }
+
+	    if (command.equals("--sort")){
+		result = colString(csv.sort(Integer.parseInt(args[2])));
+	    }
+
+	    if (command.equals("--searchCell")){
+		result = csv.searchCell(args[2]);
+	    }
+
+	    if (command.equals("--searchRow")){
+		result = rowString(csv.searchRow(args[2]));
+	    }
+
+	     if (command.equals("--searchCol")){
+		 result = colString(csv.searchCol(args[2]));
 	    }
 
 	    if (command.equals("--prettyPrint")){
