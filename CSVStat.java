@@ -16,16 +16,36 @@ public class CSVStat{
 	return min;
     }
 
-    public static Comparable firstQ(int col, CSVArray csv){
-	return 0;
+    public static double firstQ(int col, CSVArray csv){
+	ArrayList<Object> arr = csv.sort(col);
+	for (int i = arr.size()/2; i < arr.size(); i++) {
+	    arr.remove(i);
+	}
+	return median(arr);
     }
 
-    public static Comparable median(int col, CSVArray csv){
-	return 0;
+    private static double median(ArrayList<Object> arr){
+	double val1 = Double.parseDouble(arr.get( arr.size()/2 ).toString());
+	if (arr.size() % 2 == 0) {
+	    double val2 = Double.parseDouble(arr.get( arr.size()/2 + 1 ).toString());
+	    return (val1 + val2) / 2.0;
+	} else {
+	    return val1;
+	}
+    }
+
+    public static double median(int col, CSVArray csv){
+	ArrayList<Object> arr = csv.sort(col);
+	return median(arr);
+	
     }
     
-    public static Comparable thirdQ(int col, CSVArray csv){
-	return 0;
+    public static double thirdQ(int col, CSVArray csv){
+	ArrayList<Object> arr = csv.sort(col);
+	for (int i = 0; i < arr.size()/2; i++) {
+	    arr.remove(i);
+	}
+	return median(arr);
     }
 
     public static Comparable max(int col, CSVArray csv){
@@ -57,11 +77,8 @@ public class CSVStat{
 	double variance = 0;
 	ArrayList<Object> colValues = csv.getCol(col);
 	for (int i = 0; i < colValues.size(); i++) {
-	    if (colValues.get(i) instanceof Integer) {
-		variance += Math.pow(((int)colValues.get(i) - average), 2);
-	    } else {
-		variance += Math.pow(((double)colValues.get(i) - average), 2);
-	    }
+	    double val = Double.parseDouble(colValues.get(i).toString());
+	    variance += Math.pow((val - average), 2);
 	}
 	variance /= colValues.size();
 	return Math.sqrt(variance);

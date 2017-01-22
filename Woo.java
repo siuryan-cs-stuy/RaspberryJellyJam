@@ -98,10 +98,16 @@ public class Woo{
 	    return "returns the minimum value of a column";}
 	if (method.equals("max")){
 	    return"returns the maximum value of a column";}
+	if (method.equals("median")){
+	    return"returns the medium value of a column";}
+	if (method.equals("firstQ")){
+	    return"returns the first quartile value of a column";}
+	if (method.equals("thirdQ")){
+	    return"returns the third quartile value of a column";}
 	if (method.equals("average")){
 	    return"returns the average of a column";}
 	if (method.equals("standardDev")){
-	    return"returns the standard deviation of a column";}
+	    return"returns the population standard deviation of a column";}
 	if (method.equals("correlation")){
 	    return"returns the correlation between two columns";}
 	if (method.equals("prettyPrint")){
@@ -272,7 +278,19 @@ public class Woo{
 
 	    if (command.equals("--correlation")){
 		result = CSVStat.correlation(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
-	    }					
+	    }
+
+	    if (command.equals("--median")){
+		result = CSVStat.median(Integer.parseInt(args[2]),csv);
+	    }
+
+	    if (command.equals("--thirdQ")){
+		result = CSVStat.thirdQ(Integer.parseInt(args[2]),csv);
+	    }
+
+	    if (command.equals("--firstQ")){
+		result = CSVStat.firstQ(Integer.parseInt(args[2]),csv);
+	    }
 
 	    if (command.equals("--sum")){
 		result = CSVMath.sum(Integer.parseInt(args[2]),csv);
