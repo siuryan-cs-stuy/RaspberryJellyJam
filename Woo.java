@@ -104,6 +104,8 @@ public class Woo{
 	    return"returns the first quartile value of a column";}
 	if (method.equals("thirdQ")){
 	    return"returns the third quartile value of a column";}
+	if (method.equals("statSummary")){
+	    return"prints the five number summary of a column";}
 	if (method.equals("average")){
 	    return"returns the average of a column";}
 	if (method.equals("standardDev")){
@@ -290,6 +292,11 @@ public class Woo{
 
 	    if (command.equals("--firstQ")){
 		result = CSVStat.firstQ(Integer.parseInt(args[2]),csv);
+	    }
+
+	    if (command.equals("--statSummary")){
+		CSVStat.statSummary(Integer.parseInt(args[2]),csv);
+	        return;
 	    }
 
 	    if (command.equals("--sum")){

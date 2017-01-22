@@ -5,12 +5,12 @@ public class CSVStat{
     /*=======================================================
       Statistics Methods
       =====================================================*/
-    public static Comparable min(int col, CSVArray csv){
+    public static double min(int col, CSVArray csv){
 	ArrayList<Object> arr = csv.getCol(col);
-	Comparable min = (Comparable) arr.get(0);
+	double min = Double.parseDouble( arr.get(0).toString() );
 	for (int i = 1; i < arr.size(); i++) {
-	    if (((Comparable)arr.get(i)).compareTo( min ) < 0) {
-		min = (Comparable) arr.get(i);
+	    if ((Double.parseDouble(arr.get(i).toString())) < min) {
+		min = Double.parseDouble(arr.get(i).toString());
 	    }
 	}
 	return min;
@@ -48,18 +48,23 @@ public class CSVStat{
 	return median(arr);
     }
 
-    public static Comparable max(int col, CSVArray csv){
+    public static double max(int col, CSVArray csv){
         ArrayList<Object> arr = csv.getCol(col);
-	Comparable max = (Comparable) arr.get(0);
+	double max = Double.parseDouble( arr.get(0).toString() );
 	for (int i = 1; i < arr.size(); i++) {
-	    if (((Comparable)arr.get(i)).compareTo( max ) > 0) {
-		max = (Comparable) arr.get(i);
+	    if ((Double.parseDouble(arr.get(i).toString())) > max) {
+		max = Double.parseDouble(arr.get(i).toString());
 	    }
 	}
 	return max;
     }
 
     public static void statSummary(int col, CSVArray csv){
+	System.out.println( "Min: " + min(col,csv) + "\n" +
+			    "1Q : " + firstQ(col,csv) + "\n" +
+			    "Med: " + median(col,csv) + "\n" +
+			    "3Q : " + thirdQ(col,csv) + "\n" +
+			    "Max: " + max(col,csv) + "\n" );
     }
 
     public static String boxAndWhisker(int col, CSVArray csv){
