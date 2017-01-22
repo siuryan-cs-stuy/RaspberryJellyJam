@@ -321,9 +321,7 @@ public class CSVArray{
      * @return      String representation of CSVArray
      */
     public CSVArray deleteCell(int x, int y){
- 	ArrayList temp = _data.get(y-1);
- 	temp.set(x-1, null);
- 	_data.set(y-1, temp);
+ 	setCell(x,y,null);
  	return this;
     }
 
