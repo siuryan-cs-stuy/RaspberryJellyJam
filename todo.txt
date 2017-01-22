@@ -8,13 +8,12 @@ TODO LIST
 OTHER (to be done by Jan. 22)
 - CSVArray: searchCol, searchRow, 
 - CSVGeneral class with the other methods
-- CSVStat class with everything except box-and-whisker, correlation
+- CSVStat class with everything except box-and-whisker
 - Add algorithm for choosing best sort method
 - Handle special cases for CSV formatting
 - Handle column headers/labels
 - Split search into linear and binary (to allow user to choose)
-- Box-and-whisker graph, correlation in CSVStat
+- Box-and-whisker graph in CSVStat
 - EXCEPTION HANDLING (out of bounds)
-- finish Specific help for flags
 
 FINAL TESTING (on Jan. 22)

@@ -22,19 +22,19 @@ public class Woo{
 	helpStr += "Possible <command> <args...>\n";
 	helpStr += "--help\n";
 	helpStr += "for a specific description of a method, <method> -h\n";
-	helpStr += "--getCell <row#> <column#>\n";
+	helpStr += "--getCell <row#> <col#>\n";
 	helpStr += "--getRow <row#>\n";
 	helpStr += "--getCol <column#>\n";
-	helpStr += "--setCell <row#> <column#> <value>\n";
+	helpStr += "--setCell <row#> <col#> <value>\n";
 	helpStr += "--setRow <fileName> <position>\n";
 	helpStr += "--setCol <fileName> <position>\n";
 	helpStr += "--addRow <filename>\n";
 	helpStr += "--addRow <filename> <position>\n";
 	helpStr += "--addCol <filename>\n";
 	helpStr += "--addCol <filename> <position>\n";
-	helpStr += "--deleteCell <row#> <column#>\n";
+	helpStr += "--deleteCell <row#> <col#>\n";
 	helpStr += "--deleteRow <row#>\n";
-	helpStr += "--deleteCol <column#>\n";
+	helpStr += "--deleteCol <col#>\n";
 	helpStr += "--sort <col#>\n";
 	helpStr += "--searchCell <target phrase>\n";
 	helpStr += "--searchRow <target phrase>\n";
@@ -44,10 +44,11 @@ public class Woo{
 	helpStr += "--subtract <col1#> <col2#>\n";
 	helpStr += "--multiply <col1#> <col2#>\n";
 	helpStr += "--divide <col1#> <col2#>\n";
-	helpStr += "--min <column#>\n";
-	helpStr += "--max <column#>\n";
-	helpStr += "--standardDev <column#>\n";
-	helpStr += "--average <column#>\n";
+	helpStr += "--min <col#>\n";
+	helpStr += "--max <col#>\n";
+	helpStr += "--standardDev <col#>\n";
+	helpStr += "--average <col#>\n";
+	helpStr += "--correlation <col1#> <col2#>\n";
 	helpStr += "--prettyPrint\n";	
 	return helpStr;
     }
@@ -101,6 +102,8 @@ public class Woo{
 	    return"returns the average of a column";}
 	if (method.equals("standardDev")){
 	    return"returns the standard deviation of a column";}
+	if (method.equals("correlation")){
+	    return"returns the correlation between two columns";}
 	if (method.equals("prettyPrint")){
 	    return"returns a representation of a csv's data";}
 	else{return "Invalid method. Please use --help for a list of commands.";}
@@ -266,6 +269,10 @@ public class Woo{
 	    if (command.equals("--standardDev")){
 		result = CSVStat.standardDev(Integer.parseInt(args[2]),csv);
 	    }
+
+	    if (command.equals("--correlation")){
+		result = CSVStat.correlation(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
+	    }					
 
 	    if (command.equals("--sum")){
 		result = CSVMath.sum(Integer.parseInt(args[2]),csv);

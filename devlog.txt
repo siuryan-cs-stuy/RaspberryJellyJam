@@ -133,6 +133,13 @@ Joelle Lum ::
 2017-01-21
 --------------------------------------------------------------
 James Smith :: 
-Ryan Siu :: 
+Ryan Siu :: Worked on correlation()
 Joelle Lum :: Tweaked method bodies of CSVMath, changed parameters of get/set/deleteCell to row,column instead of column,row, added -h flag for specific help, began testing out all the methods and noting bugs
+==============================================================
+
+2017-01-22
+--------------------------------------------------------------
+James Smith :: 
+Ryan Siu :: Worked on CSVStat methods
+Joelle Lum :: 
 ==============================================================

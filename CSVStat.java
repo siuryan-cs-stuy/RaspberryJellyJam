@@ -68,6 +68,22 @@ public class CSVStat{
     }
 
     public static double correlation(int col1, int col2, CSVArray csv){
-	return 0;
+	double average1 = average(col1,csv);
+	double average2 = average(col2,csv);
+	double variance1 = Math.pow(standardDev(col1, csv), 2);
+	double variance2 = Math.pow(standardDev(col2, csv), 2);
+	double sum = 0;
+
+	ArrayList<Object> col1Values = csv.getCol(col1);
+	ArrayList<Object> col2Values = csv.getCol(col2);
+	for (int i = 0; i < col1Values.size(); i++) {
+	    double val1 = Double.parseDouble(col1Values.get(i).toString());
+	    double val2 = Double.parseDouble(col2Values.get(i).toString());
+	    sum += (val1 - average1) * (val2 - average2);
+	}
+
+        double r = sum / Math.sqrt(variance1 * variance2 * col1Values.size() * col2Values.size());
+	return r;
+	
     }
 }
