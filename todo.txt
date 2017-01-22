@@ -7,6 +7,6 @@ TODO LIST
 
 To be done by Jan. 22:
 - EXCEPTION HANDLING (out of bounds and # of arguments)
-- CSVGeneral 
+- CSVArray Join methods
 - Handle special cases for CSV formatting
 - Handle column headers
