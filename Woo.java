@@ -158,12 +158,6 @@ public class Woo{
 		System.out.println(help());
 		return;
 	    }
-
-	    //checks for the specific help flag
-	    if (args[1].equals("-h")){
-		System.out.println(specificHelp(args[0]));
-		return;
-	    }
 		
 	    CSVArray csv;
 	    
@@ -171,12 +165,20 @@ public class Woo{
 	    if (invalidFile(args[0])){
 		System.out.println("Invalid file type.\n Consult --help for argument structure.");
 		return;
-	    } else if (args.length == 1) {
+	    }
+	    
+	    if (args.length == 1) {
 		csv = new CSVArray(args[0]);
 		System.out.println(CSVGeneral.prettyPrint(csv));
 		return;
 	    }
-
+	    
+	    //checks for the specific help flag
+	    if (args[1].equals("-h")){
+		System.out.println(specificHelp(args[0]));
+		return;
+	    }
+	    
 	    if (args.length < 2 || args.length < 3 && writeToFile){
 		System.out.println("Arguments not supplied.\n Consult --help for argument Structure.");
 		return;
