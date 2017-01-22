@@ -11,7 +11,6 @@ import java.io.File;
 
 public class Woo{
     
-
     /**
      * Returns a string message that details which flag to use for which method.
      *
@@ -22,31 +21,91 @@ public class Woo{
 	helpStr += "Syntax: java Woo <filename> <command> <args...>\n";
 	helpStr += "Possible <command> <args...>\n";
 	helpStr += "--help\n";
+	helpStr += "for a specific description of a method, <method> -h\n";
 	helpStr += "--getCell <row#> <column#>\n";
 	helpStr += "--getRow <row#>\n";
 	helpStr += "--getCol <column#>\n";
 	helpStr += "--setCell <row#> <column#> <value>\n";
-	helpStr += "--setRow <row#> <filename>\n";
-	helpStr += "--setCol <column#> <position> <filename>\n";
+	helpStr += "--setRow <fileName> <position>\n";
+	helpStr += "--setCol <fileName> <position>\n";
 	helpStr += "--addRow <filename>\n";
 	helpStr += "--addRow <filename> <position>\n";
 	helpStr += "--addCol <filename>\n";
 	helpStr += "--addCol <filename> <position>\n";
-	helpStr += "--delCell <row#> <column#>\n";
-	helpStr += "--delRow <row#>\n";
-	helpStr += "--delCol <column#>\n";
+	helpStr += "--deleteCell <row#> <column#>\n";
+	helpStr += "--deleteRow <row#>\n";
+	helpStr += "--deleteCol <column#>\n";
 	helpStr += "--sort <col#>\n";
 	helpStr += "--searchCell <target phrase>\n";
 	helpStr += "--searchRow <target phrase>\n";
 	helpStr += "--searchCol <target phrase>\n";
+	helpStr += "--sum <col#>\n";
+	helpStr += "--add <col1#> <col2#>\n";
+	helpStr += "--subtract <col1#> <col2#>\n";
+	helpStr += "--multiply <col1#> <col2#>\n";
+	helpStr += "--divide <col1#> <col2#>\n";
 	helpStr += "--min <column#>\n";
 	helpStr += "--max <column#>\n";
 	helpStr += "--standardDev <column#>\n";
 	helpStr += "--average <column#>\n";
-	helpStr += "--prettyPrint";
+	helpStr += "--prettyPrint\n";	
 	return helpStr;
     }
-
+    
+    public static String specificHelp(String method){
+	if (method.equals("getCell")){
+	    return "returns the value of a specified row";}
+	if (method.equals("getRow")){
+	    return "returns the specified row";}
+	if (method.equals("getCol")){
+	    return "returns the specified column";}
+	if (method.equals("setCell")){
+	    return "returns how a csv's data would look like after a specified cell is set to a value";}
+	if (method.equals("setRow")){
+	    return "returns how a csv's data would look like after a specified row is set to the data of another csv, assuming that csv only has one row";}
+	if (method.equals("setCol")){
+	    return "returns how a csv's data would look like after a specified column is set to the data of another csv, assuming that csv only has one row";}
+	if (method.equals("addRow")){
+	    return "returns how a csv's data would look like after another csv's data, which only has one row, is added as a row to the end or a specified location of this csv's data";}
+	if (method.equals("addCol")){
+	    return "returns how a csv's data would look like after another csv's data, which only has one row, is added as a column to the end or a specified location of this csv's data";}
+	if (method.equals("deleteCell")){
+	    return "returns how a csv's data would look like after nullifying a specified cell ";}
+	if (method.equals("deleteRow")){
+	    return "returns how a csv's data would look like after deleting a specified row";}
+	if (method.equals("deleteCol")){
+	    return "returns how a csv's data would look like after deleting a specified column";}
+	if (method.equals("sort")){
+	    return "returns the elements of a column in an ascending order";}
+	if (method.equals("searchCell")){
+	    return "returns the coordinates of the first occurrence of a phrase";}
+	if (method.equals("searchRow")){
+	    return"returns the coordinates of the first occurrence of a phrase in a specified row";}
+	if (method.equals("searchCol")){
+	    return "returns the coordinates of the first occurrence of a phrase in a specified column";}
+	if (method.equals("sum")){
+	    return "returns the sum of a column";}
+	if (method.equals("add")){
+	    return "returns the sums across both columns";}
+	if (method.equals("subtract")){
+	    return "returns the differences across both columns";}
+	if (method.equals("divide")){
+	    return"returns the quotients across both columns";}
+	if (method.equals("multiply")){
+	    return"returns the products across both columns";}
+	if (method.equals("min")){
+	    return "returns the minimum value of a column";}
+	if (method.equals("max")){
+	    return"returns the maximum value of a column";}
+	if (method.equals("average")){
+	    return"returns the average of a column";}
+	if (method.equals("standardDev")){
+	    return"returns the standard deviation of a column";}
+	if (method.equals("prettyPrint")){
+	    return"returns a representation of a csv's data";}
+	else{return "Invalid method. Please use --help for a list of commands.";}
+    }   
+	    
     public static boolean invalidFile(String fileName){
 	File f = new File(fileName);
 	//If the file doesn't exist or it is a directory or the filename isn't long enough to be a csv file or it is not a csv file
@@ -87,6 +146,12 @@ public class Woo{
 		return;
 	    }
 
+	    //checks for the specific help flag
+	    if (args[1].equals("-h")){
+		System.out.println(specificHelp(args[0]));
+		return;
+	    }
+		
 	    CSVArray csv;
 	    
 	    //Ensures that the file argument is valid
@@ -128,16 +193,12 @@ public class Woo{
 
 	    if (command.equals("--setRow")){
 		CSVArray second = new CSVArray(args[3]);
-		result = csv.setRow(Integer.parseInt(args[2]), second._data.get(0));
+		result = csv.setRow(new CSVArray(args[2]), Integer.parseInt(args[3]));
 	    }
 	
 	    if (command.equals("--setCol")){
 		CSVArray second = new CSVArray(args[3]);
-		ArrayList col = new ArrayList();
-		for (ArrayList i: second._data){
-		    col.add(i.get(0));
-		}
-		result = csv.setCol(Integer.parseInt(args[2]), col);
+		result = csv.setCol(new CSVArray(args[2]), Integer.parseInt(args[3]));
 	    }
 
 	    if (command.equals("--addCol")){
@@ -179,7 +240,7 @@ public class Woo{
 	    }
 
 	    if (command.equals("--searchRow")){
-		result = rowString(csv.searchRow(args[2]));
+		 result = rowString(csv.searchRow(args[2]));
 	    }
 
 	     if (command.equals("--searchCol")){

@@ -9,7 +9,7 @@ public class CSVMath{
      * Returns a Double that is equal to the sum of a column's data. 
      * If the data is a Integer, typecast it into a Integer. 
      * Then get its value as a double.
-     * If an Object is a Double, typecast it into a Double.
+     * If an Object is a Double, typecast it into a double.
      * Add the data to the sum.
      * @param   col  integer within column range
      * @param   csv  CSVArray
@@ -30,7 +30,7 @@ public class CSVMath{
      * Returns an ArrayList of Doubles that contains the sum of two 
      * columns' data, added across rows. 
      * If an Object is a Integer, typecast it into an int.
-     * If an Object is a Double, typecast it into a Double.
+     * If an Object is a Double, typecast it into a double.
      * After typecasting both values, add them together.
      * Add the sum into the ArrayList of sums.
      * Repeat previous steps for each row.
@@ -66,7 +66,7 @@ public class CSVMath{
      * columns' data, subtracted across rows. 
      * If the first column's data is an Integer, typecast it into an int.
      * Then get its value as a double.
-     * If the first column's data is a Double, typecast it into a Double.
+     * If the first column's data is a Double, typecast it into a double.
      * Set the first column's data as a variable.
      * Run through whether the second column's data is an Integer or a Double,
      * and typecast accordingly.
@@ -105,7 +105,7 @@ public class CSVMath{
      * columns' data, multiplied across rows. 
      * If the first column's data is an Integer, typecast it into an Integer.
      * Then get its value as a double.
-     * If the first column's data is a Double, typecast it into a Double.
+     * If the first column's data is a Double, typecast it into a double.
      * Set the first column's data as a variable.
      * Run through whether the second column's data is an Integer or a Double,
      * and typecast accordingly.
@@ -119,24 +119,20 @@ public class CSVMath{
      */
     public static ArrayList multiply(int col1, int col2, CSVArray csv){
 	ArrayList<Double> temp = new ArrayList();
-	Double s = 0.;
-	Integer x = 0;
-	Integer y = 0;
+	double s = 0.;
 	for (ArrayList<Object> row : csv._data){
 	    s = 0.;
 	    if (row.get(col1-1) instanceof Integer){
-		x = (Integer) row.get(col1-1);
-		s = x.doubleValue();
+		s = (int) row.get(col1-1);
 	    }
 	    if (row.get(col1-1) instanceof Double){
-		s = (Double) row.get(col1-1);
+		s = (double) row.get(col1-1);
 	    }
 	    if (row.get(col2-1) instanceof Integer){
-		y = (Integer) row.get(col2-1);
-		s *= y.doubleValue();
+		s *= (int) row.get(col2-1);
 	    }
 	    if (row.get(col2-1) instanceof Double){
-		s *= (Double) row.get(col2-1);
+		s *= (double) row.get(col2-1);
 	    }
 	    temp.add(s);
 	}
@@ -148,7 +144,7 @@ public class CSVMath{
      * columns' data, divided across rows. 
      * If the first column's data is an Integer, typecast it into an Integer.
      * Then get its value as a double.
-     * If the first column's data is a Double, typecast it into a Double.
+     * If the first column's data is a Double, typecast it into a double.
      * Set the first column's data as a variable.
      * Run through whether the second column's data is an Integer or a Double,
      * and typecast accordingly.
@@ -162,24 +158,20 @@ public class CSVMath{
      */
     public static ArrayList divide(int col1, int col2, CSVArray csv){
 	ArrayList<Double> temp = new ArrayList();
-	Double s = 0.;
-	Integer x = 0;
-	Integer y = 0;
+	double s = 0.;
 	for (ArrayList<Object> row : csv._data){
 	    s = 0.;
 	    if (row.get(col1-1) instanceof Integer){
-		x = (Integer) row.get(col1-1);
-		s = x.doubleValue();
+		s = (int) row.get(col1-1);
 	    }
 	    if (row.get(col1-1) instanceof Double){
-		s = (Double) row.get(col1-1);
+		s = (double) row.get(col1-1);
 	    }
 	    if (row.get(col2-1) instanceof Integer){
-		y = (Integer) row.get(col2-1);
-		s /= y.doubleValue();
+		s /= (int) row.get(col2-1);
 	    }
 	    if (row.get(col2-1) instanceof Double){
-		s /= (Double) row.get(col2-1);
+		s /= (double) row.get(col2-1);
 	    }
 	    temp.add(s);
 	}

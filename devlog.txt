@@ -129,3 +129,10 @@ James Smith :: Rewrote csv parsing to work with csvs without values at every spo
 Ryan Siu :: Worked on standardDev()
 Joelle Lum :: 
 ==============================================================
+
+2017-01-21
+--------------------------------------------------------------
+James Smith :: 
+Ryan Siu :: 
+Joelle Lum :: Tweaked method bodies of CSVMath, changed parameters of get/set/deleteCell to row,column instead of column,row, added -h flag for specific help, began testing out all the methods and noting bugs
+==============================================================

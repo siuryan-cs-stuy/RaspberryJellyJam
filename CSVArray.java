@@ -175,7 +175,7 @@ public class CSVArray{
      * @return      Object representation of data
      */
     public Object getCell(int x, int y){
-        return _data.get(y-1).get(x-1);
+        return _data.get(x-1).get(y-1);
     }
 
      /**
@@ -211,7 +211,7 @@ public class CSVArray{
      * @return      String representation of CSVArray
      */
     public CSVArray setCell(int x, int y, Object value){
-	_data.get(y-1).set(x-1,value);
+	_data.get(x-1).set(y-1,value);
 	return this;
     }
      /**
@@ -220,8 +220,8 @@ public class CSVArray{
      * @param  ArrayList  containing Objects
      * @return      String representation of CSVArray
      */
-    public CSVArray setRow(int rowPos, ArrayList rowVal){
-	_data.set(rowPos, rowVal);
+    public CSVArray setRow(CSVArray rowVal, int rowPos){
+	_data.set(rowPos-1, rowVal._data.get(0));
 	return this;
     }
 
@@ -231,10 +231,10 @@ public class CSVArray{
      * @param  ArrayList  containing Objects
      * @return      String representation of CSVArray
      */
-    public CSVArray setCol(int colPos, ArrayList colVal){
+    public CSVArray setCol(CSVArray colVal, int colPos){
         int index = 0;
 	for (ArrayList<Object> row : _data){
-	    row.set(colPos,colVal.get(index));
+	    row.set(colPos-1,colVal._data.get(0).get(index));
 	    index++;
 	}
 	return this;
@@ -452,3 +452,4 @@ public class CSVArray{
 	}
     }
 }
+
