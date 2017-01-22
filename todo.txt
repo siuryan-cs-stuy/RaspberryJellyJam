@@ -6,6 +6,7 @@ HW57 -- ...and Keeping it Pointed Up
 TODO LIST
 
 OTHER (to be done by Jan. 22)
+- CSVArray: searchCol, searchRow, 
 - CSVGeneral class with the other methods
 - CSVStat class with everything except box-and-whisker, correlation
 - Add algorithm for choosing best sort method
@@ -14,6 +15,6 @@ OTHER (to be done by Jan. 22)
 - Split search into linear and binary (to allow user to choose)
 - Box-and-whisker graph, correlation in CSVStat
 - EXCEPTION HANDLING (out of bounds)
-- Specific help for flags
+- finish Specific help for flags
 
 FINAL TESTING (on Jan. 22)
