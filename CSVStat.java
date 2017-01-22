@@ -67,10 +67,6 @@ public class CSVStat{
 			    "Max: " + max(col,csv) + "\n" );
     }
 
-    public static String boxAndWhisker(int col, CSVArray csv){
-	return "";
-    }
-
     public static double average(int col, CSVArray csv){
 	double sum = CSVMath.sum(col,csv);
 	return sum / csv.getCol(col).size();

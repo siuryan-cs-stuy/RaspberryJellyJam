@@ -21,7 +21,6 @@ public class Woo{
 	helpStr += "Syntax: java Woo <filename> <command> <args...>\n";
 	helpStr += "Possible <command> <args...>\n";
 	helpStr += "--help\n";
-	helpStr += "for a specific description of a method, <method> -h\n";
 	helpStr += "--getCell <row#> <col#>\n";
 	helpStr += "--getRow <row#>\n";
 	helpStr += "--getCol <column#>\n";
@@ -49,7 +48,10 @@ public class Woo{
 	helpStr += "--standardDev <col#>\n";
 	helpStr += "--average <col#>\n";
 	helpStr += "--correlation <col1#> <col2#>\n";
-	helpStr += "--prettyPrint\n";	
+	helpStr += "--prettyPrint\n";
+	helpStr += "\nFlags:\n";
+	helpStr += "-h : For a specific description of a method, <method> -h\n";
+	helpStr += "-w : Writes the output of the program directly to the csv file provided";
 	return helpStr;
     }
     

@@ -5,15 +5,8 @@ HW57 -- ...and Keeping it Pointed Up
 
 TODO LIST
 
-OTHER (to be done by Jan. 22)
-- CSVArray: searchCol, searchRow, 
-- CSVGeneral class with the other methods
-- CSVStat class with everything except box-and-whisker
-- Add algorithm for choosing best sort method
+To be done by Jan. 22:
+- EXCEPTION HANDLING (out of bounds and # of arguments)
+- CSVGeneral 
 - Handle special cases for CSV formatting
-- Handle column headers/labels
-- Split search into linear and binary (to allow user to choose)
-- Box-and-whisker graph in CSVStat
-- EXCEPTION HANDLING (out of bounds)
-
-FINAL TESTING (on Jan. 22)
+- Handle column headers
