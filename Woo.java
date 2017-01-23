@@ -280,7 +280,7 @@ public class Woo{
 		    System.out.println("Error: Column CSV file is not a single column");
 			return;
 		}
-		if (args.length > 3){
+		if (args.length > 3 && !(writeToFile || fileHeaders) || args.length > 4 && (writeToFile || fileHeaders)){
 		    catchRange(Integer.parseInt(args[3]), 1, csv);
 		    result = csv.addCol(col, Integer.parseInt(args[3]));
 		}
