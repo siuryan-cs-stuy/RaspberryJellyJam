@@ -11,27 +11,34 @@ Terminal CSV Tool
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-wow we so BOSS bc...
+Turning strings from a file into objects of a proper class.
+Figured out how to get around an uncatchable exception by learning a new java class to check whether files exist or not. 
+Handling CSV's with headers
+Handling CSV's with empty values (1,2,,3,4)
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-blah blah pesky bug...
-maybe some of these will move into the Obs.Ovrcm section...
+Handling CSV's that have elements in quotation marks.
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-James: Learned the Scanner, Buffered Writer, and File Writer classes in order to read and write csv files.
+James: Learned the Scanner, Buffered Writer,File, and File Writer classes in order to read and write csv files. Learned System.exit(). I learned about variable assignment in a try-catch block
+Learned how to write API comments. How to 
 Joelle: Learned basic Markdown tools
 Ryan: How to write API comments
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 we separated the csv methods into CSVMath, CSVGeneral, CSVStat because it would be clearer to understand
-we moved the add and delete methods into CSVArray because it seemed more logical for CSVArray to know the methods that alter its _data
+we moved almost all of the CSVGeneral methods into CSVArray because it seemed more logical for CSVArray to know the methods that alter its _data
+Changed search methods to return the positions of the target instead of the actual csv line to make it more versatile.
+
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+Coordination is key
+It is best for everyone to understand every component of the project even if they will not be working on it
+Being able to discuss things in person is beneficial to the outcome of the project
 ||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -139,7 +146,7 @@ Joelle Lum :: Tweaked method bodies of CSVMath, changed parameters of get/set/de
 
 2017-01-22
 --------------------------------------------------------------
-James Smith :: 
+James Smith :: Debugging/exception handling, worked on flowchart
 Ryan Siu :: Worked on CSVStat methods
 Joelle Lum :: 
 ==============================================================
