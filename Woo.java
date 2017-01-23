@@ -56,7 +56,7 @@ public class Woo{
 	helpStr += "\nFlags:\n";
 	helpStr += "-h : For a specific description of a method, --<method> -h\n";
 	helpStr += "-w : Writes the output of the program directly to the csv file provided. Cannot be used with -l\n";
-	helpStr += "-l : Does not include headers in performing the command. Cannot be used with -w";
+	helpStr += "-l : Does not include the header/label row in performing the command. Cannot be used with -w";
 	return helpStr;
     }
 
@@ -156,7 +156,7 @@ public class Woo{
     //ensures that the method takes exactly as many as were given
     public static void catchOOB(int numArgs, int argLen, boolean writeFlag){
 	if ((numArgs > argLen - 3) && writeFlag ||((numArgs > argLen-2) && !writeFlag)){
-	    System.out.println( "Error: Not enough arguents supplied. Please consult --help for argument information");
+	    System.out.println( "Error: Not enough arguments supplied. Please consult --help for argument information");
 	    System.exit(0);
 	}
 	else if(((numArgs < argLen - 3) && writeFlag) || (numArgs < argLen-2 && !writeFlag)){
