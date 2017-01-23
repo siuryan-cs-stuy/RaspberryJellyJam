@@ -253,8 +253,9 @@ public class CSVArray{
     public CSVArray addCol(CSVArray col){
 	int index = 0;
 	for (ArrayList<Object> row : _data){
-	    row.add(col._data.get(0).get(index));
+	    row.add(col._data.get(index).get(0));
 	    index++;}
+	
 	return this;
     }
 
@@ -275,7 +276,7 @@ public class CSVArray{
 	    }
 	}
  	for (ArrayList<Object> row : _data){
- 	    row.add(pos-1,col._data.get(0).get(index));
+ 	    row.add(pos-1,col._data.get(index).get(0));
  	    index++;
  	}
  	return this;
