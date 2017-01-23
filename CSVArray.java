@@ -379,29 +379,6 @@ public class CSVArray{
     public ArrayList sort(int col){
 	return bubbleSort(getCol(col));
     }
-
-    /*=======================================================
-      Join Methods
-      =====================================================*/
-    /**
-     *Finds the intersection of 2 columns
-     *@param int Position of first column
-     *@param int Position of second Column
-     *@return CSVArray Representation of the intersection of 2 columns' contents
-     */
-    //  public CSVArray innerJoin(int col1, int col2){
-    //
-    // }
-
-    /**
-     *Finds the union of 2 columns
-     *@param int Position of first column
-     *@param int Position of second Column
-     *@return CSVArray Representation of the union 2 columns' contents
-     */
-    // public CSVArray outerJoin(int col1, int col2){
-    //
-    // }
     
     /*=======================================================
       Search Method
