@@ -17,5 +17,7 @@ Instructions:
 
 4. `java Woo <fileName.csv> --<command> <arg1> <arg2> <arg...> <-flag>`
 
+5. to get a description of a method, `java Woo --<method> -h`
+
 Note: Unless you supply a write flag(overwrites the file), the program will output data to the terminal. This allows you to redirect this information to other places such as to new files.
   Ex. `java Woo oldFile.csv --delCol 1 > newFile.csv`
