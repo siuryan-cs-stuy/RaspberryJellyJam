@@ -161,7 +161,7 @@ public class Woo{
 	    System.exit(0);
 	}
 	else if(((numArgs < argLen - 3) && writeFlag) || (numArgs < argLen-2 && !writeFlag)){
-	    System.out.println("Error: Too many arguments supplied. Please consult --help for argument information");
+	    System.out.println("Error: Too many arguments/flags supplied. Please consult --help for argument information");
 	    System.exit(0);
 	}
     }
