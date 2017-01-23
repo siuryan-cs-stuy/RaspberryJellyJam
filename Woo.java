@@ -276,7 +276,7 @@ public class Woo{
 		    return;
 		}
 		CSVArray col = new CSVArray(args[2]);
-		if (col.numRows() > 1 || col.numRows() < 1){
+		if (col.numCols() > 1 || col.numCols() < 1){
 		    System.out.println("Error: Column CSV file is not a single column");
 			return;
 		}
