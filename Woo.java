@@ -56,65 +56,65 @@ public class Woo{
     }
     
     public static String specificHelp(String method){
-	if (method.equals("getCell")){
+	if (method.equals("--getCell")){
 	    return "returns the value of a specified row";}
-	if (method.equals("getRow")){
+	if (method.equals("--getRow")){
 	    return "returns the specified row";}
-	if (method.equals("getCol")){
+	if (method.equals("--getCol")){
 	    return "returns the specified column";}
-	if (method.equals("setCell")){
+	if (method.equals("--setCell")){
 	    return "returns how a csv's data would look like after a specified cell is set to a value";}
-	if (method.equals("setRow")){
+	if (method.equals("--setRow")){
 	    return "returns how a csv's data would look like after a specified row is set to the data of another csv, assuming that csv only has one row";}
-	if (method.equals("setCol")){
+	if (method.equals("--setCol")){
 	    return "returns how a csv's data would look like after a specified column is set to the data of another csv, assuming that csv only has one row";}
-	if (method.equals("addRow")){
+	if (method.equals("--addRow")){
 	    return "returns how a csv's data would look like after another csv's data, which only has one row, is added as a row to the end or a specified location of this csv's data";}
-	if (method.equals("addCol")){
+	if (method.equals("--addCol")){
 	    return "returns how a csv's data would look like after another csv's data, which only has one row, is added as a column to the end or a specified location of this csv's data";}
-	if (method.equals("deleteCell")){
+	if (method.equals("--deleteCell")){
 	    return "returns how a csv's data would look like after nullifying a specified cell ";}
-	if (method.equals("deleteRow")){
+	if (method.equals("--deleteRow")){
 	    return "returns how a csv's data would look like after deleting a specified row";}
-	if (method.equals("deleteCol")){
+	if (method.equals("--deleteCol")){
 	    return "returns how a csv's data would look like after deleting a specified column";}
-	if (method.equals("sort")){
+	if (method.equals("--sort")){
 	    return "returns the elements of a column in an ascending order";}
-	if (method.equals("searchCell")){
+	if (method.equals("--searchCell")){
 	    return "returns the coordinates of the first occurrence of a phrase";}
-	if (method.equals("searchRow")){
+	if (method.equals("--searchRow")){
 	    return"returns the coordinates of the first occurrence of a phrase in a specified row";}
-	if (method.equals("searchCol")){
+	if (method.equals("--searchCol")){
 	    return "returns the coordinates of the first occurrence of a phrase in a specified column";}
-	if (method.equals("sum")){
+	if (method.equals("--sum")){
 	    return "returns the sum of a column";}
-	if (method.equals("add")){
+	if (method.equals("--add")){
 	    return "returns the sums across both columns";}
-	if (method.equals("subtract")){
+	if (method.equals("--subtract")){
 	    return "returns the differences across both columns";}
-	if (method.equals("divide")){
+	if (method.equals("--divide")){
 	    return"returns the quotients across both columns";}
-	if (method.equals("multiply")){
+	if (method.equals("--multiply")){
 	    return"returns the products across both columns";}
-	if (method.equals("min")){
+	if (method.equals("--min")){
 	    return "returns the minimum value of a column";}
-	if (method.equals("max")){
+	if (method.equals("--max")){
 	    return"returns the maximum value of a column";}
-	if (method.equals("median")){
+	if (method.equals("--median")){
 	    return"returns the medium value of a column";}
-	if (method.equals("firstQ")){
+	if (method.equals("--firstQ")){
 	    return"returns the first quartile value of a column";}
-	if (method.equals("thirdQ")){
+	if (method.equals("--thirdQ")){
 	    return"returns the third quartile value of a column";}
-	if (method.equals("statSummary")){
+	if (method.equals("--statSummary")){
 	    return"prints the five number summary of a column";}
-	if (method.equals("average")){
+	if (method.equals("--average")){
 	    return"returns the average of a column";}
-	if (method.equals("standardDev")){
+	if (method.equals("--standardDev")){
 	    return"returns the population standard deviation of a column";}
-	if (method.equals("correlation")){
+	if (method.equals("--correlation")){
 	    return"returns the correlation between two columns";}
-	if (method.equals("prettyPrint")){
+	if (method.equals("--prettyPrint")){
 	    return"returns a representation of a csv's data";}
 	else{return "Invalid method. Please use --help for a list of commands.";}
     }   
@@ -125,6 +125,7 @@ public class Woo{
 	return !(f.exists() && !f.isDirectory() && (fileName.length() > 4) &&  fileName.substring(fileName.length()-4).equals(".csv"));
     }
 
+    //turns an arraylist into a csv row
     public static String rowString(ArrayList arr){
 	String retStr = "";
 	for (Object elem: arr){
@@ -133,12 +134,25 @@ public class Woo{
 	return retStr.substring(0, retStr.length()-1);
     }
 
+    //turns an arraylist into a csv column
     public static String colString(ArrayList arr){
 	String retStr = "";
 	for(Object elem: arr){
 	    retStr += elem + "\n";
 	}
 	return retStr;
+    }
+
+    //ensures that the method takes exactly as many as were given
+    public static void catchOOB(int numArgs, int argLen){
+	if (numArgs > argLen-2){
+	    System.out.println( "Error: Not enough arguents supplied. Please consult --help for argument information");
+	    System.exit(0);
+	}
+	else if(numArgs < argLen-2){
+	    System.out.println("Error: Too many arguments supplied. Please consult --help for argument information");
+	    System.exit(0);
+	}
     }
 	
     /**
@@ -147,6 +161,7 @@ public class Woo{
      */
     public static void main(String[] args)throws FileNotFoundException{
 	boolean writeToFile = false;
+	
 	// if there are arguments
 	if (args.length != 0) {
 	
@@ -158,7 +173,14 @@ public class Woo{
 		System.out.println(help());
 		return;
 	    }
-		
+
+	    //checks for the specific help flag
+	    if (args.length > 1 && args[1].equals("-h")){
+		catchOOB( 0, args.length);
+		System.out.println(specificHelp(args[0]));
+		return;
+	    }
+	    
 	    CSVArray csv;
 	    
 	    //Ensures that the file argument is valid
@@ -170,12 +192,6 @@ public class Woo{
 	    if (args.length == 1) {
 		csv = new CSVArray(args[0]);
 		System.out.println(CSVGeneral.prettyPrint(csv));
-		return;
-	    }
-	    
-	    //checks for the specific help flag
-	    if (args[1].equals("-h")){
-		System.out.println(specificHelp(args[0]));
 		return;
 	    }
 	    
@@ -191,27 +207,33 @@ public class Woo{
 	    Object result = null;
 	    
 	    if (command.equals("--getCell")){
+		catchOOB(2, args.length);
 		result = csv.getCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]));
 	    }
 
 	    if (command.equals("--getRow")){
+		catchOOB(1, args.length);
 		result = rowString(csv.getRow(Integer.parseInt(args[2])));
 	    }
 
 	    if (command.equals("--getCol")){
+		catchOOB(1, args.length);
 		result = colString(csv.getCol(Integer.parseInt(args[2])));
 	    }
 
 	    if (command.equals("--setCell")){
+		catchOOB(3, args.length);
 		result = csv.setCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]), CSVArray.typePicker(args[4]));
 	    }
 
 	    if (command.equals("--setRow")){
+		catchOOB(2, args.length);
 		CSVArray second = new CSVArray(args[3]);
 		result = csv.setRow(new CSVArray(args[2]), Integer.parseInt(args[3]));
 	    }
 	
 	    if (command.equals("--setCol")){
+		catchOOB(2, args.length);
 		CSVArray second = new CSVArray(args[3]);
 		result = csv.setCol(new CSVArray(args[2]), Integer.parseInt(args[3]));
 	    }
@@ -221,6 +243,7 @@ public class Woo{
 		    result = csv.addCol(new CSVArray(args[2]), Integer.parseInt(args[3]));
 		}
 		else{
+		    catchOOB(1, args.length);
 		    result = csv.addCol(new CSVArray(args[2]));
 		}
 	    }
@@ -230,99 +253,123 @@ public class Woo{
 		    result = csv.addRow(new CSVArray(args[2]), Integer.parseInt(args[3]));
 		}
 		else{
+		    catchOOB(1, args.length);
 		    result = csv.addRow(new CSVArray(args[2]));
 		}
 	    }
 
 	    if (command.equals("--deleteCell")){
+		catchOOB(2, args.length);
 		result = csv.deleteCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]));
 	    }
 
 	    if (command.equals("--deleteRow")){
+		catchOOB(1, args.length);
 		result = csv.deleteRow(Integer.parseInt(args[2]));
 	    }
 
 	    if (command.equals("--deleteCol")){
+		catchOOB(1, args.length);
 		result = csv.deleteCol(Integer.parseInt(args[2]));
 	    }
 
 	    if (command.equals("--sort")){
+		catchOOB(1, args.length);
 		result = colString(csv.sort(Integer.parseInt(args[2])));
 	    }
 
 	    if (command.equals("--searchCell")){
+		catchOOB(1, args.length);
 		result = csv.searchCell(args[2]);
 	    }
 
 	    if (command.equals("--searchRow")){
+		catchOOB(1, args.length);
 		 result = rowString(csv.searchRow(args[2]));
 	    }
 
 	     if (command.equals("--searchCol")){
+		 catchOOB(1, args.length);
 		 result = colString(csv.searchCol(args[2]));
 	    }
 
 	    if (command.equals("--prettyPrint")){
+		catchOOB(0, args.length);
 		result = CSVGeneral.prettyPrint(csv);
 	    }
 
 	    if (command.equals("--min")){
+		catchOOB(1, args.length);
 		result = CSVStat.min(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--max")){
+		catchOOB(1, args.length);
 		result = CSVStat.max(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--average")){
+		catchOOB(1, args.length);
 		result = CSVStat.average(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--standardDev")){
+		catchOOB(1, args.length);
 		result = CSVStat.standardDev(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--correlation")){
+		catchOOB(2, args.length);
 		result = CSVStat.correlation(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
 	    }
 
 	    if (command.equals("--median")){
+		catchOOB(1, args.length);
 		result = CSVStat.median(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--thirdQ")){
+		catchOOB(1, args.length);
 		result = CSVStat.thirdQ(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--firstQ")){
+		catchOOB(1, args.length);
 		result = CSVStat.firstQ(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--statSummary")){
+		catchOOB(1, args.length);
 		CSVStat.statSummary(Integer.parseInt(args[2]),csv);
 	        return;
 	    }
 
 	    if (command.equals("--sum")){
+		catchOOB(1, args.length);
 		result = CSVMath.sum(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--add")){
+		catchOOB(2, args.length);
 		result = CSVMath.add(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
 	    }
 
 	    if (command.equals("--subtract")){
+		catchOOB(2, args.length);
 		result = CSVMath.subtract(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
 	    }
 
 	    if (command.equals("--multiply")){
+		catchOOB(2, args.length);
 		result = CSVMath.multiply(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
 	    }
 
 	    if (command.equals("--divide")){
+		catchOOB(2, args.length);
 		result = CSVMath.divide(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
 	    }
 	    if (command.equals("--prettyPrint")){
+		catchOOB(0, args.length);
 		System.out.println(CSVGeneral.prettyPrint(csv));
 		return;
 	    }
