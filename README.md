@@ -19,7 +19,7 @@ Our CSV Tool is a tool used on the command line to work with CSV data. This tool
 
 4. To get a more detailed description of a command, `java Woo --<command> -h`
 
-5.`java Woo <fileName.csv> --<command> <args...> <-flag>`
+5. `java Woo <fileName.csv> --<command> <args...> <-flag>`
 
 6. To view csv files in a graphical format in the terminal, `java Woo <filename.csv>` or use `--prettyPrint`
 
