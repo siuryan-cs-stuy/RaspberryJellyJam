@@ -146,7 +146,7 @@ Joelle Lum :: Tweaked method bodies of CSVMath, changed parameters of get/set/de
 
 2017-01-22
 --------------------------------------------------------------
-James Smith :: Debugging/exception handling, worked on flowchart
+James Smith :: Debugging/exception handling, worked on flowchart, testing
 Ryan Siu :: Worked on CSVStat methods, fixed comments on all files, added -l flag, organized stuff, testing
 Joelle Lum :: Worked on flowchart and made digital copy of UML diagram, testing
 ==============================================================
