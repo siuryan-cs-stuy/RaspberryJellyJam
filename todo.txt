@@ -12,3 +12,6 @@ To be done by Jan. 22:
 - CSVArray Join methods
 - Handle special cases for CSV formatting
 - Handle column headers
+- Comments
+- Reorganize (put test csvs in folder)
+- Update README
