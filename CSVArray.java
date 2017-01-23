@@ -123,8 +123,8 @@ public class CSVArray{
       Size Increase Methods
       =====================================================*/
     /**
-     *Adds a given amount of empty columns to the _data
-     *@param int number of empty columns wanted
+     * Adds a given amount of empty columns to the _data.
+     * @param  moreCols  number of empty columns wanted
      */
     public void increaseCols(int moreCols){
 	for (int i=0; i < moreCols; i++){
@@ -135,8 +135,8 @@ public class CSVArray{
     }
 
     /**
-     *Adds a given amount of empty rows to _data
-     *@param int number of empty rows wanted
+     * Adds a given amount of empty rows to _data.
+     * @param  moreRows  number of empty rows wanted
      */
     public void increaseRows(int moreRows){
 	ArrayList row = new ArrayList(numCols());
@@ -152,14 +152,14 @@ public class CSVArray{
       Length Methods
       =====================================================*/
     /**
-     *@return Number of rows in the CSV
+     * @return  Number of rows in the CSV
      */
     public int numRows(){
 	return _data.size();
     }
 
     /**
-     *@return Number of columns in the csv
+     * @return  Number of columns in the csv
      */
     public int numCols(){
 	return _data.get(0).size();
@@ -170,17 +170,17 @@ public class CSVArray{
       =====================================================*/
     /**
      * Returns the data of a specified coordinate.
-     * @param  int  within range of rows
-     * @param  int  within range of columns
-     * @return      Object representation of data
+     * @param  x  row number
+     * @param  y  column number
+     * @return    Object representation of data
      */
     public Object getCell(int x, int y){
         return _data.get(y-1).get(x-1);
     }
 
      /**
-     * Returns a csv's row represented by an ArrayList of Objects
-     * @param  int within range of rows
+     * Returns a csv's row represented by an ArrayList of Objects.
+     * @param  row  row number
      * @return      row represented by ArrayList of Objects
      */
     public ArrayList getRow(int row){
@@ -188,8 +188,8 @@ public class CSVArray{
     }
 
      /**
-     * Returns a csv's column represented by an ArrayList of Objects
-     * @param  int within range of columns
+     * Returns a csv's column represented by an ArrayList of Objects.
+     * @param  col  column number
      * @return      column represented by ArrayList of Objects
      */
     public ArrayList getCol(int col){
@@ -204,20 +204,20 @@ public class CSVArray{
       Set Methods
       =====================================================*/
      /**
-     * Sets a specified cell to a given value
-     * @param  int  within range of rows
-     * @param  int  within range of columns
-     * @param  Object  any Object
-     * @return      String representation of CSVArray
+     * Sets a specified cell to a given value.
+     * @param  x      row number
+     * @param  y      column number
+     * @param  value  any Object
+     * @return        String representation of CSVArray
      */
     public CSVArray setCell(int x, int y, Object value){
 	_data.get(y-1).set(x-1,value);
 	return this;
     }
      /**
-     * Sets a specified row to a given ArrayList
-     * @param  int  within range of rows
-     * @param  ArrayList  containing Objects
+     * Sets a specified row to a given ArrayList.
+     * @param  rowPos   row number
+     * @param  rowVal   ArrayList containing Objects
      * @return      String representation of CSVArray
      */
     public CSVArray setRow(CSVArray rowVal, int rowPos){
@@ -226,9 +226,9 @@ public class CSVArray{
     }
 
     /**
-     * Sets a specified column to a given ArrayList
-     * @param  int  within range of columns
-     * @param  ArrayList  containing Objects
+     * Sets a specified column to a given ArrayList.
+     * @param  colPos   column number
+     * @param  colVal   ArrayList containing Objects
      * @return      String representation of CSVArray
      */
     public CSVArray setCol(CSVArray colVal, int colPos){
@@ -246,8 +246,8 @@ public class CSVArray{
       =====================================================*/
      /**
      * Appends the data of a CSVArray, given that it only
-     * has one row, to this CSVArray as a column
-     * @param  CSVArray  with only one row
+     * has one row, to this CSVArray as a column.
+     * @param  col  CSVArray with only one row
      * @return      String representation of CSVArray
      */
     public CSVArray addCol(CSVArray col){
@@ -261,9 +261,9 @@ public class CSVArray{
     /**
      * Adds the data of a CSVArray, given that it only
      * has one row, to a specified position of this CSVArray
-     * as a column
-     * @param  CSVArray  with only one row
-     * @param  int  within range of columns
+     * as a column.
+     * @param  col  CSVArraywith only one row
+     * @param  pos  column number
      * @return      String representation of CSVArray
      */
     public CSVArray addCol(CSVArray col, int pos){
@@ -277,8 +277,8 @@ public class CSVArray{
 
     /**
      * Appends the data of a CSVArray, given that it only
-     * has one row, to this CSVArray as a row
-     * @param  CSVArray  with only one row
+     * has one row, to this CSVArray as a row.
+     * @param  row  CSVArray with only one row
      * @return      String representation of CSVArray
      */
     public CSVArray addRow(CSVArray row){
@@ -296,9 +296,9 @@ public class CSVArray{
     /**
      * Adds the data of a CSVArray, given that it only
      * has one row, to a specified position of this CSVArray
-     * as a row
-     * @param  CSVArray  with only one row
-     * @param  int  within range of rows
+     * as a row.
+     * @param  row  CSVArray with only one row
+     * @param  int  row number
      * @return      String representation of CSVArray
      */
     public CSVArray addRow(CSVArray row, int pos){
@@ -321,14 +321,14 @@ public class CSVArray{
  	return this;
     }
 
-  /*=======================================================
+    /*=======================================================
       Delete Methods
       =====================================================*/
     /**
-     * Sets the value of a specified cell to null
-     * @param  int  within range of rows
-     * @param  int  within range of columns
-     * @return      String representation of CSVArray
+     * Sets the value of a specified cell to null.
+     * @param  x  row number
+     * @param  y  column number
+     * @return    String representation of CSVArray
      */
     public CSVArray deleteCell(int x, int y){
  	setCell(x,y,"");
@@ -336,8 +336,8 @@ public class CSVArray{
     }
 
     /**
-     * Removes a specified row and shifts following rows up
-     * @param  int  within range of rows
+     * Removes a specified row and shifts following rows up.
+     * @param  row  row number
      * @return      String representation of CSVArray
      */
     public CSVArray deleteRow(int row){
@@ -346,8 +346,8 @@ public class CSVArray{
     }
 
     /**
-     * Removes a specified column and shifts following columns left
-     * @param  int  within range of columns
+     * Removes a specified column and shifts following columns left.
+     * @param  col  column number
      * @return      String representation of CSVArray
      */
     public CSVArray deleteCol(int col){
@@ -360,6 +360,7 @@ public class CSVArray{
     /*=======================================================
       Sort Methods
       =====================================================*/
+    // Bubble sort method
     public ArrayList bubbleSort(ArrayList<Comparable> data ){
 	for( int passCtr = 1; passCtr < data.size(); passCtr++ ){
             for( int i = 0; i < data.size()-1; i++ ) {
@@ -371,9 +372,9 @@ public class CSVArray{
     }
 
     /**
-     *Sorts a given column of integers
-     *@param int position of column to be sorted
-     *@return CSVArray representation of sorted column
+     * Sorts a given column of integers
+     * @param   col        position of column to be sorted
+     * @return  ArrayList representation of sorted column
      */
     public ArrayList sort(int col){
 	return bubbleSort(getCol(col));
@@ -407,10 +408,10 @@ public class CSVArray{
       =====================================================*/
 
      /**
-     *Searches for a given String and returns the cell coordinates of which the instances are found
-     *@param String search phrase
-     *@return CSVArray representation of coordinates
-     *@return CSVArray message if phrase is not found
+     * Searches for a given String and returns the first cell coordinates of 
+     * which the instances are found.
+     * @param  String  search phrase
+     * @return CSVArray representation of coordinates, or empty ArrayList if phrase is not found
      */
     public ArrayList searchCell(String target){
 	Object targetTrue = typePicker(target);
@@ -424,19 +425,17 @@ public class CSVArray{
 		}
 	    }
 	}
-	coordinates.add("Phrase not found");
 	return coordinates;
     }
     
     /**
-     *Searches for a given String and returns the row number of which the first instance is found
-     *@param String search phrase
-     *@return CSVArray representation of row
-     *@return String message if phrase is not found
+     * Searches for a given String and returns the row number of which the first instance is found
+     * @param  target  search phrase
+     * @return Row number of target, or -1 if not found
      */
     public int searchRow(String target){
 	ArrayList coords = searchCell(target);
-	if (coords.get(0).equals("Phrase not found")){
+	if (coords.size() == 0){
 	    return -1;
 	}
 	else{
@@ -445,14 +444,13 @@ public class CSVArray{
     }
 
     /**
-     *Searches for a given String and returns the column of which the first instance is found
-     *@param String search phrase
-     *@return CSVArray representation of column
-     *@return String message if phrase is not found
+     * Searches for a given String and returns the column of which the first instance is found
+     * @param  target  search phrase
+     * @return Column number of target, or -1 if not found
      */
     public int searchCol(String target){
 	ArrayList coords = searchCell(target);
-	if (coords.get(0).equals("Phrase not found")){
+	if (coords.size() == 0){
 	    return -1;
 	}
 	else{
