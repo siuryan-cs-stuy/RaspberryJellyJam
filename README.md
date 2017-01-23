@@ -27,4 +27,4 @@ Note: Unless you supply a write flag `-w` which overwrites the input file, the p
 
 Suggested Testing:
 
-The CSV directory contains test CSV files, which can be used to try out all the different commands. No need to create your own CSV files for testing!
+The CSV directory contains test CSV files, which can be used to try out all the different commands. No need to create your own CSV files for testing! This tool works best for CSVs under 1000 lines.
