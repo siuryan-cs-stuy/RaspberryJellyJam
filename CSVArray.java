@@ -435,13 +435,13 @@ public class CSVArray{
      *@return String message if phrase is not found
      */
     public int searchRow(String target){
-        for (ArrayList<Object> row : _data){
-	    for (int i = 0; i < numCols(); i++){
-		if (row.get(i) == target){
-		    return i;}
-	    }
-	} 
-	return -1;	
+	ArrayList coords = searchCell(target);
+	if (coords.get(0).equals("Phrase not found")){
+	    return -1;
+	}
+	else{
+	    return coords.get(1);
+	}
     }
 
     /**
@@ -451,7 +451,13 @@ public class CSVArray{
      *@return String message if phrase is not found
      */
     public int searchCol(String target){
-	return -1;
+	ArrayList coords = searchCell(target);
+	if (coords.get(0).equals("Phrase not found")){
+	    return -1;
+	}
+	else{
+	    return coords.get(0);
+	}
     }
 }
 
