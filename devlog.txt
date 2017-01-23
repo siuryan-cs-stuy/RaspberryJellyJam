@@ -104,9 +104,7 @@ Joelle Lum :: Add test cases, wrote MVP CSVGeneral methods, help()
 
 2017-01-13
 --------------------------------------------------------------
-James Smith :: 
 Ryan Siu :: Created prettyPrint() method, various bug fixes, implemented -w flag for writing to file
-Joelle Lum :: 
 ==============================================================
 
 2017-01-16
@@ -118,7 +116,6 @@ Joelle Lum :: Moved add and delete methods to CSVArray, fixed add and delete met
 
 2017-01-18
 --------------------------------------------------------------
-James Smith :: 
 Ryan Siu :: Edited prettyPrint() for better UX, wrote min() and max()
 Joelle Lum :: Worked on CSVMath
 ==============================================================
@@ -139,7 +136,6 @@ Joelle Lum ::
 
 2017-01-21
 --------------------------------------------------------------
-James Smith :: 
 Ryan Siu :: Worked on correlation()
 Joelle Lum :: Tweaked method bodies of CSVMath, changed parameters of get/set/deleteCell to row,column instead of column,row, added -h flag for specific help, began testing out all the methods and noting bugs
 ==============================================================
@@ -147,6 +143,6 @@ Joelle Lum :: Tweaked method bodies of CSVMath, changed parameters of get/set/de
 2017-01-22
 --------------------------------------------------------------
 James Smith :: Debugging/exception handling, worked on flowchart, testing
-Ryan Siu :: Worked on CSVStat methods, fixed comments on all files, added -l flag, organized stuff, testing
+Ryan Siu :: Worked on CSVStat methods, fixed comments on all files, added -l flag, organized stuff, various tweaks for help, testing
 Joelle Lum :: Worked on flowchart and made digital copy of UML diagram, testing
 ==============================================================
