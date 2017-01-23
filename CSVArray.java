@@ -407,7 +407,7 @@ public class CSVArray{
       =====================================================*/
 
      /**
-     *Searches for a given String and returns the cell coordinate of which the first instance is found
+     *Searches for a given String and returns the cell coordinates of which the instances are found
      *@param String search phrase
      *@return CSVArray representation of coordinates
      *@return CSVArray message if phrase is not found

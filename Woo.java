@@ -18,7 +18,7 @@ public class Woo{
      */
     public static String help() {
 	String helpStr = "";
-	helpStr += "Syntax: java Woo <filename> <command> <args...>\n";
+	helpStr += "Syntax: java Woo <filename> <command> <args...> <flag>\n";
 	helpStr += "Possible <command> <args...>\n";
 	helpStr += "--help\n";
 	helpStr += "--getCell <col#> <row#>\n";
@@ -55,7 +55,8 @@ public class Woo{
 	helpStr += "--prettyPrint\n";
 	helpStr += "\nFlags:\n";
 	helpStr += "-h : For a specific description of a method, --<method> -h\n";
-	helpStr += "-w : Writes the output of the program directly to the csv file provided";
+	helpStr += "-w : Writes the output of the program directly to the csv file provided. Cannot be used with -l\n";
+	helpStr += "-l : Does not include headers in performing the command. Cannot be used with -w";
 	return helpStr;
     }
     
@@ -165,13 +166,14 @@ public class Woo{
      */
     public static void main(String[] args)throws FileNotFoundException{
 	boolean writeToFile = false;
+	boolean fileHeaders = false;
 	
 	// if there are arguments
 	if (args.length != 0) {
 	
 	    //checks for the write to file flag
 	    writeToFile = (args[args.length-1]).equals("-w");
-	    // fileHeaders = (args[args.length-1]).equals("-l");
+	    fileHeaders = (args[args.length-1]).equals("-l");
 
 	    //checks for the case where --help is the first arg and not the filename
 	    if (args[0].equals("--help")){
@@ -207,6 +209,10 @@ public class Woo{
 
 	    //create CSVArray with filename
 	    csv = new CSVArray(args[0]);
+	    if (fileHeaders) {
+		csv.deleteRow(1);
+		csv.deleteCol(1);
+	    }
 
 	    String command = args[1];
 	    Object result = null;
@@ -316,11 +322,6 @@ public class Woo{
 		 result = csv.searchCol(args[2]);
 	    }
 
-	    if (command.equals("--prettyPrint")){
-		catchOOB(0, args.length);
-		result = CSVGeneral.prettyPrint(csv);
-	    }
-
 	    if (command.equals("--min")){
 		catchOOB(1, args.length);
 		result = CSVStat.min(Integer.parseInt(args[2]),csv);
@@ -391,6 +392,7 @@ public class Woo{
 		catchOOB(2, args.length);
 		result = CSVMath.divide(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
 	    }
+	    
 	    if (command.equals("--prettyPrint")){
 		catchOOB(0, args.length);
 		System.out.println(CSVGeneral.prettyPrint(csv));
