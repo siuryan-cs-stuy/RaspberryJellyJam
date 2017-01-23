@@ -1,6 +1,7 @@
 # Terminal CSV Tool
-### RaspberryJellyJam
-### APCS1 Final Project
+RaspberryJellyJam
+<br>
+APCS1 Final Project
 
 
 ## Description
