@@ -171,6 +171,7 @@ public class Woo{
 	
 	    //checks for the write to file flag
 	    writeToFile = (args[args.length-1]).equals("-w");
+	    fileHeaders = (args[args.length-1]).equals("-l");
 
 	    //checks for the case where --help is the first arg and not the filename
 	    if (args[0].equals("--help")){
