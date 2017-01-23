@@ -5,6 +5,13 @@ public class CSVStat{
     /*=======================================================
       Statistics Methods
       =====================================================*/
+    
+    /**
+     * Returns the minimum value of a column.
+     * @param  col  column number
+     * @param  csv  CSVArray containing csv data
+     * @return      minimum value
+     */
     public static double min(int col, CSVArray csv){
 	ArrayList<Object> arr = csv.getCol(col);
 	double min = Double.parseDouble( arr.get(0).toString() );
@@ -16,6 +23,13 @@ public class CSVStat{
 	return min;
     }
 
+
+    /**
+     * Returns the first quartile value of a column.
+     * @param  col  column number
+     * @param  csv  CSVArray containing csv data
+     * @return      1Q value
+     */
     public static double firstQ(int col, CSVArray csv){
 	ArrayList<Object> arr = csv.sort(col);
 	for (int i = arr.size()/2; i < arr.size(); i++) {
@@ -24,6 +38,8 @@ public class CSVStat{
 	return median(arr);
     }
 
+
+    // Helper method to calculate median of an ArrayList
     private static double median(ArrayList<Object> arr){
 	double val1 = Double.parseDouble(arr.get( arr.size()/2 ).toString());
 	if (arr.size() % 2 == 0) {
@@ -34,12 +50,26 @@ public class CSVStat{
 	}
     }
 
+
+    /**
+     * Returns the median value of a column.
+     * @param  col  column number
+     * @param  csv  CSVArray containing csv data
+     * @return      median value
+     */
     public static double median(int col, CSVArray csv){
 	ArrayList<Object> arr = csv.sort(col);
 	return median(arr);
 	
     }
-    
+
+
+    /**
+     * Returns the third quartile value of a column.
+     * @param  col  column number
+     * @param  csv  CSVArray containing csv data
+     * @return      3Q value
+     */
     public static double thirdQ(int col, CSVArray csv){
 	ArrayList<Object> arr = csv.sort(col);
 	for (int i = 0; i < arr.size()/2; i++) {
@@ -48,6 +78,13 @@ public class CSVStat{
 	return median(arr);
     }
 
+
+    /**
+     * Returns the maximum value of a column.
+     * @param  col  column number
+     * @param  csv  CSVArray containing csv data
+     * @return      maximum value
+     */
     public static double max(int col, CSVArray csv){
         ArrayList<Object> arr = csv.getCol(col);
 	double max = Double.parseDouble( arr.get(0).toString() );
@@ -59,6 +96,12 @@ public class CSVStat{
 	return max;
     }
 
+
+    /**
+     * Prints the five number statistics summary of a column.
+     * @param  col  column number
+     * @param  csv  CSVArray containing csv data
+     */
     public static void statSummary(int col, CSVArray csv){
 	System.out.println( "Min: " + min(col,csv) + "\n" +
 			    "1Q : " + firstQ(col,csv) + "\n" +
@@ -67,12 +110,25 @@ public class CSVStat{
 			    "Max: " + max(col,csv) + "\n" );
     }
 
+
+    /**
+     * Returns the average (mean)of the values in a column.
+     * @param  col  column number
+     * @param  csv  CSVArray containing csv data
+     * @return      average value
+     */
     public static double average(int col, CSVArray csv){
 	double sum = CSVMath.sum(col,csv);
 	return sum / csv.getCol(col).size();
     }
 
-    
+
+    /**
+     * Returns the population standard deviation of the values in a column.
+     * @param  col  column number
+     * @param  csv  CSVArray containing csv data
+     * @return      standard deviation value
+     */
     public static double standardDev(int col, CSVArray csv){
 	double average = average(col,csv);
 	double variance = 0;
@@ -85,6 +141,14 @@ public class CSVStat{
 	return Math.sqrt(variance);
     }
 
+
+    /**
+     * Returns the correlation value between two columns.
+     * @param  col1  column number 1
+     * @param  col2  column number 2
+     * @param  csv   CSVArray containing csv data
+     * @return       correlation value
+     */
     public static double correlation(int col1, int col2, CSVArray csv){
 	double average1 = average(col1,csv);
 	double average2 = average(col2,csv);
