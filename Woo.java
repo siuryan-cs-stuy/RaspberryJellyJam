@@ -243,16 +243,34 @@ public class Woo{
 	    }
 
 	    if (command.equals("--addCol")){
+		if (invalidFile(args[0])){
+		    System.out.println("Error: Invalid file type for collumn.");
+		    return;
+		}
+		CSVArray col = new CSVArray(args[2]);
+		if (col.numRows() > 1 || col.numRows() < 1){
+		    System.out.println("Error: Column CSV file is not a single column");
+			return;
+		}
 		if (args.length == 5){
-		    result = csv.addCol(new CSVArray(args[2]), Integer.parseInt(args[3]));
+		    result = csv.addCol(col, Integer.parseInt(args[3]));
 		}
 		else{
 		    catchOOB(1, args.length);
-		    result = csv.addCol(new CSVArray(args[2]));
+		    result = csv.addCol(col);
 		}
 	    }
 	
 	    if (command.equals("--addRow")){
+		if (invalidFile(args[0])){
+		    System.out.println("Error: Invalid file type for row.");
+		    return;
+		}
+		CSVArray row = new CSVArray(args[2]);
+		if (row.numCols() > 1 || row.numCols() < 1){
+		    System.out.println("Error: Row CSV file is not a single row");
+			return;
+		}
 		if (args.length == 5){
 		    result = csv.addRow(new CSVArray(args[2]), Integer.parseInt(args[3]));
 		}
