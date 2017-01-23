@@ -11,17 +11,17 @@ Our CSV Tool is a tool used on the command line to work with CSV data. This tool
 
 ## Instructions
 
-1. clone repo
+1. Clone repo
 
 2. `javac Woo.java`
 
 3. `java Woo` to avail yourself of possible commands
 
-4. `java Woo <fileName.csv> --<command> <args...> <-flag>`
+4. To get a more detailed description of a command, `java Woo --<command> -h`
 
-5. to get a more detailed description of a command, `java Woo --<command> -h`
+5.`java Woo <fileName.csv> --<command> <args...> <-flag>`
 
-6. to view csv files in a graphical format in the terminal, `java Woo <filename.csv>` or `java Woo <filename.csv> --prettyPrint`
+6. To view csv files in a graphical format in the terminal, `java Woo <filename.csv>` or use `--prettyPrint`
 
 Note: Unless you supply a write flag `-w` which overwrites the input file, the program will only output data to the terminal without saving it to the file. This allows you to redirect this information to other places such as to new files.
   Ex. `java Woo oldFile.csv --delCol 1 > newFile.csv`
