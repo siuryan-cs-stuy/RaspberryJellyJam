@@ -175,7 +175,7 @@ public class CSVArray{
      * @return      Object representation of data
      */
     public Object getCell(int x, int y){
-        return _data.get(x-1).get(y-1);
+        return _data.get(y-1).get(x-1);
     }
 
      /**
@@ -211,7 +211,7 @@ public class CSVArray{
      * @return      String representation of CSVArray
      */
     public CSVArray setCell(int x, int y, Object value){
-	_data.get(x-1).set(y-1,value);
+	_data.get(y-1).set(x-1,value);
 	return this;
     }
      /**
@@ -321,7 +321,7 @@ public class CSVArray{
      * @return      String representation of CSVArray
      */
     public CSVArray deleteCell(int x, int y){
- 	setCell(x,y,null);
+ 	setCell(x,y,"");
  	return this;
     }
 

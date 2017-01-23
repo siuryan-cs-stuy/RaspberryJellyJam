@@ -21,17 +21,17 @@ public class Woo{
 	helpStr += "Syntax: java Woo <filename> <command> <args...>\n";
 	helpStr += "Possible <command> <args...>\n";
 	helpStr += "--help\n";
-	helpStr += "--getCell <row#> <col#>\n";
+	helpStr += "--getCell <col#> <row#>\n";
 	helpStr += "--getRow <row#>\n";
 	helpStr += "--getCol <column#>\n";
-	helpStr += "--setCell <row#> <col#> <value>\n";
+	helpStr += "--setCell <col#> <row#> <value>\n";
 	helpStr += "--setRow <fileName> <position>\n";
 	helpStr += "--setCol <fileName> <position>\n";
 	helpStr += "--addRow <filename>\n";
 	helpStr += "--addRow <filename> <position>\n";
 	helpStr += "--addCol <filename>\n";
 	helpStr += "--addCol <filename> <position>\n";
-	helpStr += "--deleteCell <row#> <col#>\n";
+	helpStr += "--deleteCell <col#> <row#>\n";
 	helpStr += "--deleteRow <row#>\n";
 	helpStr += "--deleteCol <col#>\n";
 	helpStr += "--sort <col#>\n";
@@ -44,13 +44,17 @@ public class Woo{
 	helpStr += "--multiply <col1#> <col2#>\n";
 	helpStr += "--divide <col1#> <col2#>\n";
 	helpStr += "--min <col#>\n";
-	helpStr += "--max <col#>\n";
+	helpStr += "--max <col#>\n";	
+	helpStr += "--median <col#>\n";
+	helpStr += "--firstQ <col#>\n";
+	helpStr += "--thirdQ <col#>\n";
+	helpStr += "--statSummary <col#>\n";
 	helpStr += "--standardDev <col#>\n";
 	helpStr += "--average <col#>\n";
 	helpStr += "--correlation <col1#> <col2#>\n";
 	helpStr += "--prettyPrint\n";
 	helpStr += "\nFlags:\n";
-	helpStr += "-h : For a specific description of a method, <method> -h\n";
+	helpStr += "-h : For a specific description of a method, --<method> -h\n";
 	helpStr += "-w : Writes the output of the program directly to the csv file provided";
 	return helpStr;
     }
@@ -83,9 +87,9 @@ public class Woo{
 	if (method.equals("--searchCell")){
 	    return "returns the coordinates of the first occurrence of a phrase";}
 	if (method.equals("--searchRow")){
-	    return"returns the coordinates of the first occurrence of a phrase in a specified row";}
+	    return"returns the number of the row in which a specified phrase first occurs";}
 	if (method.equals("--searchCol")){
-	    return "returns the coordinates of the first occurrence of a phrase in a specified column";}
+	    return "returns the number of the column in which a specified phrase first occurs";}
 	if (method.equals("--sum")){
 	    return "returns the sum of a column";}
 	if (method.equals("--add")){
@@ -180,7 +184,7 @@ public class Woo{
 		System.out.println(specificHelp(args[0]));
 		return;
 	    }
-	    
+     
 	    CSVArray csv;
 	    
 	    //Ensures that the file argument is valid
@@ -194,7 +198,7 @@ public class Woo{
 		System.out.println(CSVGeneral.prettyPrint(csv));
 		return;
 	    }
-	    
+
 	    if (args.length < 2 || args.length < 3 && writeToFile){
 		System.out.println("Arguments not supplied.\n Consult --help for argument Structure.");
 		return;
