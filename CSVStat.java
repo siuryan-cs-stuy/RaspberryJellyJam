@@ -31,11 +31,17 @@ public class CSVStat{
      * @return      1Q value
      */
     public static double firstQ(int col, CSVArray csv){
-	ArrayList<Object> arr = csv.sort(col);
-	for (int i = arr.size()/2; i < arr.size(); i++) {
-	    arr.remove(i);
+	if (csv.numRows() >= 4) {
+	    ArrayList<Object> arr = csv.sort(col);
+	    for (int i = arr.size()/2; i < arr.size(); i++) {
+		arr.remove(i);
+	    }
+	    return median(arr);
+	} else {
+	    System.out.println("Error: Insufficient data set. Column must be at least 4 data cells large.");
+	    System.exit(0);
+	    return 0;
 	}
-	return median(arr);
     }
 
 
@@ -58,8 +64,14 @@ public class CSVStat{
      * @return      median value
      */
     public static double median(int col, CSVArray csv){
-	ArrayList<Object> arr = csv.sort(col);
-	return median(arr);
+	if (csv.numRows() >= 2) {
+	    ArrayList<Object> arr = csv.sort(col);
+	    return median(arr);
+	} else {
+	    System.out.println("Error: Insufficient data set. Column must be at least 2 data cells large.");
+	    System.exit(0);
+	    return 0;
+	}
 	
     }
 
@@ -71,11 +83,17 @@ public class CSVStat{
      * @return      3Q value
      */
     public static double thirdQ(int col, CSVArray csv){
-	ArrayList<Object> arr = csv.sort(col);
-	for (int i = 0; i < arr.size()/2; i++) {
-	    arr.remove(i);
+	if (csv.numRows() >= 4) {
+	    ArrayList<Object> arr = csv.sort(col);
+	    for (int i = 0; i < arr.size()/2; i++) {
+		arr.remove(i);
+	    }
+	    return median(arr);
+	} else {
+	    System.out.println("Error: Insufficient data set. Column must be at least 4 data cells large.");
+	    System.exit(0);
+	    return 0;
 	}
-	return median(arr);
     }
 
 
