@@ -321,7 +321,7 @@ public class CSVArray{
  	    temp.add(row._data.get(0).get(index));
  	    index++;
  	}
-	_data.add(temp);
+	_data.add(pos-1,temp);
  	return this;
     }
 
