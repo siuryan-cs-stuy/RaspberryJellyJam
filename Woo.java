@@ -128,7 +128,8 @@ public class Woo{
 	    return"returns a representation of a csv's data";}
 	else{return "Invalid method. Please use --help for a list of commands.";}
     }   
-	    
+
+    //takes in a filename and decides whether it is a real csv file in the system
     public static boolean invalidFile(String fileName){
 	File f = new File(fileName);
 	//If the file doesn't exist or it is a directory or the filename isn't long enough to be a csv file or it is not a csv file
@@ -165,6 +166,7 @@ public class Woo{
 	}
     }
 
+    //ensures that the user's selection doesnt go out of the CSVArray's bounds
     public static void catchRange(int col, int row, CSVArray csv){
 	if (col > csv.numCols() || col < 1){
 	    System.out.println("Error: Column index out of range");
@@ -173,6 +175,16 @@ public class Woo{
 	else if(row > csv.numRows() || row < 1){
 	    System.out.println("Error: row index out of range");
 	    System.exit(0);
+	}
+    }
+
+
+    public static void catchStringMath(int col, CSVArray csv){
+	for(Object o:csv.getCol(col)){
+	    if(o instanceof String){
+		System.out.println("Error: Unable to perform mathematical operations on non numberical column");
+		System.exit(0);
+	    }
 	}
     }
 	
@@ -258,20 +270,27 @@ public class Woo{
 
 	    if (command.equals("--setRow")){
 		catchOOB(2, args.length, writeToFile || fileHeaders);
-		CSVArray second = new CSVArray(args[3]);
-		catchRange(1,Integer.parseInt(args[2]), csv);
+		if (invalidFile(args[2])){
+		    System.out.println("Error: Invalid file type for Row.");
+		    return;
+		}
+		CSVArray second = new CSVArray(args[2]);
+		catchRange(1,Integer.parseInt(args[3]), csv);
 		result = csv.setRow(new CSVArray(args[2]), Integer.parseInt(args[3]));
 	    }
 	
 	    if (command.equals("--setCol")){
 		catchOOB(2, args.length, writeToFile || fileHeaders);
-		CSVArray second = new CSVArray(args[3]);
-		catchRange(Integer.parseInt(args[2]), 1, csv);
+		catchRange(Integer.parseInt(args[3]), 1, csv);
+	        if (invalidFile(args[2])){
+		    System.out.println("Error: Invalid file type for Col.");
+		    return;
+		}
 		result = csv.setCol(new CSVArray(args[2]), Integer.parseInt(args[3]));
 	    }
 
 	    if (command.equals("--addCol")){
-		if (invalidFile(args[0])){
+		if (invalidFile(args[2])){
 		    System.out.println("Error: Invalid file type for collumn.");
 		    return;
 		}
@@ -352,54 +371,63 @@ public class Woo{
 	    if (command.equals("--min")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
 		catchRange(Integer.parseInt(args[2]),1, csv);
+		catchStringMath(Integer.parseInt(args[2]), csv);
 		result = CSVStat.min(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--max")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
 		catchRange(Integer.parseInt(args[2]),1, csv);
+		catchStringMath(Integer.parseInt(args[2]), csv);
 		result = CSVStat.max(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--average")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
 		catchRange(Integer.parseInt(args[2]),1, csv);
+		catchStringMath(Integer.parseInt(args[2]), csv);
 		result = CSVStat.average(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--standardDev")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
 		catchRange(Integer.parseInt(args[2]),1, csv);
+		catchStringMath(Integer.parseInt(args[2]), csv);
 		result = CSVStat.standardDev(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--correlation")){
 		catchOOB(2, args.length, writeToFile || fileHeaders);
 		catchRange(Integer.parseInt(args[2]),1, csv);
+		catchStringMath(Integer.parseInt(args[2]), csv);
 		result = CSVStat.correlation(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
 	    }
 
 	    if (command.equals("--median")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
 		catchRange(Integer.parseInt(args[2]),1, csv);
+		catchStringMath(Integer.parseInt(args[2]), csv);
 		result = CSVStat.median(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--thirdQ")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
 		catchRange(Integer.parseInt(args[2]),1, csv);
+		catchStringMath(Integer.parseInt(args[2]), csv);
 		result = CSVStat.thirdQ(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--firstQ")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
 		catchRange(Integer.parseInt(args[2]),1, csv);
+		catchStringMath(Integer.parseInt(args[2]), csv);
 		result = CSVStat.firstQ(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--statSummary")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
 		catchRange(Integer.parseInt(args[2]),1, csv);
+		catchStringMath(Integer.parseInt(args[2]), csv);
 		CSVStat.statSummary(Integer.parseInt(args[2]),csv);
 	        return;
 	    }
@@ -407,6 +435,7 @@ public class Woo{
 	    if (command.equals("--sum")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
 		catchRange(Integer.parseInt(args[2]),1, csv);
+		catchStringMath(Integer.parseInt(args[2]), csv);
 		result = CSVMath.sum(Integer.parseInt(args[2]),csv);
 	    }
 
@@ -414,28 +443,36 @@ public class Woo{
 		catchOOB(2, args.length, writeToFile || fileHeaders);
 		catchRange(Integer.parseInt(args[2]),1, csv);
 		catchRange(Integer.parseInt(args[3]),1, csv);
-		result = CSVMath.add(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
+		catchStringMath(Integer.parseInt(args[2]), csv);
+		catchStringMath(Integer.parseInt(args[3]), csv);
+		result = colString(CSVMath.add(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv));
 	    }
 
 	    if (command.equals("--subtract")){
 		catchOOB(2, args.length, writeToFile || fileHeaders);
 		catchRange(Integer.parseInt(args[2]),1, csv);
 		catchRange(Integer.parseInt(args[3]),1, csv);
-		result = CSVMath.subtract(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
+		catchStringMath(Integer.parseInt(args[2]), csv);
+		catchStringMath(Integer.parseInt(args[3]), csv);
+		result = colString(CSVMath.subtract(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv));
 	    }
 
 	    if (command.equals("--multiply")){
 		catchOOB(2, args.length, writeToFile || fileHeaders);
 		catchRange(Integer.parseInt(args[2]),1, csv);
 		catchRange(Integer.parseInt(args[3]),1, csv);
-		result = CSVMath.multiply(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
+		catchStringMath(Integer.parseInt(args[2]), csv);
+		catchStringMath(Integer.parseInt(args[3]), csv);
+		result = colString(CSVMath.multiply(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv));
 	    }
 
 	    if (command.equals("--divide")){
 		catchOOB(2, args.length, writeToFile || fileHeaders);
 		catchRange(Integer.parseInt(args[2]),1, csv);
 		catchRange(Integer.parseInt(args[3]),1, csv);
-		result = CSVMath.divide(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
+		catchStringMath(Integer.parseInt(args[2]), csv);
+		catchStringMath(Integer.parseInt(args[3]), csv);
+		result = colString(CSVMath.divide(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv));
 	    }
 	    
 	    if (command.equals("--prettyPrint")){

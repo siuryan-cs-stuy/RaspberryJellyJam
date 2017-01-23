@@ -106,15 +106,10 @@ public class CSVArray{
 
 	// sorts foo
 	try {
-	    conv = Integer.parseInt(foo);
-	} catch (NumberFormatException e1) {
-	    try {
-		conv = Double.parseDouble(foo);
-	    } catch (NumberFormatException e2) {
-		conv = foo;
-	    }
+	    conv = Double.parseDouble(foo);
+	} catch (NumberFormatException e2) {
+	    conv = foo;
 	}
-	
 	return conv;
     }
 
@@ -221,6 +216,9 @@ public class CSVArray{
      * @return      String representation of CSVArray
      */
     public CSVArray setRow(CSVArray rowVal, int rowPos){
+	if(rowVal.numCols() > this.numCols()){
+	    this.increaseCols(rowVal.numCols()-this.numCols());
+	}
 	_data.set(rowPos-1, rowVal._data.get(0));
 	return this;
     }
@@ -232,10 +230,12 @@ public class CSVArray{
      * @return      String representation of CSVArray
      */
     public CSVArray setCol(CSVArray colVal, int colPos){
-        int index = 0;
-	for (ArrayList<Object> row : _data){
-	    row.set(colPos-1,colVal._data.get(0).get(index));
-	    index++;
+	if (colVal.numRows() > this.numRows()){
+	    this.increaseRows(colVal.numRows()-this.numRows());
+	}
+	ArrayList col = colVal.getCol(1);
+	for (int i = 0; i < colVal._data.size();i++){
+	    _data.get(i).set(colPos-1, col.get(i));
 	}
 	return this;
     }
@@ -290,6 +290,9 @@ public class CSVArray{
      */
     public CSVArray addRow(CSVArray row){
  	int index = 0;
+	if(row.numCols() > this.numCols()){
+	    this.increaseCols(row.numCols()-this.numCols());
+	}
  	ArrayList<Object> temp = new ArrayList();
  	for (Object o : row._data.get(0)){
  	    temp.add(row._data.get(0).get(index));
@@ -309,6 +312,9 @@ public class CSVArray{
      */
     public CSVArray addRow(CSVArray row, int pos){
  	int index = 0;
+	if(row.numCols() > this.numCols()){
+	    this.increaseCols(row.numCols()-this.numCols());
+	}
 	if (pos >= numRows()){
 	    ArrayList<Object> emptyRow = new ArrayList();
 	    for (int i = 0; i < numCols(); i++){
@@ -365,13 +371,14 @@ public class CSVArray{
       Sort Methods
       =====================================================*/
     // Bubble sort method
-    public ArrayList bubbleSort(ArrayList<Comparable> data ){
+    public ArrayList bubbleSort(ArrayList<Double> data ){
 	for( int passCtr = 1; passCtr < data.size(); passCtr++ ){
             for( int i = 0; i < data.size()-1; i++ ) {
-                if ( data.get(i).compareTo(data.get(i+1) ) > 0 ) 
+                if (data.get(i) > data.get(i+1)){ 
                     data.set( i, data.set(i+1,data.get(i)) );   
-            }
-        }
+		}
+	    }
+	}
 	return data;
     }
 
