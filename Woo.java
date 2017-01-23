@@ -159,6 +159,17 @@ public class Woo{
 	    System.exit(0);
 	}
     }
+
+    public static void catchRange(int col, int row, CSVArray csv){
+	if (col > csv.numCols() || col < 1){
+	    System.out.println("Error: Column index out of range");
+	    System.exit(0);
+	}
+	else if(row > csv.numRows() || row < 1){
+	    System.out.println("Error: row index out of range");
+	    System.exit(0);
+	}
+    }
 	
     /**
      * Runs the Terminal CSV Editor. Uses args to take in arguments from the
@@ -211,7 +222,6 @@ public class Woo{
 	    csv = new CSVArray(args[0]);
 	    if (fileHeaders) {
 		csv.deleteRow(1);
-		csv.deleteCol(1);
 	    }
 
 	    String command = args[1];
@@ -219,33 +229,39 @@ public class Woo{
 	    
 	    if (command.equals("--getCell")){
 		catchOOB(2, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]), Integer.parseInt(args[3]), csv);
 		result = csv.getCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]));
 	    }
 
 	    if (command.equals("--getRow")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
+		catchRange(1,Integer.parseInt(args[2]), csv);
 		result = rowString(csv.getRow(Integer.parseInt(args[2])));
 	    }
 
 	    if (command.equals("--getCol")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]), 1, csv);
 		result = colString(csv.getCol(Integer.parseInt(args[2])));
 	    }
 
 	    if (command.equals("--setCell")){
 		catchOOB(3, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]), Integer.parseInt(args[3]), csv);
 		result = csv.setCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]), CSVArray.typePicker(args[4]));
 	    }
 
 	    if (command.equals("--setRow")){
 		catchOOB(2, args.length, writeToFile || fileHeaders);
 		CSVArray second = new CSVArray(args[3]);
+		catchRange(1,Integer.parseInt(args[2]), csv);
 		result = csv.setRow(new CSVArray(args[2]), Integer.parseInt(args[3]));
 	    }
 	
 	    if (command.equals("--setCol")){
 		catchOOB(2, args.length, writeToFile || fileHeaders);
 		CSVArray second = new CSVArray(args[3]);
+		catchRange(Integer.parseInt(args[2]), 1, csv);
 		result = csv.setCol(new CSVArray(args[2]), Integer.parseInt(args[3]));
 	    }
 
@@ -260,7 +276,7 @@ public class Woo{
 			return;
 		}
 		if (args.length > 3){
-		    catchOOB(2, args.length, writeToFile || fileHeaders);
+		    catchRange(Integer.parseInt(args[3]), 1, csv);
 		    result = csv.addCol(col, Integer.parseInt(args[3]));
 		}
 		else{
@@ -280,6 +296,7 @@ public class Woo{
 			return;
 		}
 		if (args.length > 3){
+		    catchRange(1, Integer.parseInt(args[3]), csv);
 		    result = csv.addRow(new CSVArray(args[2]), Integer.parseInt(args[3]));
 		}
 		else{
@@ -290,21 +307,25 @@ public class Woo{
 
 	    if (command.equals("--deleteCell")){
 		catchOOB(2, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]), Integer.parseInt(args[3]), csv);
 		result = csv.deleteCell(Integer.parseInt(args[2]), Integer.parseInt(args[3]));
 	    }
 
 	    if (command.equals("--deleteRow")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
+		catchRange(1, Integer.parseInt(args[2]), csv);
 		result = csv.deleteRow(Integer.parseInt(args[2]));
 	    }
 
 	    if (command.equals("--deleteCol")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]), 1, csv);
 		result = csv.deleteCol(Integer.parseInt(args[2]));
 	    }
 
 	    if (command.equals("--sort")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]), 1, csv);
 		result = colString(csv.sort(Integer.parseInt(args[2])));
 	    }
 
@@ -325,72 +346,90 @@ public class Woo{
 
 	    if (command.equals("--min")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]),1, csv);
 		result = CSVStat.min(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--max")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]),1, csv);
 		result = CSVStat.max(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--average")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]),1, csv);
 		result = CSVStat.average(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--standardDev")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]),1, csv);
 		result = CSVStat.standardDev(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--correlation")){
 		catchOOB(2, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]),1, csv);
 		result = CSVStat.correlation(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
 	    }
 
 	    if (command.equals("--median")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]),1, csv);
 		result = CSVStat.median(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--thirdQ")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]),1, csv);
 		result = CSVStat.thirdQ(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--firstQ")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]),1, csv);
 		result = CSVStat.firstQ(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--statSummary")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]),1, csv);
 		CSVStat.statSummary(Integer.parseInt(args[2]),csv);
 	        return;
 	    }
 
 	    if (command.equals("--sum")){
 		catchOOB(1, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]),1, csv);
 		result = CSVMath.sum(Integer.parseInt(args[2]),csv);
 	    }
 
 	    if (command.equals("--add")){
 		catchOOB(2, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]),1, csv);
+		catchRange(Integer.parseInt(args[3]),1, csv);
 		result = CSVMath.add(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
 	    }
 
 	    if (command.equals("--subtract")){
 		catchOOB(2, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]),1, csv);
+		catchRange(Integer.parseInt(args[3]),1, csv);
 		result = CSVMath.subtract(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
 	    }
 
 	    if (command.equals("--multiply")){
 		catchOOB(2, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]),1, csv);
+		catchRange(Integer.parseInt(args[3]),1, csv);
 		result = CSVMath.multiply(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
 	    }
 
 	    if (command.equals("--divide")){
 		catchOOB(2, args.length, writeToFile || fileHeaders);
+		catchRange(Integer.parseInt(args[2]),1, csv);
+		catchRange(Integer.parseInt(args[3]),1, csv);
 		result = CSVMath.divide(Integer.parseInt(args[2]),Integer.parseInt(args[3]),csv);
 	    }
 	    
