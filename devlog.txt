@@ -11,34 +11,35 @@ Terminal CSV Tool
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Turning strings from a file into objects of a proper class.
-Figured out how to get around an uncatchable exception by learning a new java class to check whether files exist or not. 
-Handling CSV's with headers
-Handling CSV's with empty values (1,2,,3,4)
+  Turning strings from a file into objects of a proper class.
+  Figured out how to get around an uncatchable exception by learning a new java class to check whether files exist or not. 
+  Handling CSV's with headers
+  Handling CSV's with empty values (1,2,,3,4)
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Handling CSV's that have elements in quotation marks.
+  Handling CSV's that have elements in quotation marks.
+  Big CSV files cause lag
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-James: Learned the Scanner, Buffered Writer,File, and File Writer classes in order to read and write csv files. Learned System.exit(). I learned about variable assignment in a try-catch block
-Joelle: Learned basic Markdown tools, learned how to write API comments, became familiar with basic terminal commands and terms, learned of double.Value() but didn't use it, 
-Ryan: How to write API comments
+  James: Learned the Scanner, Buffered Writer,File, and File Writer classes in order to read and write csv files. Learned System.exit(). I learned about variable assignment in a try-catch block
+  Joelle: Learned basic Markdown tools, learned how to write API comments, became familiar with basic terminal commands and terms, learned of double.Value() but didn't use it, 
+  Ryan: How to write API comments
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-We separated the csv methods into CSVMath, CSVGeneral, CSVStat because it would be clearer to understand
-We moved almost all of the CSVGeneral methods into CSVArray because it seemed more logical for CSVArray to know the methods that alter its _data
-Changed search methods to return the positions of the target instead of the actual csv line to make it more versatile.
+  We separated the csv methods into CSVMath, CSVGeneral, CSVStat because it would be clearer to understand
+  We moved almost all of the CSVGeneral methods into CSVArray because it seemed more logical for CSVArray to know the methods that alter its _data
+  Changed search methods to return the positions of the target instead of the actual csv line to make it more versatile.
 
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- Coordination is key
- It is best for everyone to understand every component of the project even if they will not be working on it
- Being able to discuss things in person is beneficial to the outcome of the project
- Having visuals/knowing organization helps as the project progresses
+  Coordination is key
+  It is best for everyone to understand every component of the project even if they will not be working on it
+  Being able to discuss things in person is beneficial to the outcome of the project
+  Having visuals/knowing organization helps as the project progresses
 ||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -104,9 +105,7 @@ Joelle Lum :: Add test cases, wrote MVP CSVGeneral methods, help()
 
 2017-01-13
 --------------------------------------------------------------
-James Smith :: 
 Ryan Siu :: Created prettyPrint() method, various bug fixes, implemented -w flag for writing to file
-Joelle Lum :: 
 ==============================================================
 
 2017-01-16
@@ -118,7 +117,6 @@ Joelle Lum :: Moved add and delete methods to CSVArray, fixed add and delete met
 
 2017-01-18
 --------------------------------------------------------------
-James Smith :: 
 Ryan Siu :: Edited prettyPrint() for better UX, wrote min() and max()
 Joelle Lum :: Worked on CSVMath
 ==============================================================
@@ -139,7 +137,6 @@ Joelle Lum ::
 
 2017-01-21
 --------------------------------------------------------------
-James Smith :: 
 Ryan Siu :: Worked on correlation()
 Joelle Lum :: Tweaked method bodies of CSVMath, changed parameters of get/set/deleteCell to row,column instead of column,row, added -h flag for specific help, began testing out all the methods and noting bugs
 ==============================================================
@@ -147,6 +144,6 @@ Joelle Lum :: Tweaked method bodies of CSVMath, changed parameters of get/set/de
 2017-01-22
 --------------------------------------------------------------
 James Smith :: Debugging/exception handling, worked on flowchart, testing
-Ryan Siu :: Worked on CSVStat methods, fixed comments on all files, added -l flag, organized stuff, testing
+Ryan Siu :: Worked on CSVStat methods, fixed comments on all files, added -l flag, organized stuff, various tweaks for help, testing
 Joelle Lum :: Worked on flowchart and made digital copy of UML diagram, testing
 ==============================================================
