@@ -300,7 +300,7 @@ public class Woo{
 		    System.out.println("Error: Row CSV file is not a single row");
 			return;
 		}
-		if (args.length > 3){
+		if (args.length > 3 && !(writeToFile || fileHeaders) || args.length > 4 && (writeToFile || fileHeaders)){
 		    catchRange(1, Integer.parseInt(args[3]), csv);
 		    result = csv.addRow(new CSVArray(args[2]), Integer.parseInt(args[3]));
 		}
