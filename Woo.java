@@ -21,17 +21,17 @@ public class Woo{
 	helpStr += "Syntax: java Woo <filename> <command> <args...>\n";
 	helpStr += "Possible <command> <args...>\n";
 	helpStr += "--help\n";
-	helpStr += "--getCell <row#> <col#>\n";
+	helpStr += "--getCell <col#> <row#>\n";
 	helpStr += "--getRow <row#>\n";
 	helpStr += "--getCol <column#>\n";
-	helpStr += "--setCell <row#> <col#> <value>\n";
+	helpStr += "--setCell <col#> <row#> <value>\n";
 	helpStr += "--setRow <fileName> <position>\n";
 	helpStr += "--setCol <fileName> <position>\n";
 	helpStr += "--addRow <filename>\n";
 	helpStr += "--addRow <filename> <position>\n";
 	helpStr += "--addCol <filename>\n";
 	helpStr += "--addCol <filename> <position>\n";
-	helpStr += "--deleteCell <row#> <col#>\n";
+	helpStr += "--deleteCell <col#> <row#>\n";
 	helpStr += "--deleteRow <row#>\n";
 	helpStr += "--deleteCol <col#>\n";
 	helpStr += "--sort <col#>\n";
@@ -44,77 +44,81 @@ public class Woo{
 	helpStr += "--multiply <col1#> <col2#>\n";
 	helpStr += "--divide <col1#> <col2#>\n";
 	helpStr += "--min <col#>\n";
-	helpStr += "--max <col#>\n";
+	helpStr += "--max <col#>\n";	
+	helpStr += "--median <col#>\n";
+	helpStr += "--firstQ <col#>\n";
+	helpStr += "--thirdQ <col#>\n";
+	helpStr += "--statSummary <col#>\n";
 	helpStr += "--standardDev <col#>\n";
 	helpStr += "--average <col#>\n";
 	helpStr += "--correlation <col1#> <col2#>\n";
 	helpStr += "--prettyPrint\n";
 	helpStr += "\nFlags:\n";
-	helpStr += "-h : For a specific description of a method, <method> -h\n";
+	helpStr += "-h : For a specific description of a method, --<method> -h\n";
 	helpStr += "-w : Writes the output of the program directly to the csv file provided";
 	return helpStr;
     }
     
     public static String specificHelp(String method){
-	if (method.equals("getCell")){
+	if (method.equals("--getCell")){
 	    return "returns the value of a specified row";}
-	if (method.equals("getRow")){
+	if (method.equals("--getRow")){
 	    return "returns the specified row";}
-	if (method.equals("getCol")){
+	if (method.equals("--getCol")){
 	    return "returns the specified column";}
-	if (method.equals("setCell")){
+	if (method.equals("--setCell")){
 	    return "returns how a csv's data would look like after a specified cell is set to a value";}
-	if (method.equals("setRow")){
+	if (method.equals("--setRow")){
 	    return "returns how a csv's data would look like after a specified row is set to the data of another csv, assuming that csv only has one row";}
-	if (method.equals("setCol")){
+	if (method.equals("--setCol")){
 	    return "returns how a csv's data would look like after a specified column is set to the data of another csv, assuming that csv only has one row";}
-	if (method.equals("addRow")){
+	if (method.equals("--addRow")){
 	    return "returns how a csv's data would look like after another csv's data, which only has one row, is added as a row to the end or a specified location of this csv's data";}
-	if (method.equals("addCol")){
+	if (method.equals("--addCol")){
 	    return "returns how a csv's data would look like after another csv's data, which only has one row, is added as a column to the end or a specified location of this csv's data";}
-	if (method.equals("deleteCell")){
+	if (method.equals("--deleteCell")){
 	    return "returns how a csv's data would look like after nullifying a specified cell ";}
-	if (method.equals("deleteRow")){
+	if (method.equals("--deleteRow")){
 	    return "returns how a csv's data would look like after deleting a specified row";}
-	if (method.equals("deleteCol")){
+	if (method.equals("--deleteCol")){
 	    return "returns how a csv's data would look like after deleting a specified column";}
-	if (method.equals("sort")){
+	if (method.equals("--sort")){
 	    return "returns the elements of a column in an ascending order";}
 	if (method.equals("searchCell")){
 	    return "returns the coordinates of the first occurrence of a phrase";}
-	if (method.equals("searchRow")){
-	    return"returns the coordinates of the first occurrence of a phrase in a specified row";}
-	if (method.equals("searchCol")){
-	    return "returns the coordinates of the first occurrence of a phrase in a specified column";}
-	if (method.equals("sum")){
+	if (method.equals("--searchRow")){
+	    return"returns the number of the row in which a specified phrase first occurs";}
+	if (method.equals("--searchCol")){
+	    return "returns the number of the column in which a specified phrase first occurs";}
+	if (method.equals("--sum")){
 	    return "returns the sum of a column";}
-	if (method.equals("add")){
+	if (method.equals("--add")){
 	    return "returns the sums across both columns";}
-	if (method.equals("subtract")){
+	if (method.equals("--subtract")){
 	    return "returns the differences across both columns";}
-	if (method.equals("divide")){
+	if (method.equals("--divide")){
 	    return"returns the quotients across both columns";}
-	if (method.equals("multiply")){
+	if (method.equals("--multiply")){
 	    return"returns the products across both columns";}
-	if (method.equals("min")){
+	if (method.equals("--min")){
 	    return "returns the minimum value of a column";}
-	if (method.equals("max")){
+	if (method.equals("--max")){
 	    return"returns the maximum value of a column";}
-	if (method.equals("median")){
+	if (method.equals("--median")){
 	    return"returns the medium value of a column";}
-	if (method.equals("firstQ")){
+	if (method.equals("--firstQ")){
 	    return"returns the first quartile value of a column";}
-	if (method.equals("thirdQ")){
+	if (method.equals("--thirdQ")){
 	    return"returns the third quartile value of a column";}
-	if (method.equals("statSummary")){
+	if (method.equals("--statSummary")){
 	    return"prints the five number summary of a column";}
-	if (method.equals("average")){
+	if (method.equals("--average")){
 	    return"returns the average of a column";}
-	if (method.equals("standardDev")){
+	if (method.equals("--standardDev")){
 	    return"returns the population standard deviation of a column";}
-	if (method.equals("correlation")){
+	if (method.equals("--correlation")){
 	    return"returns the correlation between two columns";}
-	if (method.equals("prettyPrint")){
+	if (method.equals("--prettyPrint")){
 	    return"returns a representation of a csv's data";}
 	else{return "Invalid method. Please use --help for a list of commands.";}
     }   
@@ -158,6 +162,13 @@ public class Woo{
 		System.out.println(help());
 		return;
 	    }
+
+	    //checks for the specific help flag
+	    if (args.length == 2 && args[1].equals("-h")){
+		System.out.println(specificHelp(args[0]));
+		return;
+	    }
+
 		
 	    CSVArray csv;
 	    
@@ -172,13 +183,7 @@ public class Woo{
 		System.out.println(CSVGeneral.prettyPrint(csv));
 		return;
 	    }
-	    
-	    //checks for the specific help flag
-	    if (args[1].equals("-h")){
-		System.out.println(specificHelp(args[0]));
-		return;
-	    }
-	    
+	    	    
 	    if (args.length < 2 || args.length < 3 && writeToFile){
 		System.out.println("Arguments not supplied.\n Consult --help for argument Structure.");
 		return;
