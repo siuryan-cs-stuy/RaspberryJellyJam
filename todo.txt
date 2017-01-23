@@ -7,11 +7,6 @@ TODO LIST
 
 To be done by Jan. 22:
 - EXCEPTION HANDLING (out of bounds and # of arguments)
-- Diagrams/other stuff required on HW site
 - Create Demo plan
 - CSVArray Join methods
 - Handle special cases for CSV formatting
-- Handle column headers
-- Comments
-- Reorganize (put test csvs in folder)
-- Update README
