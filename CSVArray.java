@@ -270,7 +270,7 @@ public class CSVArray{
  	int index = 0;
 	if (pos >= numCols()){
 	    for (ArrayList<Object> row : _data){
-		for (int i = numCols(); i < pos - 1; i++){
+		for (int i = numCols(); i < pos - 2; i++){
 		    row.add("");}
 	    }
 	}
