@@ -268,6 +268,12 @@ public class CSVArray{
      */
     public CSVArray addCol(CSVArray col, int pos){
  	int index = 0;
+	if (pos >= numCols()){
+	    for (ArrayList<Object> row : _data){
+		for (int i = numCols(); i < pos - 1; i++){
+		    row.add("");}
+	    }
+	}
  	for (ArrayList<Object> row : _data){
  	    row.add(pos-1,col._data.get(0).get(index));
  	    index++;
@@ -283,7 +289,6 @@ public class CSVArray{
      */
     public CSVArray addRow(CSVArray row){
  	int index = 0;
-	System.out.println("HI0");
  	ArrayList<Object> temp = new ArrayList();
  	for (Object o : row._data.get(0)){
  	    temp.add(row._data.get(0).get(index));
@@ -303,13 +308,11 @@ public class CSVArray{
      */
     public CSVArray addRow(CSVArray row, int pos){
  	int index = 0;
-	System.out.println(numRows());
 	if (pos >= numRows()){
-	    System.out.println("HI");
 	    ArrayList<Object> emptyRow = new ArrayList();
 	    for (int i = 0; i < numCols(); i++){
 		emptyRow.add("");}
-	    for (int i = numRows() - 1; i < pos; i++){
+	    for (int i = numRows() - 1; i < pos - 2; i++){
 		_data.add(emptyRow);}
 	}
  	ArrayList<Object> temp = new ArrayList();
@@ -317,7 +320,7 @@ public class CSVArray{
  	    temp.add(row._data.get(0).get(index));
  	    index++;
  	}
- 	_data.add(pos-1,temp);
+	_data.add(temp);
  	return this;
     }
 
