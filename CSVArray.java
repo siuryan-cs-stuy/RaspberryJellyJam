@@ -283,6 +283,7 @@ public class CSVArray{
      */
     public CSVArray addRow(CSVArray row){
  	int index = 0;
+	System.out.println("HI0");
  	ArrayList<Object> temp = new ArrayList();
  	for (Object o : row._data.get(0)){
  	    temp.add(row._data.get(0).get(index));
@@ -302,6 +303,15 @@ public class CSVArray{
      */
     public CSVArray addRow(CSVArray row, int pos){
  	int index = 0;
+	System.out.println(numRows());
+	if (pos >= numRows()){
+	    System.out.println("HI");
+	    ArrayList<Object> emptyRow = new ArrayList();
+	    for (int i = 0; i < numCols(); i++){
+		emptyRow.add("");}
+	    for (int i = numRows() - 1; i < pos; i++){
+		_data.add(emptyRow);}
+	}
  	ArrayList<Object> temp = new ArrayList();
  	for (Object o : row._data.get(0)){
  	    temp.add(row._data.get(0).get(index));
@@ -397,7 +407,7 @@ public class CSVArray{
       =====================================================*/
 
      /**
-     *Searches for a given String and returns the cell coordinates of which the first instance is found
+     *Searches for a given String and returns the cell coordinate of which the first instance is found
      *@param String search phrase
      *@return CSVArray representation of coordinates
      *@return CSVArray message if phrase is not found
@@ -419,19 +429,19 @@ public class CSVArray{
     }
     
     /**
-     *Searches for a given String and returns the row of which the first instance is found
+     *Searches for a given String and returns the row number of which the first instance is found
      *@param String search phrase
      *@return CSVArray representation of row
      *@return String message if phrase is not found
      */
-    public ArrayList searchRow(String target){
-        ArrayList coords = searchCell(target);
-	if (coords.get(0).equals("Phrase not found")){
-	    return coords;
-	}
-	else{
-	    return getRow((int)coords.get(1));
-	}
+    public int searchRow(String target){
+        for (ArrayList<Object> row : _data){
+	    for (int i = 0; i < numCols(); i++){
+		if (row.get(i) == target){
+		    return i;}
+	    }
+	} 
+	return -1;	
     }
 
     /**
@@ -440,14 +450,8 @@ public class CSVArray{
      *@return CSVArray representation of column
      *@return String message if phrase is not found
      */
-    public ArrayList searchCol(String target){
-        ArrayList coords = searchCell(target);
-	if (coords.get(0).equals("Phrase not found")){
-	    return coords;
-	}
-	else{
-	    return getCol((int)coords.get(0));
-	}
+    public int searchCol(String target){
+	return -1;
     }
 }
 
