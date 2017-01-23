@@ -34,9 +34,9 @@ public class CSVMath{
      * After typecasting both values, add them together.
      * Add the sum into the ArrayList of sums.
      * Repeat previous steps for each row.
-     * @param   col  integer within column range
-     * @param   col  integer within column range
-     * @param   csv  CSVArray
+     * @param   col1  integer within column range
+     * @param   col2  integer within column range
+     * @param   csv   CSVArray
      * @return  ArrayList containing Doubles that represent each row's sum
      */
     public static ArrayList add(int col1, int col2, CSVArray csv){
@@ -73,9 +73,9 @@ public class CSVMath{
      * Subtract the second column's data from the first column's data.
      * Add that difference to the ArrayList of differences.
      * Repeat previous steps for each row.
-     * @param   col  integer within column range
-     * @param   col  integer within column range
-     * @param   csv  CSVArray
+     * @param   col1  integer within column range
+     * @param   col2  integer within column range
+     * @param   csv   CSVArray
      * @return  ArrayList containing Doubles that represent each row's difference
      */
     public static ArrayList subtract(int col1, int col2, CSVArray csv){
@@ -112,9 +112,9 @@ public class CSVMath{
      * Multiply the second column's data with the first column's data.
      * Add that product to the ArrayList of products.
      * Repeat previous steps for each row.
-     * @param   col  integer within column range
-     * @param   col  integer within column range
-     * @param   csv  CSVArray
+     * @param   col1  integer within column range
+     * @param   col2  integer within column range
+     * @param   csv   CSVArray
      * @return  ArrayList containing Doubles that represent each row's product
      */
     public static ArrayList multiply(int col1, int col2, CSVArray csv){
@@ -151,9 +151,9 @@ public class CSVMath{
      * Divide the second column's data with the first column's data.
      * Add that quotient to the ArrayList of quotients.
      * Repeat previous steps for each row.
-     * @param   col  integer within column range
-     * @param   col  integer within column range
-     * @param   csv  CSVArray
+     * @param   col1  integer within column range
+     * @param   col2  integer within column range
+     * @param   csv   CSVArray
      * @return  ArrayList containing Doubles that represent each row's quotient
      */
     public static ArrayList divide(int col1, int col2, CSVArray csv){

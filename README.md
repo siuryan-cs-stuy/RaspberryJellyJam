@@ -15,7 +15,9 @@ Instructions:
 
 3. `java Woo` to avail yourself of possible commands
 
-4. `java Woo <fileName.csv> --<command> <arg1> <arg2> <arg...> <-flag>`
+4. `java Woo <fileName.csv> --<command> <args...> <-flag>`
 
-Note: Unless you supply a write flag(overwrites the file), the program will output data to the terminal. This allows you to redirect this information to other places such as to new files.
+5. to get a more detailed description of a command, `java Woo --<command> -h`
+
+Note: Unless you supply a write flag `-w` which overwrites the input file, the program will only output data to the terminal without saving it to the file. This allows you to redirect this information to other places such as to new files.
   Ex. `java Woo oldFile.csv --delCol 1 > newFile.csv`

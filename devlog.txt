@@ -23,22 +23,21 @@ Handling CSV's that have elements in quotation marks.
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 James: Learned the Scanner, Buffered Writer,File, and File Writer classes in order to read and write csv files. Learned System.exit(). I learned about variable assignment in a try-catch block
-Learned how to write API comments. How to 
 Joelle: Learned basic Markdown tools
 Ryan: How to write API comments
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-we separated the csv methods into CSVMath, CSVGeneral, CSVStat because it would be clearer to understand
-we moved almost all of the CSVGeneral methods into CSVArray because it seemed more logical for CSVArray to know the methods that alter its _data
+We separated the csv methods into CSVMath, CSVGeneral, CSVStat because it would be clearer to understand
+We moved almost all of the CSVGeneral methods into CSVArray because it seemed more logical for CSVArray to know the methods that alter its _data
 Changed search methods to return the positions of the target instead of the actual csv line to make it more versatile.
 
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Coordination is key
-It is best for everyone to understand every component of the project even if they will not be working on it
-Being able to discuss things in person is beneficial to the outcome of the project
+ Coordination is key
+ It is best for everyone to understand every component of the project even if they will not be working on it
+ Being able to discuss things in person is beneficial to the outcome of the project
 ||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -147,6 +146,6 @@ Joelle Lum :: Tweaked method bodies of CSVMath, changed parameters of get/set/de
 2017-01-22
 --------------------------------------------------------------
 James Smith :: Debugging/exception handling, worked on flowchart
-Ryan Siu :: Worked on CSVStat methods
+Ryan Siu :: Worked on CSVStat methods, fixed comments on all files, added -l flag, organized stuff, testing
 Joelle Lum :: 
 ==============================================================
