@@ -280,7 +280,6 @@ public class Woo{
 			return;
 		}
 		if (args.length > 3){
-		    catchOOB(1, args.length, writeToFile || fileHeaders);
 		    result = csv.addRow(new CSVArray(args[2]), Integer.parseInt(args[3]));
 		}
 		else{
