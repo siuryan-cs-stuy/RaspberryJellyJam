@@ -1,5 +1,5 @@
 # Terminal CSV Tool
-RaspberryJellyJam
+RaspberryJellyJam -- Ryan Siu, James Smith, Joelle Lum
 <br>
 APCS1 Final Project
 
