@@ -193,8 +193,8 @@ public class CSVArray{
      * @return      column represented by ArrayList of Objects
      */
     public ArrayList getCol(int col){
-        ArrayList<Object> column = new ArrayList<Object>();
-	for (ArrayList<Object> row : _data){
+        ArrayList column = new ArrayList();
+	for (ArrayList row : _data){
 	    column.add(row.get(col-1));
 	}
 	return column;
@@ -440,7 +440,7 @@ public class CSVArray{
 	    return -1;
 	}
 	else{
-	    return coords.get(1);
+	    return (Integer)coords.get(1);
 	}
     }
 
@@ -456,7 +456,7 @@ public class CSVArray{
 	    return -1;
 	}
 	else{
-	    return coords.get(0);
+	    return (Integer)coords.get(0);
 	}
     }
 }

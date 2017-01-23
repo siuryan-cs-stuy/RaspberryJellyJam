@@ -171,7 +171,7 @@ public class Woo{
 	
 	    //checks for the write to file flag
 	    writeToFile = (args[args.length-1]).equals("-w");
-	    fileHeaders = (args[args.length-1]).equals("-l");
+	    // fileHeaders = (args[args.length-1]).equals("-l");
 
 	    //checks for the case where --help is the first arg and not the filename
 	    if (args[0].equals("--help")){
@@ -308,12 +308,12 @@ public class Woo{
 
 	    if (command.equals("--searchRow")){
 		catchOOB(1, args.length);
-		 result = rowString(csv.searchRow(args[2]));
+		result = csv.searchRow(args[2]);
 	    }
 
 	     if (command.equals("--searchCol")){
 		 catchOOB(1, args.length);
-		 result = colString(csv.searchCol(args[2]));
+		 result = csv.searchCol(args[2]);
 	    }
 
 	    if (command.equals("--prettyPrint")){
