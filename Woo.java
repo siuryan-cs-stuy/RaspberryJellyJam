@@ -59,7 +59,12 @@ public class Woo{
 	helpStr += "-l : Does not include headers in performing the command. Cannot be used with -w";
 	return helpStr;
     }
-    
+
+    /**
+     * Returns a string message that gives a description of a specified method.
+     *
+     * @return  string containing method description
+     */
     public static String specificHelp(String method){
 	if (method.equals("--getCell")){
 	    return "returns the value of a specified row";}

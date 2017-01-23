@@ -23,7 +23,7 @@ Handling CSV's that have elements in quotation marks.
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 James: Learned the Scanner, Buffered Writer,File, and File Writer classes in order to read and write csv files. Learned System.exit(). I learned about variable assignment in a try-catch block
-Joelle: Learned basic Markdown tools
+Joelle: Learned basic Markdown tools, learned how to write API comments, became familiar with basic terminal commands and terms, learned of double.Value() but didn't use it, 
 Ryan: How to write API comments
 
 MID-DEVELOPMENT DESIGN CHANGES
@@ -38,6 +38,7 @@ LESSONS LEARNED
  Coordination is key
  It is best for everyone to understand every component of the project even if they will not be working on it
  Being able to discuss things in person is beneficial to the outcome of the project
+ Having visuals/knowing organization helps as the project progresses
 ||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -147,5 +148,5 @@ Joelle Lum :: Tweaked method bodies of CSVMath, changed parameters of get/set/de
 --------------------------------------------------------------
 James Smith :: Debugging/exception handling, worked on flowchart
 Ryan Siu :: Worked on CSVStat methods, fixed comments on all files, added -l flag, organized stuff, testing
-Joelle Lum :: 
+Joelle Lum :: Worked on flowchart and made digital copy of UML diagram, testing
 ==============================================================
